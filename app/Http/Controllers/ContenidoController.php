@@ -176,7 +176,7 @@ class ContenidoController extends Controller
 
         $error_msg = "";  
         $_class    = "";
-        
+        # commit de prueba
         try{
             $contenido = ContenidoModel::find($id);
             $tipo_c = DB::table('Tipo_Contenido')->get();
