@@ -173,13 +173,17 @@ class ContenidoController extends Controller
      */
     public function edit($id)
     {
+
+        $error_msg = "";  
+        $_class    = "";
+        
         try{
             $contenido = ContenidoModel::find($id);
             $tipo_c = DB::table('Tipo_Contenido')->get();
 
             if (!is_null($contenido))
             {
-                return view($this->path . '.edit', compact('contenido','tipo_c'));
+                return view($this->path . '.edit', compact('contenido','tipo_c','error_msg', '_class'));
                 }
             else{
                 return response('Data no existe.', 404);
