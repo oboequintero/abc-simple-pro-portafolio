@@ -7,7 +7,7 @@
     <div class="container">
       <!-- Titulo contenido en el banner-->
       <div class="row justify-content-end">
-        <div class="col-12 col-md-6 text-center">
+        <div class="col-12 col-md-6 text-center" style="margin-top:10%;">
           <h1>¿Qué es Diferente en este Curso?</h1>
         </div>
       </div>
@@ -23,7 +23,7 @@
           <br>
           <h3>De fácil acceso</h3>
           <h5>¡Estudia donde quieras!</h5>
-        </div>
+        </div> 
       </div>
       <!-- Fin Descripcion contenido en el banner-->
     </div>

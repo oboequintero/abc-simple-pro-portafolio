@@ -66,32 +66,34 @@
                       <img src="/assets_f/src/img/logo.png" class="logo" width="60%">
                       <h2 class="h2-text-footer1"style="color:#d21e62; margin-top:10px;">INSCRÍBETE</h2>
                       <h4 class="h4-text-footer1">Te regalamos el primer nivel</h4>
+                      <div class="alert alert-danger" id="divAlert6" style="display:none;"></div>
+                      <div class="alert alert-success" id="divAlert7" style="display:none;">Logueado con exito!</div>
                     <form class="form-inline" action="{{ route('cliente.register.post') }}" method="POST">
                       {{ csrf_field() }}
                       <div class="container">
                         <div class="input-group" style="padding-bottom:5px;">
-                          <input class="form-control" type="text" placeholder="Nombre" name="name" required>
+                          <input class="form-control" type="text" placeholder="Nombre" id="nameb" name="nameb" required>
                         </div>
 
                         <div class="input-group" style="padding-bottom:5px;">
-                          <input class="form-control" type="text"  placeholder="Apellido" name="last_name" required>
+                          <input class="form-control" type="text"  placeholder="Apellido" id="last_nameb" name="last_nameb" required>
                         </div>
 
                         <div class="input-group" style="padding-bottom:5px;">
-                          <input class="form-control" type="email" placeholder="Email" name="email" required>
+                          <input class="form-control" type="email" placeholder="Email" id="emailb" name="emailb" required>
                         </div>
 
                         <div class="input-group" style="padding-bottom:5px;">
-                          <input class="form-control" type="text" placeholder="Telefono" name="phone" required>
+                          <input class="form-control" type="text" placeholder="Telefono"id="phoneb" name="phoneb" required>
                         </div>
 
                         <div class="input-group" style="padding-bottom:5px;">
-                          <input class="form-control" type="password" placeholder="Contrasena" name="password" id="password" required>
+                          <input class="form-control" type="password" placeholder="Contrasena" id="passb" name="password" required>
                         </div>
 
-                        <div class="input-group" style="padding-bottom:5px;">
-                          <input class="form-control" type="password" placeholder="Confirmar Contrasena"  name="password_confirmation" id="password-confirm" required>
-                        </div>
+                        <!--<div class="input-group" style="padding-bottom:5px;">
+                          <input class="form-control" type="password" placeholder="Confirmar Contrasena"  name="password_confirmationb" id="password-confirm" required>
+                        </div>-->
                       <br>
                         <div class="text-center">
                           <div class="checkbox">
@@ -99,7 +101,7 @@
                           </div>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary" style="background-color:#0e9a9d;">Empezar</button>
+                        <button type="button" id="submit4" class="btn btn-primary" style="background-color:#0e9a9d;">Empezar</button>
                       </div>
                     </form>
                   </div>

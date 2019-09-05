@@ -4,20 +4,20 @@
     <section class="b-qs">
       <div class="container">
         <div class="row justify-content-end">
-          <div class="col-12 col-md-6 text-center">
+          <div class="col-12 col-md-6 text-center" style="margin-top:10%;">
             <h1>¿Quienes Somos?</h1>
           </div>
         </div>
         <div class="row justify-content-end">
-            <div class="col-12 col-md-5">
-              <h4>ABC Simple es la plataforma lider en el aprendizaje de inglés de manera Online</h4><br>
-              <h4>Te ofrecemos clases personalizadas y en vivo las 24 horas del dia</h4><br>
-              <h4>Clases los 7 dias de la semana</h4><br>
-              <h4>Con profesores cuyo idioma nativo es el ingles</h4>
-            </div>
+          <div class="col-12 col-md-5">
+            <h4>ABC Simple es la plataforma lider en el aprendizaje de inglés de manera Online</h4><br>
+            <h4>Te ofrecemos clases personalizadas y en vivo las 24 horas del dia</h4><br>
+            <h4>Clases los 7 dias de la semana</h4><br>
+            <h4>Con profesores cuyo idioma nativo es el ingles</h4>
           </div>
+        </div>
       </div>
-    </section>
+    </section> 
     <section class="f-obj">
       <div class="container">
         <div class="row" style="padding-top: 70px;">

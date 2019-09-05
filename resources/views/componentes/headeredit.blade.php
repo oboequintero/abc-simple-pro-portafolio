@@ -44,11 +44,10 @@
           <div class="tab-content">
             <div id="personas" class="tab-pane active">
               <div class="section-row-nav">
-                <div class="col-xl-3 col-lg-2 col-md-3 links-nav"><img class="img-logo-dash" src="/assets_f/src/img/logo.png"></div>
+              <div class="col-xl-3 col-lg-2 col-md-3 links-nav"><a href="{{route('view.cliente')}}"><img class="img-logo-index" src="/assets_f/src/img/logo.png"></a></div>
                 <div class="col-xl-0 col-lg-0"></div>
                 <div class="col-xl-9 col-lg-10 col-md-12 col-12 quitarNav2">
                   <nav class="nav justify-content-center nav-dash">
-                    <!--<button type="button" name="button" class="btn btn-default" style="background-color:#0e9a9d; color:#ffffff;">Personas</button>-->
                     <a class="nav-link linksmenu" href="#">Quienes somos?</a>
                     <a class="nav-link linksmenu" href="#">Que es diferente en este curso?</a>
                     <a class="nav-link linksmenu" href="#">Galeria</a>
@@ -70,3 +69,6 @@
 
       <!-- footer del edit-->
       @include('componentes.footer3')
+      
+    <!-- seccion de los scripts necesarios-->
+    @include('componentes.partes.scripts')

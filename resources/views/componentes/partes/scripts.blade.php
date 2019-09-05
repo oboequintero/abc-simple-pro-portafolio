@@ -495,7 +495,173 @@
       });
     });
 
+    jQuery(document).ready(function()
+    {
+      jQuery('#submit3').click(function(e)
+      {
+        var name = $('input[name=namea]').val();
+        var last_name = $('input[name=last_namea]').val();
+        var email = $('input[name=emaila]').val();
+        var phone = $('input[name=phonea]').val();
+        var password = $('input[name=passworda]').val();
+        
+          e.preventDefault();
+          $.ajaxSetup({ });
+          jQuery.ajax(
+          {
+            url: "{{ url('/cliente/register') }}",
+            method: 'post',
+            data:{  name: jQuery('#namea').val(),
+                    last_name: jQuery('#last_namea').val(),
+                    email: jQuery('#emaila').val(),
+                    phone: jQuery('#phonea').val(),
+                    password: jQuery('#passa').val(),
+                    _token: '{{csrf_token()}}'
+                  },
+                  success: function(result){
+                    if(result.errors){
+                      jQuery.each(result.errors, function(key, value){});
+                    } else{
+                     
+                        $('#divAlert5').show();
+                        location.href ="/cliente/home";    
+                      }        
+                  },
+                  error: function(data){
+                    var errors = data.responseJSON;
+                    var errorsHtml = '';
+                      $.each(errors.errors, function( key, value ){
+                        errorsHtml += '<li>'+value[0]+'</li>';
+                      });
+                      $('#divAlert4').html(errorsHtml);
+                      //$('#divAlert4').show();
+                      //$('#divAlert4').fadeTo("slow", 0.7);
+                      //$('#divAlert4').fadeTo("3000");
+                      $("#divAlert4").fadeIn();
+                        setTimeout(function () {
+                            $("#divAlert4").hide("slow");
+                        }, 5000);
+                        //setTimeout(function () {
+                          //  location.reload(true);
+                        //}, 6000);
+                  }
+          });
+      });
+    });
 
+    jQuery(document).ready(function()
+    {
+      jQuery('#submit4').click(function(e)
+      {
+        var name = $('input[name=nameb]').val();
+        var last_name = $('input[name=last_nameb]').val();
+        var email = $('input[name=emailb]').val();
+        var phone = $('input[name=phoneb]').val();
+        var password = $('input[name=passwordb]').val();
+        
+          e.preventDefault();
+          $.ajaxSetup({ });
+          jQuery.ajax(
+          {
+            url: "{{ url('/cliente/register') }}",
+            method: 'post',
+            data:{  name: jQuery('#nameb').val(),
+                    last_name: jQuery('#last_nameb').val(),
+                    email: jQuery('#emailb').val(),
+                    phone: jQuery('#phoneb').val(),
+                    password: jQuery('#passb').val(),
+                    _token: '{{csrf_token()}}'
+                  },
+                  success: function(result){
+                    if(result.errors){
+                      jQuery.each(result.errors, function(key, value){});
+                    } else{
+                     
+                        $('#divAlert7').show();
+                        location.href ="/cliente/home";    
+                      }        
+                  },
+                  error: function(data){
+                    var errors = data.responseJSON;
+                    var errorsHtml = '';
+                      $.each(errors.errors, function( key, value ){
+                        errorsHtml += '<li>'+value[0]+'</li>';
+                      });
+                      $('#divAlert6').html(errorsHtml);
+                      //$('#divAlert6').show();
+                      //$('#divAlert6').fadeTo("slow", 0.7);
+                      //$('#divAlert6').fadeTo("3000");
+                      $("#divAlert6").fadeIn();
+                        setTimeout(function () {
+                            $("#divAlert6").hide("slow");
+                        }, 5000);
+                        //setTimeout(function () {
+                          //  location.reload(true);
+                        //}, 6000);
+                  }
+          });
+      });
+    });
+
+    jQuery(document).ready(function()
+    {
+      jQuery('#submit5').click(function(e)
+      {
+        var name = $('input[name=namec]').val();
+        var last_name = $('input[name=last_namec]').val();
+        var email = $('input[name=emailc]').val();
+        var phone = $('input[name=phonec]').val();
+        var password = $('input[name=passwordc]').val();
+        
+          e.preventDefault();
+          $.ajaxSetup({ });
+          jQuery.ajax(
+          {
+            url: "{{ url('/cliente/register') }}",
+            method: 'post',
+            data:{  name: jQuery('#namec').val(),
+                    last_name: jQuery('#last_namec').val(),
+                    email: jQuery('#emailc').val(),
+                    phone: jQuery('#phonec').val(),
+                    password: jQuery('#passc').val(),
+                    _token: '{{csrf_token()}}'
+                  },
+                  success: function(result){
+                    if(result.errors){
+                      jQuery.each(result.errors, function(key, value){});
+                    } else{
+                     
+                        $('#divAlert9').show();
+                        location.href ="/cliente/home";    
+                      }        
+                  },
+                  error: function(data){
+                    var errors = data.responseJSON;
+                    var errorsHtml = '';
+                      $.each(errors.errors, function( key, value ){
+                        errorsHtml += '<li>'+value[0]+'</li>';
+                      });
+                      $('#divAlert8').html(errorsHtml);
+                      //$('#divAlert8').show();
+                      //$('#divAlert8').fadeTo("slow", 0.7);
+                      //$('#divAlert8').fadeTo("3000");
+                      $("#divAlert8").fadeIn();
+                        setTimeout(function () {
+                            $("#divAlert8").hide("slow");
+                        }, 5000);
+                        //setTimeout(function () {
+                          //  location.reload(true);
+                        //}, 6000);
+                  }
+          });
+      });
+    });
+
+     
+
+        function mi_alerta () {
+        alert ("Actualizando datos del cliente!");
+        }
 
 
   </script>

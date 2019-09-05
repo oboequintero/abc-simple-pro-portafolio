@@ -13,7 +13,7 @@
                                 {{ $nombre }}
                                 <input type="hidden" id="clienteUser" value="">
                                 </span>
-                            </a>
+                            </a> 
                         </li>
                         <hr>
 

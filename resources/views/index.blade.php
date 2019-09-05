@@ -18,7 +18,7 @@
                 <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fab fa-pinterest-p"></i></a></li>
               </ul>
             </div>-->
-        </div>
+        </div> 
               
         <div class="col-xl-3 col-lg-4" style="padding-bottom:5%;">
           <form method="POST" action="{{ route('cliente.register.post') }}" class="ajustargrande">
@@ -93,32 +93,34 @@
               {{ csrf_field() }}
               <p class="p-index2">INSCRÍBETE</p>
               <p class="p-index3">Comience a aprender ingles AHORA</p>
+              <div class="alert alert-danger" id="divAlert4" style="display:none;"></div>
+              <div class="alert alert-success" id="divAlert5" style="display:none;">Logueado con exito!</div>
               <div class="row">
                 <div class="col-md-6">
                   <fieldset class="form-group field-form">
                     <label for="first_name" class="label-index-form">Nombre</label>
-                    <input type="text" class="form-control" id="namea" name="name" required>
+                    <input type="text" class="form-control" id="namea" name="namea" required>
                   </fieldset>
                 </div>
                 <div class="col-md-6">
                   <fieldset class="form-group field-form">
                     <label for="last_name" class="label-index-form">Apellido</label>
-                    <input type="text" class="form-control" id="last_namea" name="last_name" required>
+                    <input type="text" class="form-control" id="last_namea" name="last_namea" required>
                   </fieldset>
                 </div>
               </div>
               <fieldset class="form-group field-form">
                 <label for="last_name" class="label-index-form">Email</label>
-                <input type="email" class="form-control" id="emaila" name="email" required>
+                <input type="email" class="form-control" id="emaila" name="emaila" required>
               </fieldset>
               <fieldset class="form-group field-form">
                 <label for="last_name" class="label-index-form">Telefono</label>
-                <input type="phone" class="form-control number" id="phonea" name="phone" required>
+                <input type="phone" class="form-control number" id="phonea" name="phonea" required>
               </fieldset>
               <fieldset class="form-group field-form">
                 <label for="password" class="label-index-form">Contraseña</label> 
                 <div class="input-group mb-3">
-                  <input class="form-control" type="password" name="password" id="passa" required>
+                  <input class="form-control" type="password"  id="passa" name="passworda" required>
                   <div class="input-group-append">
                     <span class="btn btn-outline fa fa-eye ojo" id="show"></span>
                   </div>
@@ -129,7 +131,7 @@
                   <label class="label-check"><input type="checkbox" {{ old('remember') ? 'checked' : '' }} checked value="">&nbspENVÍENME NOTICIAS Y PROMOCIONES POR EMAIL</label>
                 </div>
               </div>
-              <button type="submit" class="opcional parrafos btn btn-primary" style="background-color:#0e9a9d; border-color:#007bff00;">Empezar</button>
+              <button type="button" id="submit3" class="opcional parrafos btn btn-primary" style="background-color:#0e9a9d; border-color:#007bff00;">Empezar</button>
           </form>
         </div>
       </div>

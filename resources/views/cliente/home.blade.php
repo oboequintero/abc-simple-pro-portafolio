@@ -120,12 +120,12 @@
                 {{ Auth::user()->documento}}<span class="float-right badge bg-success"></span>
                 </a>
               </li>
-              <li>
+              <!--<li>
               <span>Nacimiento:</span>
                 <a href="#" class="nav-link">
                 {{ Auth::user()->fecha_nac}}<span class="float-right badge bg-success"></span>
                 </a>
-              </li>
+              </li>-->
             </ul>
           </div>
           <!--<div class="card-footer">

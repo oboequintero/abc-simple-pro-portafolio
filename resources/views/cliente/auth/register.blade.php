@@ -11,33 +11,35 @@
                 {{ csrf_field() }}
                 <p style="font-weight: bold; color:#d21e62; font-size:37px; text-align:center;">INSCRÍBETE</p>
                 <p style="font-weight: bold; font-size:23px; color:#464646; text-align:center;">Comience a aprender ingles AHORA</p>
+                <div class="alert alert-danger" id="divAlert8" style="display:none;"></div>
+                <div class="alert alert-success" id="divAlert9" style="display:none;">Logueado con exito!</div>
                 <div class="row">
                   <div class="col-md-6">
                     <fieldset class="form-group" style="text-align:left;">
                       <label for="first_name" style="color:#464646;">Nombre</label>
-                      <input type="text" class="form-control" id="name" name="name" required>
+                      <input type="text" class="form-control" id="namec" name="namec" required>
                     </fieldset>
                   </div>
                   <div class="col-md-6">
                     <fieldset class="form-group" style="text-align:left;">
                       <label for="last_name" style="color:#464646;">Apellido</label>
-                      <input type="text" class="form-control" id="last_name" name="last_name" required>
+                      <input type="text" class="form-control" id="last_namec" name="last_namec" required>
                     </fieldset>
                   </div>
                 </div>
                 <fieldset class="form-group" style="text-align:left;">
                   <label for="last_name" style="color:#464646;">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                  <input type="email" class="form-control" id="emailc" name="emailc" required>
                 </fieldset>
                 <fieldset class="form-group" style="text-align:left;">
                   <label for="last_name" style="color:#464646;">Telefono</label>
-                  <input type="phone" class="form-control required number" id="phone" name="phone" required>
+                  <input type="phone" class="form-control required number" id="phonec" name="phonec" required>
                 </fieldset>
                 <fieldset class="form-group" style="text-align:left;">
                   <label for="password" style="color:#464646;">CONTRASENA</label>
 
                   <div class='input-group'>
-                    <input class="form-control" type="password" name="password" id="pass" aria-describedby='show' required>
+                    <input class="form-control" type="password" name="passwordc" id="passc" aria-describedby='show' required>
                     <div class='input-group-prepend'>
                         <span class="input-group-text fa fa-eye" style='margin-top:-10px' id="show"></span>
                     </div>
@@ -49,7 +51,7 @@
                     <label style="color:#464646; font-size:12px;"><input type="checkbox" {{ old('remember') ? 'checked' : '' }} checked value="">ENVÍENME NOTICIAS Y PROMOCIONES POR EMAIL</label>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary" style="background-color:#0e9a9d; font-weight: bold; font-size:25px; padding-left:45px; padding-right:45px; border-radius:10px;">Empezar</button>
+                <button type="button" id="submit5" class="btn btn-primary" style="background-color:#0e9a9d; font-weight: bold; font-size:25px; padding-left:45px; padding-right:45px; border-radius:10px;">Empezar</button>
               </form>
                 </div>
             </div>

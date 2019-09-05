@@ -10,17 +10,17 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <a><img src="/assets_f/src/img/prueba2.jpg" class="d-block w-100" data-toggle="modal" data-target="#modal-tienda-pqt"></a>
+            <a><img src="/assets_f/src/img/carrousel.jpg" class="d-block w-100" data-toggle="modal" data-target="#modal-tienda-pqt"></a>
             <div class="carousel-caption d-none d-md-block">
             </div>
           </div>
           <div class="carousel-item">
-            <a><img src="/assets_f/src/img/prueba3.jpg" class="d-block w-100" data-toggle="modal" data-target="#modal-tienda-promo"></a>
+            <a><img src="/assets_f/src/img/carrousel.jpg" class="d-block w-100" data-toggle="modal" data-target="#modal-tienda-promo"></a>
             <div class="carousel-caption d-none d-md-block">
             </div>
           </div>
           <div class="carousel-item">
-            <a><img src="/assets_f/src/img/prueba2.jpg" class="d-block w-100" data-toggle="modal" data-target="#mordal-tienda-cursos"></a>
+            <a><img src="/assets_f/src/img/carrousel.jpg" class="d-block w-100" data-toggle="modal" data-target="#mordal-tienda-cursos"></a>
             <div class="carousel-caption d-none d-md-block">
             </div>
           </div>
@@ -67,7 +67,7 @@
                 <h4>Promociones</h4>
               </div>
               <div class="col-4">
-                <a id="mostrart-cursos"><img src="/assets_f/src/img/icono-curso..png" id="cambio2" class="img-fluid"></a>
+                <a id="mostrart-cursos"><img src="/assets_f/src/img/icono-curso.png" id="cambio2" class="img-fluid"></a>
                 <h4>Cursos</h4>
               </div>
           </div>
