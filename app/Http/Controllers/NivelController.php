@@ -138,7 +138,6 @@ class NivelController extends Controller
         
       } # aux 1
       elseif ($aux == 0)
-
         {
 
          #dd ($nomb );
@@ -161,9 +160,6 @@ class NivelController extends Controller
              }
         #------------------    
         }#aux 0
-
-
-
 
         if(empty($request->codigo) or is_null($request->codigo)){
             $msg = "Debe introducir el código del Nivel.";           
