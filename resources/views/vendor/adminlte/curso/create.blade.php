@@ -44,7 +44,7 @@
                 <div class="box-body">
                   @if($id==0)
                  <div class="form-group">
-                    <label>Estado</label>
+                    <label>Idioma</label>
                     <select class="form-control select2" name="lista_id_idioma" style="width: 100%;">
                       @foreach($idioma as $row)
               <option>{{$row->nombre}}</option>

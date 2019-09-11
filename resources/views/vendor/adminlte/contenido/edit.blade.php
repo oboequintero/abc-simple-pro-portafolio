@@ -2,9 +2,24 @@
 @section('main-content')
     <section class="content-header">
       <h1>
-       Editar Contenido
-
+        Contenidos
+        <small>Lista</small>
       </h1>
+      <ol class="breadcrumb">
+            @if($id_plantilla == 0)
+                <li><a href="{{ route('idioma.index') }}" >Idioma: Todos </a></li>
+                <li><a href="{{ route('curso.index')}}"  >Curso: Todos </a></li>
+                <li><a href="{{ route('nivel.index') }}" >Niveles: Todos</a></li>
+                <li><a href="{{ route('leccion.index') }}" >Lecciones: Todos</a></li>
+                <li><a href="{{ route('plantilla.index') }}" >Plantillas: Todas</a></li>
+            @else
+                <li><a href="{{ route('idioma.index') }}" >Idioma: {{$idioma->nombre}} </a></li>
+                <li><a href="{{ route('curso.index')}}" >Curso: {{$curso->nombre}}</a></li>
+                <li><a href="{{ route('nivel.index')}}" >Niveles: {{$nivel->nombre}}</a></li>
+                <li><a href="{{ route('leccion.index')}}" >Lecciones: {{$leccion->nombre}}</a></li>
+                <li><a href="{{ route('plantilla.index') }}" >Plantillas: {{$plantilla->nombre}}</a></li>
+            @endif
+      </ol>
     </section>
     <!-- Main content -->
     <section class="content">
@@ -18,23 +33,38 @@
                       </div>
                       <!-- /.box-header -->
                       <!-- form start -->
+                       <!--Bloque que muestra u oculta mensaje de error-->
+                @if(!empty($error_msg))
+                    <!--div id="div_msg" class="alert alert-danger" style="display:block"-->
+                    <div id="div_msg" class="{{$_class}}" style="display:block">
+                            {{$error_msg}}
+                    </div> <!--div id="div_msg"-->
+                @else
+                    <div id="div_msg" class="{{$_class}}" style="display:none">
+                        Mensaje de alerta
+                    </div> <!--div id="div_msg2"-->
+                @endif
+             
+                <!-- form start -->
                     <form id="idForm_Contenido" method="post"
                         action="{{ route('contenido.update', $contenido->id_contenido ) }}"
                         accept-charset="UTF-8" enctype="multipart/form-data">
                         <input name="_method" type="hidden" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="container-fluid">
+
+                            <input type="hidden"  name="id_contenido" class="form-control"  value="{{ $contenido->id_contenido }}">
                             <div class="form-group">
                             <label>Id Plantilla</label>
                                 <input class="form-control" id="Id Plantilla" type="text" name="idplantilla"  placeholder="Id Plantilla" value="{{$contenido->id_plantilla}}" readonly/>
                             </div>
                             <div class="form-group">
                             <label>Nombre</label>
-                                <input class="form-control" id="idnombre" type="text" name="nombre"  placeholder="nombre" value="{{$contenido->nombre}}" />
+                                <input class="form-control" id="idnombre" type="text" name="nombre"  placeholder="nombre" value="{{$contenido->nombre}}" required/>
                             </div>
                             <div class="form-group">
                             <label>id Html</label>
-                                <input class="form-control" id="idhtml" type="text" name="idhtml"  placeholder="Referencia en Plantilla HTML" value="{{$contenido->idhtml}}"/>
+                                <input class="form-control" id="idhtml" type="text" name="idhtml"  placeholder="Referencia en Plantilla HTML" value="{{$contenido->idhtml}}" required/>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
@@ -60,7 +90,7 @@
                             <div class="row ">
                                 <div class="form-group col-md-6">
                                     <label>Tamaño de Letra:</label>
-                                    <input class="form-control" id="idtipo" type="number" name="tamano"  placeholder="Introduzca el Tamaño de la Letra" value="{{$contenido->tamano}}" />
+                                    <input class="form-control" id="idtipo" type="number" name="tamano"  placeholder="Introduzca el Tamaño de la Letra" value="{{$contenido->tamano}}" required/>
                                 </div>
                                 <div class="form-group col-md-3 ">
                                     <label>Color:</label>
@@ -78,7 +108,7 @@
                             </div>
                             <div class="form-group">
                             <label>Descripción</label>
-                                <input class="form-control" id="iddescripcion" type="text" name="descripcion"  placeholder="Descripción Contenido" value="{{$contenido->descripcion}}"/>
+                                <input class="form-control" id="iddescripcion" type="text" name="descripcion"  placeholder="Descripción Contenido" value="{{$contenido->descripcion}}" required/>
                             </div>
                             <div class="form-group">
                                 <div class="row">
@@ -120,11 +150,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Tiempo</label>
-                                    <input class="form-control" id="idtiempo" type="text" name="tiempo"  placeholder="tiempo" value="{{$contenido->tiempo}}"/ >
+                                    <input class="form-control" id="idtiempo" type="text" name="tiempo"  placeholder="tiempo" value="{{$contenido->tiempo}}"required/ >
                             </div>
                             <div class="form-group">
                                 <label>Párrafo</label>
-                                <input class="form-control" id="idparrafo" type="text" name="parrafo"  placeholder="Parrafo asociado al contenido" value="{{$contenido->parrafo}}" />
+                                <input class="form-control" id="idparrafo" type="text" name="parrafo"  placeholder="Parrafo asociado al contenido" value="{{$contenido->parrafo}}" required/>
                             </div>
                             <div class="form-group">
                                 <label>Estatus</label>
@@ -158,11 +188,11 @@
 <script>
     $(document).ready(function () {
         $( "#fin_s_id" ).change(function() {
-            if ($("#fin_s_id").val()==0) {
-                $("#fin_s_id").val(1);
+            if ($("#fin_s_id").val()==1) {
+                $("#fin_s_id").val(0);
             }
             else{
-                $("#fin_s_id").val(0);
+                $("#fin_s_id").val(1);
             }
         });
         $( "#negrita_id" ).change(function() {
@@ -175,5 +205,4 @@
         });
     });
 </script>
-
 @endsection

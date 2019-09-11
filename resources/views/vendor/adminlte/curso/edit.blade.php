@@ -48,7 +48,7 @@
 		                <select class="form-control select2" name="lista_id_idioma" style="width: 100%;">
 		                 @foreach($idioma as $row)
 								@if ($curso->id_idioma == $row->id_idioma)
-									<option selected="selected" value={{$row->id_idioma}}>{{$row->nombre}}</option>
+									<option selected="selected" value="{{$row->id_idioma}}">{{$row->nombre}}</option>
 								@else
 									<option value="{{$row->id_idioma}}">{{$row->nombre}}</option>
 								@endif
