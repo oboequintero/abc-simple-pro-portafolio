@@ -7,7 +7,7 @@
             
             <div class="col-lg-4">
               <a id="saludo"></a>&nbsp;
-                <span style="padding-left: 5px;">{{ $nombre }}.</span>&nbsp;
+                <span style="padding-left: 5px;">{{ $name_cliente }}.</span>&nbsp;
                 <a style="text-align:center" id="liveclock"></a>&nbsp;
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active d-none d-lg-none">

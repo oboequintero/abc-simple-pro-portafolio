@@ -8,7 +8,7 @@
                 <nav class="navmenu2" style="padding-top:25px;">
                     <ul>
                         <li class="has-subnav">
-                            <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="/assets_f/src/img/avatar1.png"></i>
+                            <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="{{ asset('/storage/contenido/'.$photo_cliente)}}"></i>
                                 <span class="" style="margin-top:15px;">
                                 {{ $nombre }}
                                 <input type="hidden" id="clienteUser" value="">
@@ -20,7 +20,7 @@
                         <form name="nivel" method="post" action="{{route ('nivel')}}">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="post">
-                        <input name="usuario" type="hidden" value="{{ $nombre }}">
+                        <input name="usuario" type="text" value="{{ $name_cliente }}">
                         <li class="has-subnav">
                         </li>
                         </form>

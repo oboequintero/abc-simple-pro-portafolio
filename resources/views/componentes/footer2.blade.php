@@ -159,7 +159,7 @@
 
                 $.each(data.data, function (index, value) {
 
-                  scHTML += '<form  method="POST" action="{{ route("nivel") }}"><input name="_method" type="hidden" value="POST"> <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">  <li><button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;"> '+value.Nombre+' </button></li> <input type="hidden" name="id_curso" value="'+value.id_curso+'"> <input type="text" name="id_cliente" value="{{ auth()->user()->id }} "> </form>'
+                  scHTML += '<form  method="POST" action="{{ route("nivel") }}"><input name="_method" type="hidden" value="POST"> <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">  <li><button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;"> '+value.Nombre+' </button></li> <input type="hidden" name="id_curso" value="'+value.id_curso+'"> <input type="hidden" name="id_cliente" value="{{ auth()->user()->id }} "> <input type="hidden" name="name_cliente" value="{{ auth()->user()->name }} "> <input type="hidden" name="photo_cliente" value="{{ auth()->user()->photo1}} "> </form>'
 
                 $('#z').append(scHTML);
                 scHTML = '';

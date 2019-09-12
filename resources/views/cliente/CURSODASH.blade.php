@@ -9,9 +9,9 @@
                     <nav class="navmenu" style="padding-top:25px;">
                         <ul>
                             <li class="has-subnav">
-                                <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="/assets_f/src/img/avatar1.png"></i>
+                                <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="{{ asset('/storage/contenido/'.$photo_cliente)}}"></i>
                                     <span class="" style="margin-top:15px;">
-                                    {{ $nombre }}
+                                    {{ $name_cliente }}
 
                                     <input type="hidden" id="clienteUser" value="">
                                     </span>
@@ -22,7 +22,8 @@
                             <form name="nivel" method="post" action="{{route ('nivel')}}">
                             {{ csrf_field() }}
                             <input name="_method" type="hidden" value="post">
-                            <input name="usuario" type="hidden" value="{{ $nombre }}">
+                            <input name="usuario" type="hidden" value="{{ $id_cliente }}">
+                            
 
                             <li class="has-subnav">
                             </li>
@@ -35,6 +36,7 @@
                                         <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
                                             {{$row->nombre}}
                                         </button>
+                                        
                                     @endforeach
                                 </a>
                                 <ul class="collapse list-unstyled" id="z">
@@ -44,6 +46,8 @@
                                             <input name="_method" type="hidden" value="POST">
                                             <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
                                             <input type="hidden" name="id_cur" value="{{$curso[0]->id_curso}}">
+                                            <input name="usuario" type="text" value="{{ $name_cliente }}">
+                                            <input name="usuario" type="hidden" value="{{ $photo_cliente }}">
                                            
 
                                               <li>

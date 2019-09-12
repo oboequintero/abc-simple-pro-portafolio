@@ -109,7 +109,7 @@
                 </a>
               </li>
               <li class="nav-items">
-              <span>Telefono:</span>
+              <span>Telefonosss:</span>
                 <a href="#" class="nav-link">
                 {{ Auth::user()->phone }} <span class="float-right badge bg-info"></span>
                 </a>

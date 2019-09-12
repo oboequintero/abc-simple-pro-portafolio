@@ -16,11 +16,12 @@ class LaminaController extends Controller
     private $path = "cliente";
     use AuthenticatesUsers;
 
-    public function show($n, $p,$id_curso)
+    public function show($n, $p, $id_curso, $id_cliente, $name_cliente, $photo_cliente)
     {
 
        $nombre=$n;
        $photo=$p;
+
         try
         {
 
@@ -59,7 +60,7 @@ class LaminaController extends Controller
 
             if (!is_null($contenido))
             {
-                return view($this->path . '.CURSODASH', compact('contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones'));
+                return view($this->path . '.CURSODASH', compact('photo_cliente', 'name_cliente', 'id_cliente', 'contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones'));
             }
             else
             {
@@ -77,14 +78,17 @@ class LaminaController extends Controller
         $nombre=Input::get('usuario');
         $photo=Input::get('photo');
         $id_curso=Input::get('id_curso');
+        $id_cliente=Input::get('id_cliente');
+        $name_cliente=Input::get('name_cliente');
+        $photo_cliente=Input::get('photo_cliente');
 
         //dd($id_curso);
 
-            return $this->show($nombre, $photo,$id_curso);
+            return $this->show($nombre, $photo,$id_curso, $id_cliente, $name_cliente, $photo_cliente);
     }
 
 
-    public function show_curso($n,$id_curso)
+    public function show_curso($n,$id_curso,$id_cliente,$name_cliente,$photo_cliente)
     {
 
        $nombre=$n;
@@ -124,7 +128,7 @@ class LaminaController extends Controller
 
             if (!is_null($contenido))
             {
-                return view($this->path . '.C1N1L1P1', compact('id_curso','contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones'));
+                return view($this->path . '.C1N1L1P1', compact('id_cliente','name_cliente','photo_cliente','id_curso','contenido','parrafo','plantilla','nombre','plan','niveles','curso','lecciones'));
             }
             else
             {
@@ -140,12 +144,14 @@ class LaminaController extends Controller
     public function mostrar_curso()
     {
         $nombre=Input::get('usuario');
-
         $id_curso=Input::get('id_cur');
+        $id_cliente=Input::get('id_cliente');
+        $name_cliente=Input::get('name_cliente');
+        $photo_cliente=Input::get('photo_cliente');
 
         //dd($id_curso);
 
-            return $this->show_curso($nombre,$id_curso);
+            return $this->show_curso($nombre,$id_curso,$id_cliente,$name_cliente,$photo_cliente);
     }
 
     public function ver()
