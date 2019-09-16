@@ -83,12 +83,14 @@
   <script>
     //imagen completa de banner principal
     $(document).ready(function() {
-     $("#fondohome").css({"height":$(window).height() + "px"});
+
+        $("#fondohome").css({"height":$(window).height() + "px"});
+        $("#fondoc1").css({"height":$(window).height() + "px"});
+        cursos_gratis();
+        log_cliente();
+
     });
 
-    $(document).ready(function() {
-     $("#fondoc1").css({"height":$(window).height() + "px"});
-    });
 
 
   //reloj
@@ -169,12 +171,7 @@
        });
     }
 
-    $(document).ready(function() {
-      window.onload=show5;
-      cursos_gratis();
-    });
-
-        // ajax para actualizar datos
+            // ajax para actualizar datos
 
          /* $(document).on('click', '#completar', function(){
             var USER = $(this).attr("id");
