@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use App\Log_cliente;
 use Storage;
 use App\ContenidoModel;
 use App\Niveles;
@@ -206,10 +207,23 @@ class LaminaController extends Controller
            INNER JOIN Paquetes_Cursos PaC ON Pa.id_paquete = PaC.id_paquete
            INNER JOIN Cursos Cu ON Cu.id_curso = PaC.id_curso
         WHERE 	gratis = 1');
-
-
-
         return response()->json(array('msg'=>  $regalo[0]->id_curso,'data'=> $regalo), 200);
+
+    }
+
+    public function log_cliente(){
+
+        $regalo = Input::get('identidad');
+        DB::INSERT('INSERT INTO Log_cliente(id_cliente, estatus)
+        VALUE(:id_cliente,:estatus)',
+           [
+             'id_cliente'=>$regalo,
+             'estatus'   =>'1'
+           ]
+);
+
+
+        return response()->json(array('msg'=>  $regalo,'data'=> $regalo), 200);
 
     }
 }

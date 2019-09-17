@@ -215,6 +215,7 @@ Route::group(['prefix' => 'cliente'], function () {
     Route::post('nivel',[ 'as' => 'nivel', 'uses' => 'LaminaController@mostrar'] );
     Route::post('nivel_1',[ 'as' => 'nivel_1', 'uses' => 'LaminaController@mostrar_curso'] );
     Route::post('cursos_gratis',[ 'as' => 'cursos_gratis', 'uses' => 'LaminaController@cursos_gratis'] );
+    Route::post('log_cliente',[ 'as' => 'log_cliente', 'uses' => 'LaminaController@log_cliente'] );
     //prueba//
     Route::post('view',[ 'as' => 'view', 'uses' => 'LaminaController@ver'] );
     Route::post('vista',[ 'as' => 'vista', 'uses' => 'LaminaController@ver'] );

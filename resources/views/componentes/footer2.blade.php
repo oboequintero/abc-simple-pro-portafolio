@@ -171,6 +171,36 @@
        });
     }
 
+    function log_cliente() {
+        var scHTML = '';
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+          });
+
+         var parametros = {
+            "identidad" : $('#clienteUser').val(),
+            'token': "token"
+            };
+        $.ajax({
+               data:  parametros,
+               url:   'log_cliente',
+               type:  'post',
+               async:  true,
+               dataType: "json",
+           error: function() {
+                  alert('Ha surgido un error');
+           },
+           success:  function (data) {
+
+                alert(data.msg);
+
+           }
+       });
+    }
+
             // ajax para actualizar datos
 
          /* $(document).on('click', '#completar', function(){
