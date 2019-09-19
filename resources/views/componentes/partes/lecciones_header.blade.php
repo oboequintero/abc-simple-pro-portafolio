@@ -13,7 +13,7 @@
                   <li class="nav-item active d-none d-lg-none">
                     <a class="nav-link" href="#">&nbsp; <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item d-none d-lg-none">
+                  <li class="nav-item d-none d-lg-none"> 
                     <a class="nav-link" href="#">&nbsp;</a>
                   </li>
                 </ul>

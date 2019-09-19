@@ -10,20 +10,20 @@
                         <li class="has-subnav">
                             <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="{{ asset('/storage/contenido/'.$photo_cliente)}}"></i>
                                 <span class="" style="margin-top:15px;">
-                                {{ $nombre }}
+                                {{ $name_cliente }}
                                 <input type="hidden" id="clienteUser" value="">
                                 </span>
                             </a> 
                         </li>
                         <hr>
 
-                        <form name="nivel" method="post" action="{{route ('nivel')}}">
+                        <!--<form name="nivel" method="post" action="{{route ('nivel')}}">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="post">
-                        <input name="usuario" type="text" value="{{ $name_cliente }}">
+                        <input  type="hidden" value="{{ $nombre }}">
                         <li class="has-subnav">
                         </li>
-                        </form>
+                        </form>-->
 
                         <li class="has-subnav">
                             <a  href="#z" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i></i>
@@ -164,6 +164,8 @@
                           {{ csrf_field() }}
                           <input name="_method" type="hidden" value="post">
                           <input name="usuario" type="hidden" value="{{ $nombre }}">
+                          <input name="photoq" type="hidden" value="{{ $photo_cliente }}">
+                          
 
                           <input name="pagina" type="hidden" value="{{ $plan[0]->pagina }}">
                           <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguiente.png" width="40px"></button>
@@ -204,6 +206,7 @@
                             <input name="usuario" type="hidden" value="{{ $nombre }}">
                             <input name="id_curso" type="hidden" value="{{ $id_curso }}">
                             <input name="pagina" type="hidden" value="{{ $plan[0]->pagina }}">
+                            <input name="photoq" type="hidden" value="{{ $photo_cliente }}">
                             <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguiente.png" ></button>
                         </form>
                     </div>

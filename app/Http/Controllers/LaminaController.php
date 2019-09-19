@@ -16,6 +16,25 @@ class LaminaController extends Controller
     private $path = "cliente";
     use AuthenticatesUsers;
 
+
+//funcion para pasar a cursodash 
+
+    public function mostrar()
+    {
+        $nombre=Input::get('usuario');
+        $photo=Input::get('photo');
+        $id_curso=Input::get('id_curso');
+        $id_cliente=Input::get('id_cliente');
+        $name_cliente=Input::get('name_cliente');
+        $photo_cliente=Input::get('photo_cliente');
+
+        //dd($id_curso);
+
+            return $this->show($nombre, $photo,$id_curso, $id_cliente, $name_cliente, $photo_cliente);
+    }
+
+
+
     public function show($n, $p, $id_curso, $id_cliente, $name_cliente, $photo_cliente)
     {
 
@@ -73,20 +92,27 @@ class LaminaController extends Controller
         }
     }
 
-    public function mostrar()
-    {
-        $nombre=Input::get('usuario');
-        $photo=Input::get('photo');
-        $id_curso=Input::get('id_curso');
-        $id_cliente=Input::get('id_cliente');
-        $name_cliente=Input::get('name_cliente');
-        $photo_cliente=Input::get('photo_cliente');
+//fin de funcion para pasar a cursodash 
 
-        //dd($id_curso);
 
-            return $this->show($nombre, $photo,$id_curso, $id_cliente, $name_cliente, $photo_cliente);
-    }
 
+
+
+
+// funcion para pasar de cursodash a c1n1l1p1
+
+public function mostrar_curso()
+{
+    $nombre=Input::get('name_cliente');
+    $id_curso=Input::get('id_cur');
+    $id_cliente=Input::get('id_cliente');
+    $name_cliente=Input::get('usuario');
+    $photo_cliente=Input::get('photoq');
+
+    //dd($id_curso);
+
+        return $this->show_curso($nombre,$id_curso,$id_cliente,$name_cliente,$photo_cliente);
+}
 
     public function show_curso($n,$id_curso,$id_cliente,$name_cliente,$photo_cliente)
     {
@@ -141,25 +167,21 @@ class LaminaController extends Controller
         }
     }
 
-    public function mostrar_curso()
-    {
-        $nombre=Input::get('usuario');
-        $id_curso=Input::get('id_cur');
-        $id_cliente=Input::get('id_cliente');
-        $name_cliente=Input::get('name_cliente');
-        $photo_cliente=Input::get('photo_cliente');
 
-        //dd($id_curso);
 
-            return $this->show_curso($nombre,$id_curso,$id_cliente,$name_cliente,$photo_cliente);
-    }
+
+// fin de funcion para pasar de cursodash a c1n1l1p1
+
+
+
+
 
     public function ver()
     {
 
         $nombre=Input::get('usuario');
         $pag   =Input::get('pagina');
-        $photo =Input::get('photo');
+        $photo_cliente =Input::get('photoq');
         $id_curso=Input::get('id_curso');
 
         $plan=DB::table('Plantillas')
@@ -192,7 +214,7 @@ class LaminaController extends Controller
 
             if (!is_null($contenido))
             {
-                return view($this->path . '.C1N1L1P1', compact('id_curso','curso','niveles','lecciones','contenido','parrafo','plantilla','nombre','plan','photo'));
+                return view($this->path . '.C1N1L1P1', compact('id_curso','curso','niveles','lecciones','contenido','parrafo','plantilla','nombre','plan','photo_cliente'));
             }
             else
             {
@@ -204,6 +226,9 @@ class LaminaController extends Controller
             return $e->getMessage();
         }
     }
+
+
+
     public function cursos_gratis(){
 
         $regalo = DB::select('SELECT Cu.id_curso AS id_curso,Cu.nombre AS Nombre
