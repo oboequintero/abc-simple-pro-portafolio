@@ -3,12 +3,21 @@
     <section class="content-header">
       <h1>
         Editar Cursos
-        <small>Preview</small>
+      
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('idioma.index') }}"><i class="fa fa-dashboard"></i> @if($id)Idioma: {{$nombre_idioma}} @else Idioma: Todos @endif</a></li>
         <li><a href="{{ route('curso.index') }}">Cursos: Todos</a></li>
         <li class="active">Editar Curso</li>
+       <li><a >
+        <form id="form_curso" action="{{route('curso.index')}}" method="GET">
+                                        
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                    
+          <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Cursos"><i class="glyphicon glyphicon-chevron-left"></i></button>                                                                            
+        </form>
+      </a>
+    </li> 
       </ol>
     </section>
 
@@ -43,18 +52,23 @@
 					<input name="id_idioma" type="hidden" value="{{ $id }}">
 
 	              <div class="box-body">
-		             <div class="form-group">
+		             <!--<div class="form-group">
 		                <label>Idioma</label>
 		                <select class="form-control select2" name="lista_id_idioma" style="width: 100%;">
 		                 @foreach($idioma as $row)
 								@if ($curso->id_idioma == $row->id_idioma)
-									<option selected="selected" value="{{$row->id_idioma}}">{{$row->nombre}}</option>
+									<option selected="selected" value="{{$row->id_idioma}}" >{{$row->nombre}}</option>
 								@else
 									<option value="{{$row->id_idioma}}">{{$row->nombre}}</option>
 								@endif
 							@endforeach
-		                </select>
-		            </div>
+		                </select> 
+		            </div>-->
+
+		             <div class="form-group">
+	                  <label for="exampleInputEmail1">Idioma</label>
+	                  <input type="text" name="lista_id_idioma" class="form-control" id="exampleInputEmail1" value="{{ $nombre_idioma }}" readonly>
+	                </div>
 	                <div class="form-group">
 	                  <label for="exampleInputEmail1">Codigo</label>
 	                  <input type="text" name="codigo" class="form-control" id="exampleInputEmail1" value="{{ $curso->codigo }}" readonly>

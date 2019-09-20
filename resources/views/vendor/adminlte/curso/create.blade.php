@@ -9,8 +9,20 @@
         <li><a href="{{ route('idioma.index') }}">@if($id)Idioma: {{$nombre_idioma}} @else Idioma: Todos @endif</a></li>
         <li><a href="{{ route('curso.index') }}">Cursos: Todos</a></li>
         <li class="active">Registro de Cursos</li>
+         <li><a >
+        <form id="form_curso" action="{{route('curso.index')}}" method="GET">
+                                        
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                    
+          <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Cursos"><i class="glyphicon glyphicon-chevron-left"></i></button>                                                                            
+        </form>
+      </a>
+    </li> 
       </ol>
+
+
     </section>
+
 
     <!-- Main content -->
     <section class="content">
