@@ -180,7 +180,7 @@
              }
           });
 
-         var parametros = {
+        var parametros = {
             "identidad" : $('#clienteUser').val(),
             'token': "token"
             };

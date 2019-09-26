@@ -214,16 +214,23 @@ class LaminaController extends Controller
     public function log_cliente(){
 
         $regalo = Input::get('identidad');
-        DB::INSERT('INSERT INTO Log_cliente(id_cliente, estatus)
-        VALUE(:id_cliente,:estatus)',
-           [
-             'id_cliente'=>$regalo,
-             'estatus'   =>'1'
-           ]
-);
 
+        $curso=DB::table('clientes')
+                   ->where('id', '=', $regalo)
+                   ->get();
+        if($curso[0]->login == 0){
 
+            DB::INSERT('INSERT INTO Log_cliente(id_cliente, estatus)
+            VALUE(:id_cliente,:estatus)',
+               [
+                 'id_cliente'=>$regalo,
+                 'estatus'   =>'1'
+               ]
+            );
+            DB::UPDATE('UPDATE clientes SET login = 1 WHERE id = :id_cliente',
+               ['id_cliente'=>$regalo ]
+            );
+        }
         return response()->json(array('msg'=>  $regalo,'data'=> $regalo), 200);
-
     }
 }

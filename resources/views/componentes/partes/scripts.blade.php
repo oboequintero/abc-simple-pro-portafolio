@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="{{asset('/assets_f/src/js/funciones.js')}}"></script>     
+  <script src="{{asset('/assets_f/src/js/funciones.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="{{asset('/assets_f/src/js/swiper.min.js')}}"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -141,13 +141,85 @@
             {
               document.getElementById("sidebarCollapse").click();
     }
-  
+
     //funcion ajax para login
     $('#inscribete').modal({backdrop: 'static', keyboard: false, show: false})
     $('#loginlogout').modal({backdrop: 'static', keyboard: false, show: false})
 
     jQuery(document).ready(function()
     {
+      /*jQuery('#submit').click(function(e)
+      {
+        var email = $('input[name=email2]').val();
+        var password = $('input[name=password2]').val();
+          e.preventDefault();
+          $.ajaxSetup({ });
+          jQuery.ajax(
+          {
+            url: "{{ url('/cliente/login') }}",
+            method: 'post',
+            data:{  email: jQuery('#email2').val(),
+                    password: jQuery('#password2').val(),
+                    _token: '{{csrf_token()}}'
+                  },
+                  success: function(result){
+                    if(result.errors){
+                      jQuery.each(result.errors, function(key, value){});
+                    } else{
+                        //alert('logeado con exito');
+                        //swal("Good job!", "You clicked the button!", "success");
+                        var id=15;
+                        var parametros = {
+                             "identidad" : id,
+                             'token': "token"
+                             };
+                         $.ajax({
+                                data:  parametros,
+                                url:   'log_cliente',
+                                type:  'post',
+                                async:  true,
+                                dataType: "json",
+                            error: function() {
+                                   alert('Ha surgido un error');
+                            },
+                            success:  function (data) {
+
+                                 alert(data.msg);
+                                 location.href ="/cliente/home";
+
+                            }
+                        });
+
+                      }
+                  },
+                  error: function(data){
+                    var errors = data.responseJSON;
+                    var errorsHtml = '';
+                      $.each(errors.errors, function( key, value ){
+                        errorsHtml += '<li>'+value[0]+'</li>';
+                      });
+                      $('#divAlert').html(errorsHtml);
+                      //$('#divAlert').show();
+                      // swal("Error!",(errorsHtml), "warning");
+                      // swal({   title: "Error!",    text: "",    type: "error",   confirmButtonText: "true", timer: 9000 });
+                      //Swal.fire({
+                      //  title: '<strong><u>Error</u></strong>',
+                      //  type: 'warning',
+                      //  html: errorsHtml,
+                      //  showCloseButton: true,
+                      //})
+                      $("#divAlert").fadeIn();
+                        setTimeout(function () {
+                            $("#divAlert").hide("slow");
+                        }, 3000);
+                        //setTimeout(function () {
+                          //location.reload(true);
+                        //}, 4000);
+                  }
+          });
+      });*/
+
+
       jQuery('#submit').click(function(e)
       {
         var email = $('input[name=email2]').val();
@@ -167,9 +239,9 @@
                       jQuery.each(result.errors, function(key, value){});
                     } else{
                         //alert('logeado con exito');
-                        //swal("Good job!", "You clicked the button!", "success");       
-                        location.href ="/cliente/home";    
-                      }        
+                        //swal("Good job!", "You clicked the button!", "success");
+                        location.href ="/cliente/home";
+                      }
                   },
                   error: function(data){
                     var errors = data.responseJSON;
@@ -199,7 +271,7 @@
       });
     });
 
-    //  boton back to top 
+    //  boton back to top
     $(window).scroll(function() {
       if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(200);    // Fade in the arrow
@@ -212,7 +284,7 @@
           scrollTop : 0                       // Scroll to top of body
         }, 800);
     });
-        
+
     /*codigo para mediquery de los comentarios */
     $(document).ready(function() {
 
@@ -265,7 +337,7 @@
           },
         });*/
 
- 
+
 
   /*codigo para mediquery de los links de tienda quienes somos galeria que es diferente cursos videos */
     $('#p-inactivo img').on('click', function(){
@@ -278,8 +350,8 @@
     })
 
       AOS.init();
-    
-    $(document).ready(function() {  
+
+    $(document).ready(function() {
       var color_p = 1;
        $('#mostrart-promociones').click(function(){
         if (color_p == 1) {
@@ -298,7 +370,7 @@
           color_c = 0;
           color_a = 0;
         }
-       });  
+       });
        var color_c = 0;
        $('#mostrart-cursos').click(function(){
         if (color_c == 1) {
@@ -323,7 +395,7 @@
         if (color_a == 1) {
           $('#cambio3').replaceWith('<img id="cambio3" src="/assets_f/src/img/icono3.png" class="img-fluid">');
           $('#tienda-paquetes').css('display', 'none');
-  
+
           color_a = 0;
         }
         else if (color_a == 0) {
@@ -450,7 +522,7 @@
         var email = $('input[name=email]').val();
         var phone = $('input[name=phone]').val();
         var password = $('input[name=password]').val();
-        
+
           e.preventDefault();
           $.ajaxSetup({ });
           jQuery.ajax(
@@ -468,10 +540,10 @@
                     if(result.errors){
                       jQuery.each(result.errors, function(key, value){});
                     } else{
-                     
+
                         $('#divAlert3').show();
-                        location.href ="/cliente/home";    
-                      }        
+                        location.href ="/cliente/home";
+                      }
                   },
                   error: function(data){
                     var errors = data.responseJSON;

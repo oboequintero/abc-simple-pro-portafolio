@@ -314,7 +314,7 @@ CREATE TABLE `Contenido` (
   KEY `contenido_id_tipo_con_foreign` (`id_tipo_con`),
   CONSTRAINT `contenido_id_plantilla_foreign` FOREIGN KEY (`id_plantilla`) REFERENCES `Plantillas` (`id_plantilla`) ON UPDATE CASCADE,
   CONSTRAINT `contenido_id_tipo_con_foreign` FOREIGN KEY (`id_tipo_con`) REFERENCES `Tipo_Contenido` (`id_tipo_con`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -323,7 +323,7 @@ CREATE TABLE `Contenido` (
 
 LOCK TABLES `Contenido` WRITE;
 /*!40000 ALTER TABLE `Contenido` DISABLE KEYS */;
-INSERT INTO `Contenido` VALUES (9,1,1,'3#video','Bienvenido-Video',1,'video de bienvenida','introduccion_curso.mp4','no aplica',5,0,'#000000',0,1,'2018-06-29 21:44:19','2019-06-20 20:16:21');
+INSERT INTO `Contenido` VALUES (9,1,1,'3#video','Bienvenido-Video',1,'video de bienvenida','introduccion_curso.mp4','no aplica',5,0,'#000000',0,1,'2018-06-29 21:44:19','2019-06-20 20:16:21'),(10,1,6,'1','pagina 1',50,'Título página 1','','Bienvenid@s al',10,1,'#1c2be8',0,1,'2019-09-13 19:15:12','2019-09-13 19:18:57'),(11,1,6,'2','pagina nivel',60,'Título página 1','','Nivel 1',10,1,'#000000',1,1,'2019-09-13 19:20:30','2019-09-13 19:20:40');
 /*!40000 ALTER TABLE `Contenido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -752,6 +752,34 @@ INSERT INTO `Lecciones` VALUES (4,1,'N1-L0','Lección 1','A corta Plural un / un
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Log_cliente`
+--
+
+DROP TABLE IF EXISTS `Log_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Log_cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) unsigned NOT NULL,
+  `estatus` tinyint(6) NOT NULL,
+  `fecha` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`id`),
+  KEY `fk_cliente_log` (`id_cliente`),
+  CONSTRAINT `fk_cliente_log` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Log_cliente`
+--
+
+LOCK TABLES `Log_cliente` WRITE;
+/*!40000 ALTER TABLE `Log_cliente` DISABLE KEYS */;
+INSERT INTO `Log_cliente` VALUES (17,15,1,'2019-09-26 18:58:08.992667');
+/*!40000 ALTER TABLE `Log_cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Niveles`
 --
 
@@ -1147,6 +1175,37 @@ CREATE TABLE `Puntaje_examen` (
 LOCK TABLES `Puntaje_examen` WRITE;
 /*!40000 ALTER TABLE `Puntaje_examen` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Puntaje_examen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Seguimiento_cliente`
+--
+
+DROP TABLE IF EXISTS `Seguimiento_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Seguimiento_cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tipo_plantilla` tinyint(11) NOT NULL,
+  `id_cliente` int(11) unsigned NOT NULL,
+  `id_curso_cliente` int(11) unsigned NOT NULL,
+  `id_nivel_cliente` int(11) NOT NULL,
+  `id_leccion` int(11) NOT NULL,
+  `id_pagina_curso` int(11) NOT NULL,
+  `fecha` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `porcentaje_avance` tinyint(11) NOT NULL DEFAULT '0',
+  `puntos_acumulados` tinyint(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Seguimiento_cliente`
+--
+
+LOCK TABLES `Seguimiento_cliente` WRITE;
+/*!40000 ALTER TABLE `Seguimiento_cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Seguimiento_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1753,7 +1812,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (3,'admin','admin-last','04142392030','abcsimple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','TiONMMHhqMyxdIFJfFa4aU3KY2d9OU8Co3up2PerVGFd8k5zaDtjH1qeiDkP','2018-10-01 21:29:54','2018-10-01 21:29:54',NULL,1,'0',NULL,NULL,0,1),(14,'admin','admin-last','04142392030','abc3simple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','lNkuIZUU72VHusaFAuV5ZnzBHXgHcvO3F3gNlKvSWkTzAgOQgUeFeg4dcj5Q','2018-10-11 13:46:47','2018-10-11 13:46:47',NULL,1,'1',NULL,NULL,0,1),(15,'Carlos Andrés','Suarez','04166954964','csuarezr@gmail.com','$2y$10$iG5ScP6xXPmiRVwx8EyY3ObxEkReFURjUuSiI90Q1hTvN95DORDJK','6zYVyjsk5KFL6P6KVjinfViIt6RUsUmPZoiZo76QsBsTtyEo1iqgKsE8nzNX','2018-11-08 22:34:05','2019-09-12 17:50:01',NULL,1,'10797999','1973-05-31','',0,1),(16,'Renny','Hernandez','09998887766','renny1@gmail.com','$2y$10$OIQOJihWmcqo9rT8L8nVWu2.eiZL56MYx6ALTR4DJ0xyHLwr.w1jG','77QEb8ejWvxPigBBS20bzSr6FTVbM0uOMd4slyfFSPifNXyi6EFVRaynyDlX','2019-02-22 22:54:12','2019-04-23 18:53:52',NULL,1,'6645747',NULL,'',0,1),(17,'Carlos','Rojas','45454545','crojas@gmail.com','$2y$10$RQ.j3r93uWs3TshsdQoOmexFkfzIyBEZenI0wSXh0WnJSWvYC6asK','Cw9QER7vOrc2BZBakxGF14tnj6c4pgGLfru8Eo0NQ3M9HKV2ZQMwfHJc4Jmp','2019-04-23 00:13:04','2019-04-23 00:16:33',NULL,1,'10797999','2019-04-10','',0,1),(18,'jacqueline','Lopez','98989809','oboequintero@gmail.com','$2y$10$rYHgETPEBnjFDR3ZnkO8pORapTHHHAdDdBWJwBMUBrYM520CYhGJW','rpaeH2YvxyVlnlB77VSKdLIbTPSs27PyJUySbKozRIjj8g80LiQqZdbX3lDk','2019-04-25 22:54:56','2019-04-25 22:55:14',NULL,1,'15656545','2019-04-11','',0,1);
+INSERT INTO `clientes` VALUES (3,'admin','admin-last','04142392030','abcsimple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','TiONMMHhqMyxdIFJfFa4aU3KY2d9OU8Co3up2PerVGFd8k5zaDtjH1qeiDkP','2018-10-01 21:29:54','2018-10-01 21:29:54',NULL,1,'0',NULL,NULL,0,1),(14,'admin','admin-last','04142392030','abc3simple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','lNkuIZUU72VHusaFAuV5ZnzBHXgHcvO3F3gNlKvSWkTzAgOQgUeFeg4dcj5Q','2018-10-11 13:46:47','2018-10-11 13:46:47',NULL,1,'1',NULL,NULL,0,1),(15,'Carlos Andrés','Suarez','04166954964','csuarezr@gmail.com','$2y$10$iG5ScP6xXPmiRVwx8EyY3ObxEkReFURjUuSiI90Q1hTvN95DORDJK','mzcJLI0mYSvfk6vItlvy1lJUHAPARntqCwVvjOE8wwqp6ppsKu0jkaSP1tHg','2018-11-08 22:34:05','2019-09-12 17:50:01',NULL,1,'10797999','1973-05-31','',1,1),(16,'Renny','Hernandez','09998887766','renny1@gmail.com','$2y$10$OIQOJihWmcqo9rT8L8nVWu2.eiZL56MYx6ALTR4DJ0xyHLwr.w1jG','77QEb8ejWvxPigBBS20bzSr6FTVbM0uOMd4slyfFSPifNXyi6EFVRaynyDlX','2019-02-22 22:54:12','2019-04-23 18:53:52',NULL,1,'6645747',NULL,'',0,1),(17,'Carlos','Rojas','45454545','crojas@gmail.com','$2y$10$RQ.j3r93uWs3TshsdQoOmexFkfzIyBEZenI0wSXh0WnJSWvYC6asK','Cw9QER7vOrc2BZBakxGF14tnj6c4pgGLfru8Eo0NQ3M9HKV2ZQMwfHJc4Jmp','2019-04-23 00:13:04','2019-04-23 00:16:33',NULL,1,'10797999','2019-04-10','',0,1),(18,'jacqueline','Lopez','98989809','oboequintero@gmail.com','$2y$10$rYHgETPEBnjFDR3ZnkO8pORapTHHHAdDdBWJwBMUBrYM520CYhGJW','rpaeH2YvxyVlnlB77VSKdLIbTPSs27PyJUySbKozRIjj8g80LiQqZdbX3lDk','2019-04-25 22:54:56','2019-04-25 22:55:14',NULL,1,'15656545','2019-04-11','',0,1);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2239,7 +2298,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','abcsimple@domain.com','$2y$10$kj711G/q1yG31TqboGUDrexqrjnYqEWpLzhydVJIk3IY26WOgJKUC','A8oEUTOV3HztlMILSUxysWsfT9gElCm0svbaa2d5Us28z4ekRiAP7s8bCeUG','2018-06-28 00:35:30','2018-12-03 22:44:18',NULL,NULL,NULL),(2,'usuario','usuario@domain.com','$2y$10$Nyy/fTKnDzvIhKv7khptie0xBO4C1nh.K1eP1w1qmi3nQmVjoS5Nm','4EYGcMlz6y5KkNLdQk6JLPmRcUrC9Oit71zP7aUHl7xOR3Q3rCdS0Ve0PBMj','2018-06-28 22:38:12','2018-11-30 18:06:20',NULL,NULL,NULL),(3,'Carlos Suarez','csuarezr@gmail.com','$2y$10$.Hxn0GvB9Q0OhPxof4VETu7tv9KpyiTVs4ZctUxZ9Xq2WcAwG0ytK','OdGYbdCDyPDto4Ch9ZBtk4HGMcW67yOOQNZ9GGoV5EdjtXZs46YmrQsjKOVS','2018-11-29 19:18:35','2018-12-05 21:56:12',NULL,NULL,NULL),(4,'Aristides Cortesía','cochejose@gmail.com','$2y$10$HWwBUvLWtnNXx0m7G0URQOfMkYS0XRaarYhWK3TzfFbmvCBS7UewO',NULL,'2018-12-03 23:12:39','2018-12-03 23:12:39',NULL,NULL,NULL),(5,'Renny Hernández','rennytox@gmail.com','$2y$10$D/9CAwyjEHcDR2Zlzd.tkO4NliJMhwBC66iidVqjXdzzJP31VyHXy',NULL,'2018-12-04 22:34:55','2018-12-04 22:34:55',NULL,NULL,NULL),(6,'Geraldo Marcano','geraldomarcano@gmail.com','$2y$10$YltNwC8khz3toEihqvRubO//xVKUZwxwktWEwM1//w2Vgq6pt0foy',NULL,'2018-12-04 22:45:54','2018-12-04 22:45:54',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin','abcsimple@domain.com','$2y$10$kj711G/q1yG31TqboGUDrexqrjnYqEWpLzhydVJIk3IY26WOgJKUC','A8oEUTOV3HztlMILSUxysWsfT9gElCm0svbaa2d5Us28z4ekRiAP7s8bCeUG','2018-06-28 00:35:30','2018-12-03 22:44:18',NULL,NULL,NULL),(2,'usuario','usuario@domain.com','$2y$10$Nyy/fTKnDzvIhKv7khptie0xBO4C1nh.K1eP1w1qmi3nQmVjoS5Nm','4EYGcMlz6y5KkNLdQk6JLPmRcUrC9Oit71zP7aUHl7xOR3Q3rCdS0Ve0PBMj','2018-06-28 22:38:12','2018-11-30 18:06:20',NULL,NULL,NULL),(3,'Carlos Suarez','csuarezr@gmail.com','$2y$10$OqJ/bW9Q370gQpgQrbdwxue0F6HUkE74dpJS8uZNEdZdjbJpA5Ehu','OdGYbdCDyPDto4Ch9ZBtk4HGMcW67yOOQNZ9GGoV5EdjtXZs46YmrQsjKOVS','2018-11-29 19:18:35','2019-09-13 18:59:15',NULL,NULL,NULL),(4,'Aristides Cortesía','cochejose@gmail.com','$2y$10$HWwBUvLWtnNXx0m7G0URQOfMkYS0XRaarYhWK3TzfFbmvCBS7UewO',NULL,'2018-12-03 23:12:39','2018-12-03 23:12:39',NULL,NULL,NULL),(5,'Renny Hernández','rennytox@gmail.com','$2y$10$D/9CAwyjEHcDR2Zlzd.tkO4NliJMhwBC66iidVqjXdzzJP31VyHXy',NULL,'2018-12-04 22:34:55','2018-12-04 22:34:55',NULL,NULL,NULL),(6,'Geraldo Marcano','geraldomarcano@gmail.com','$2y$10$YltNwC8khz3toEihqvRubO//xVKUZwxwktWEwM1//w2Vgq6pt0foy',NULL,'2018-12-04 22:45:54','2018-12-04 22:45:54',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2252,4 +2311,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-13 10:53:59
+-- Dump completed on 2019-09-26 15:01:30
