@@ -2,11 +2,11 @@
 @section('main-content')
     <section class="content-header">
         <h1>
-         Registro de Contenido
+         Registro de Contenido Insert
         </h1>
         <ol class="breadcrumb">
             
-                <li><a href="{{ route('idioma.index') }}" >Idioma: Todos </a></li>
+                <li><a href="{{ route('idioma.index') }}" >Idioma: Todos</a></li>
                 <li><a href="{{ route('curso.index')}}"  >Curso: Todos </a></li>
                 <li><a href="{{ route('nivel.index') }}" >Niveles: Todos</a></li>
                 <li><a href="{{ route('leccion.index') }}" >Lecciones: Todos</a></li>
@@ -122,6 +122,14 @@
                     <div class="form-group">
                     <label>Tiempo</label>
                         <input class="form-control" id="idtiempo" type="number" name="tiempo"  placeholder="tiempo" value="{{$_tiempo}}" required>
+                    </div>
+                    <div class="form-group">
+                    <label>Margen Superior</label>
+                        <input class="form-control" id="margen_superior" type="number" name="margen_superior" placeholder="Margen Superior" value="{{$_margen_superior}}" required>
+                    </div>
+                    <div class="form-group">
+                    <label>Margen Inferior</label>
+                        <input class="form-control" id="margen_inferior" type="number" name="margen_inferior"  placeholder="Margen Inferior" value="{{$_margen_inferior}}" required>
                     </div>
                     <div class="form-group">
                         <label>Status</label>

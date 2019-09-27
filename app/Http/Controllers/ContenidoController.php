@@ -79,7 +79,6 @@ class ContenidoController extends Controller
     {
         $error_msg = ""; 
         $_class    = "";
-
         $_idhtml     = "";
         $_nomb     = ""; 
         $_descrip  = "";
@@ -87,6 +86,9 @@ class ContenidoController extends Controller
         $_parrafo     = "";
         $_tiempo     = "";
         $_fin     = "";
+        $_margen_superior   = "";
+        $_margen_inferior   = "";
+        
 
         
 
@@ -134,9 +136,9 @@ class ContenidoController extends Controller
                 ->get();
             }
 
+ 
 
-
-        return view($this->path . ".create", compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_id_plantilla','_fin'));
+        return view($this->path . ".create", compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_id_plantilla','_fin','_margen_superior','_margen_inferior'));
     }
 
     /**
@@ -191,9 +193,13 @@ class ContenidoController extends Controller
             if (!($request->fin_s)) {
                 $request->fin_s=0;
             }
-            $contenido->fin_s         = $request->fin_s;
+            $contenido->fin_s             = $request->fin_s;
 
-            $contenido->id_tipo_con   = $request->tipo_contenido;
+            $contenido->id_tipo_con       = $request->tipo_contenido;
+
+            $contenido->margen_superior   = $request->margen_superior;
+
+            $contenido->margen_inferior   = $request->margen_inferior;
 
             $contenido->save();
 
@@ -225,6 +231,8 @@ class ContenidoController extends Controller
         $_parrafo     = $request->parrafo;
         $_tiempo     = $request->tiempo;
         $_fin     = $request->fin_s;
+        $_margen_superior     = $request->margen_superior;
+        $_margen_inferior     = $request->margen_inferior;
 
         if($request->id==0)
             {
@@ -291,6 +299,9 @@ class ContenidoController extends Controller
             $contenido->tiempo        = $request->tiempo;
             $contenido->activo        = $request->status;
             $contenido->color         = $request->color;
+
+            $contenido->margen_superior  = $request->margen_superior;
+            $contenido->margen_inferior  = $request->margen_inferior;
             
             if (!($request->negrita)) {
                 $request->negrita=0;
@@ -313,11 +324,13 @@ class ContenidoController extends Controller
              $_parrafo     = "";
              $_tiempo     = "";
              $_fin     = "";
+             $_margen_superior     = "";
+             $_margen_inferior     = "";
                 
             $_class = "alert alert-success";
             $error_msg = "Registrado correctamente."; 
 
-           return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin'));   
+           return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin','_margen_superior','_margen_inferior'));   
 
 
             }
