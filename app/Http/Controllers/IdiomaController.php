@@ -94,10 +94,10 @@ private $path ='vendor.adminlte.idioma';
                 if($nombre->id_idioma == $request->id_idioma){  
                     return true;
                 }
-                else{ $msg = "Nombre de Idioma duplicado. Introduzca un nombre válido.";}
+                else{ $msg = "Nombre de Idioma duplicado. Introduzca un nombre válido. u2";}
 
             }else{
-                $msg = "Nombre de Idioma duplicado. Introduzca un nombre válido."; #store
+                $msg = "Nombre de Idioma duplicado. Introduzca un nombre válido. store"; #store
                 return false;
             }
 

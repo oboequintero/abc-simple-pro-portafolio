@@ -100,19 +100,18 @@ class NivelController extends Controller
 	function validadata($request, &$msg, $aux){
      
 		$file = $request->file('input-b1');
-           
 
-       if($request->id_curso==0)
-            {
-                $id=$request->lista_id_curso;
-            }
-         else{
-                $id=$request->id_curso; 
-            }
+       
+           
+        $id=$request->lista_id_curso;
+            
+            
+    
 
         $nomb=$request->nombre_nivel;
         #dd ($nomb);
         $codigo=$request->codigo;
+
 
         if ($aux==1) {
          $codigo=DB::table('Niveles')->where('codigo', '=', $request->codigo)->first();
@@ -139,6 +138,7 @@ class NivelController extends Controller
         
       } # aux 1
       elseif ($aux == 0)
+
         {
 
          #dd ($nomb );
@@ -161,6 +161,9 @@ class NivelController extends Controller
              }
         #------------------    
         }#aux 0
+
+
+
 
         if(empty($request->codigo) or is_null($request->codigo)){
             $msg = "Debe introducir el código del Nivel.";           
