@@ -19,6 +19,14 @@
                 <li><a href="{{ route('leccion.index')}}" >Lecciones: {{$leccion->nombre}}</a></li>
                 <li><a href="{{ route('plantilla.index') }}" >Plantillas: {{$plantilla->nombre}}</a></li>
             @endif
+             <li><a >
+                <form id="form_contenido" action="{{route('contenido.index')}}" method="GET">
+                                        
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                    
+                 <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Contenido"><i class="glyphicon glyphicon-chevron-left"></i></button>                                                                            
+                 </form>
+                 </a></li>  
       </ol>
     </section>
     <!-- Main content -->
@@ -155,6 +163,14 @@
                             <div class="form-group">
                                 <label>Párrafo</label>
                                 <input class="form-control" id="idparrafo" type="text" name="parrafo"  placeholder="Parrafo asociado al contenido" value="{{$contenido->parrafo}}" required/>
+                            </div>
+                             <div class="form-group">
+                             <label>Margen Superior</label>
+                             <input class="form-control" id="margen_superior" type="number" name="margen_superior" value="{{$contenido->margen_superior}}" placeholder="Margen Superior"  required>
+                             </div>
+                            <div class="form-group">
+                            <label>Margen Inferior</label>
+                            <input class="form-control" id="margen_inferior" type="number" name="margen_inferior" value="{{$contenido->margen_inferior}}" placeholder="Margen Inferior" required>
                             </div>
                             <div class="form-group">
                                 <label>Estatus</label>

@@ -345,7 +345,7 @@ class ContenidoController extends Controller
             $error_msg = $msg; 
             $_class    = "alert alert-warning";
   
-             return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin'));  
+             return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin','_margen_superior','_margen_inferior'));  
 
             }
 
@@ -595,6 +595,8 @@ class ContenidoController extends Controller
             }
             $contenido->fin_s         = $request->fin_s;
             $contenido->id_tipo_con   = $request->tipo_contenido;
+            $contenido->margen_superior   = $request->margen_superior;
+            $contenido->margen_inferior   = $request->margen_inferior;
             
             #dd ($request->idhtml);
             $contenido->save();

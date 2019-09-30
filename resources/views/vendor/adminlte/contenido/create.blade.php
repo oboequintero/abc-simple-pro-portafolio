@@ -11,7 +11,14 @@
                 <li><a href="{{ route('nivel.index') }}" >Niveles: Todos</a></li>
                 <li><a href="{{ route('leccion.index') }}" >Lecciones: Todos</a></li>
                 <li><a href="{{ route('plantilla.index') }}" >Plantillas: Todas</a></li>
-            
+                <li><a >
+                <form id="form_contenido" action="{{route('contenido.index')}}" method="GET">
+                                        
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                    
+                 <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Contenido"><i class="glyphicon glyphicon-chevron-left"></i></button>                                                                            
+                 </form>
+                 </a></li>   
       </ol>
     </section>
      <!-- Main content -->
@@ -132,7 +139,7 @@
                         <input class="form-control" id="margen_inferior" type="number" name="margen_inferior"  placeholder="Margen Inferior" value="{{$_margen_inferior}}" required>
                     </div>
                     <div class="form-group">
-                        <label>Status</label>
+                        <label>Estatus</label>
                     <select name="status" class="form-control">
                         <option value="1" selected="selected">SI</option>
                         <option value="0"> NO</option>
