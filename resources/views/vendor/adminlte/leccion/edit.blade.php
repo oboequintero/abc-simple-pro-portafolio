@@ -64,7 +64,7 @@
 						</div>
 					    <div class="form-group">
 						    <label for="exampleInputEmail">Código</label>
-						    <input type="text" name="codigo" class="form-control" placeholder="Código" value="{{ $leccion->codigo }}">
+						    <input type="text" name="codigo" class="form-control" placeholder="Código" value="{{ $leccion->codigo }}" readonly>
 					    </div>
 					    <div class="form-group">
 						    <label for="exampleInputEmail">Nombre</label>

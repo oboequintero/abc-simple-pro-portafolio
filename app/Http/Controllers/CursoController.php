@@ -114,8 +114,17 @@ class CursoController extends Controller
                                     FROM Cursos AS c
                                     WHERE (c.id_idioma = :_id) AND (c.nombre = :_nomb)',
                                     ['_id'=>$id, '_nomb'=>$nomb]);
+
+           $data_codigo = DB::select('SELECT *
+                                    FROM Cursos AS c
+                                    WHERE (c.codigo = :_codigo) ',
+                                    [ '_codigo'=>$codigo]);
            if($nombre){
             $msg = "Nombre de Curso duplicado para Idioma Seleccionado. Introduzca un nombre válido.";
+            return false;
+             }
+            elseif($data_codigo){
+            $msg = "Codigo de Curso duplicado. Introduzca un código válido.";
             return false;
              }
         }
@@ -281,7 +290,7 @@ class CursoController extends Controller
 
     }
 
-    public function edit($id){
+    public function edit($id){ # id curso que viene del index
 
         $error_msg = "";
         $_cod      = "";
@@ -293,14 +302,13 @@ class CursoController extends Controller
 
         $curso = Cursos::findOrFail($id);
         $idioma = Idiomas::all();
-        $nombre_idioma=DB::table('Idiomas')->where('id_idioma', '=',$id)->first();
-        $nombre_idioma=$nombre_idioma->nombre;
 
+                
+        $Idioma=DB::table('Idiomas')->where('id_idioma', '=',$curso->id_idioma)->first();
 
-
-
-
-
+        $nombre_idioma=$Idioma->nombre;
+         
+    
         return view($this->path.'.edit', compact('curso','idioma','nombre_idioma','id','error_msg', '_cod', '_nomb', '_descrip', '_ruta', '_precio', '_class'));
 
 
@@ -314,14 +322,14 @@ class CursoController extends Controller
         $_nomb     = $request->nombre_curso;
         $_descrip  = $request->descrip_curso;
         $_ruta     = $request->ruta;
-        $_precio     = $request->precio_curso;
+        $_precio   = $request->precio_curso;
 
         $curso = Cursos::findOrFail($id);
         $idioma = Idiomas::all();
 
-        $nombre_idioma=DB::table('Idiomas')->where('id_idioma', '=',$id)->first();
-        $nombre_idioma=$nombre_idioma->nombre;
-        $id_idioma = $id;
+        $Idioma=DB::table('Idiomas')->where('id_idioma', '=',$curso->id_idioma)->first();
+
+        $nombre_idioma=$Idioma->nombre;
 
 
         if($this->validadata($request, $msg,0)){
@@ -344,7 +352,7 @@ class CursoController extends Controller
                 $nombre=$curso->ruta;
 
                 #}
-                $curso->id_idioma   = $id_idioma;
+                #$curso->id_idioma   = $id_idioma; NO SE EDITA EL IDIOMA
                 $curso->codigo      = $request->codigo;
                 $curso->nombre      = $request->nombre_curso;
                 $curso->descripcion = $request->descri_curso;
