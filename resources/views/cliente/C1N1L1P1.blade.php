@@ -58,7 +58,6 @@
                 </nav>
             </div>
         @if($plantilla[0]->tipo_plantilla==3)
-
             <div class="tele col-xl-5 col-lg-5">
                 <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
                     @php($a=0)
@@ -71,7 +70,6 @@
                             <p id="maquinas" ></p>
                         </div>
                         <div id="s1" style="display:none;">
-
                         </div>
                     @php($a++)
                 </div>
@@ -176,11 +174,9 @@
         <div class="conta sig-atras-video">
             <div class="container">
                 <div class="row barra-prog">
-
                     <div class="col-1 col-lg-1">
                         <button class="btn btn-sm boton-sig-atras" onclick="history.back(-1)"><img src="../assets_f/src/img/anterior.png" ></button>
                     </div>
-
                     <div class="col-10 col-lg-10 d-none d-md-block">
                         <div class="progress">
                             <div class="progress-bar bg-success progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%">
@@ -188,7 +184,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-10 d-md-none " >
                         <div class="progress barraprogreso">
                             <div class="progress-bar bg-success progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%">
@@ -196,7 +191,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-1 col-lg-1">
                         <form  method="post" enctype='multipart/form-data' action="{{route ('view')}}">
                             {{ csrf_field() }}
@@ -207,7 +201,6 @@
                             <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguiente.png" ></button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>

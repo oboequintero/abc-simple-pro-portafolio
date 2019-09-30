@@ -6,7 +6,7 @@
 
     <body class="fuentes">
       <!--navbar menu+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-      <section class="fixed-top">  
+      <section class="fixed-top">
          <!-- seccion del header en responsive-->
          @include('componentes.partes.home_header_log')
         <!-- seccion del header en responsive////barra de los links-->
@@ -31,8 +31,7 @@
         @yield('content')
       </main>
 
-      <!-- footer del home-->
-      @include('componentes.footer2')
+
 
       <!-- seccion de los scripts necesarios-->
       @include('componentes.partes.scripts')

@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.37-MariaDB, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.16  Distrib 10.1.38-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: AbcSimple
 -- ------------------------------------------------------
--- Server version	10.1.37-MariaDB-0+deb9u1
+-- Server version	10.1.38-MariaDB-0+deb9u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -132,6 +132,34 @@ LOCK TABLES `Carrito_Compras` WRITE;
 /*!40000 ALTER TABLE `Carrito_Compras` DISABLE KEYS */;
 INSERT INTO `Carrito_Compras` VALUES (1,1,1,NULL,NULL,1,27.00,'2018-08-22 15:45:51','2018-08-22 15:45:51');
 /*!40000 ALTER TABLE `Carrito_Compras` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Cliente_cursos`
+--
+
+DROP TABLE IF EXISTS `Cliente_cursos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Cliente_cursos` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_nivel` int(11) NOT NULL,
+  `id_leccion` int(11) NOT NULL,
+  `id_plantilla` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Cliente_cursos`
+--
+
+LOCK TABLES `Cliente_cursos` WRITE;
+/*!40000 ALTER TABLE `Cliente_cursos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Cliente_cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -286,7 +314,7 @@ CREATE TABLE `Contenido` (
   KEY `contenido_id_tipo_con_foreign` (`id_tipo_con`),
   CONSTRAINT `contenido_id_plantilla_foreign` FOREIGN KEY (`id_plantilla`) REFERENCES `Plantillas` (`id_plantilla`) ON UPDATE CASCADE,
   CONSTRAINT `contenido_id_tipo_con_foreign` FOREIGN KEY (`id_tipo_con`) REFERENCES `Tipo_Contenido` (`id_tipo_con`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -295,7 +323,7 @@ CREATE TABLE `Contenido` (
 
 LOCK TABLES `Contenido` WRITE;
 /*!40000 ALTER TABLE `Contenido` DISABLE KEYS */;
-INSERT INTO `Contenido` VALUES (9,1,1,'3#video','Bienvenido-Video',1,'video de bienvenida','marie_calidad_media.mp4','no aplica',5,0,'0',0,1,'2018-06-29 21:44:19','2019-03-18 23:49:14'),(15,1,2,'1#parrafo_1','bienvenida',45,'bienvenida','','Bienvenid@ al  Nivel 1',2,0,'#000000',0,1,'2018-10-10 22:30:48','2019-05-02 18:56:38'),(16,1,2,'2#parrafo_02','introduccion al metodo',20,'introduccion','','Cada vocal en inglés tiene dos o más pronunciaciones.   En el Nivel 1 vas a poder diferenciar los sonidos de las 5 vocales y además vas a saber unos truquitos para usarlas correctamente.  El énfasis de este curso consiste en ayudarte a captar el sonido y pronunciarlo bien. 1',3,0,'#000000',0,1,'2018-10-10 23:15:10','2019-04-29 21:56:38'),(17,1,5,'2#parrafo_01','Titulo página 1',32,'Título página 1','','Introducción Al Método',3,0,'#000000',0,1,'2019-03-19 00:16:43','2019-04-29 21:56:28'),(18,1,2,'2#parrafo_04','parrafo 3',20,'pagina 4','','Las dos primeras lecciones gratuitas contienen ejercicios simples y rápidos para desarrollar la capacidad de reconocer las palabras, pronunciarlas y escribirlas.  Cuando te inscribas para las siguientes lecciones puedes optar por eliminar la parte escrita.  Si sientes ya lo lograste, te puedes saltar uno o  más ejercicios hasta el final de la lección.  También puedes regresar y practicar tus ejercicios favoritos. 3',3,0,'#000000',0,1,'2019-03-19 19:04:01','2019-04-29 21:57:03'),(19,1,2,'2#parrafo_03','pagina 3',20,'pagina 3','','Ayuda mucho si quieres aprender a escribir las palabras.   Eso depende de tus intereses en la vida.  Todas las explicaciones están por escrito y también las puedes oír en el video.  Tienes la opción de hacer el curso sin escribir una sola palabra.   Nuestra meta es que hables inglés con buena pronunciación tanto en la vida cotidiana como profesional. 2',3,0,'#000000',0,1,'2019-03-19 19:28:20','2019-04-29 21:56:47'),(20,1,6,'2#parrafo_13','pagina 13',40,'Las Vocales','','Las Vocales',3,0,'#000000',0,1,'2019-03-20 22:30:52','2019-05-02 19:15:25'),(21,1,6,'2#parrafo_13_1','pagina 13_1',42,'Las Vocales a e i o u','','a e i o u',3,0,'#000000',1,1,'2019-03-21 23:42:14','2019-05-02 19:15:34'),(22,1,6,'2#parrafo_14','pagina 14',20,'pagina 14','','El tanto el español como el inglés solo tienen cinco vocales',3,0,'#0081ff',0,1,'2019-03-22 19:10:22','2019-05-02 19:15:46'),(23,1,6,'2#parrafo_14_1','pagina 14_1',42,'palabra en rojo','','a  e  i  o  u',5,1,'#0081ff',0,1,'2019-03-22 23:52:07','2019-05-02 19:15:54'),(24,1,6,'2#parrafo_14_2','pagina 14_2',20,'pagina 14_2','','En español cada una se pronuncia de una sola manera. Te vas a dar cuenta que en el inglés estas mismas cinco vocales a veces se pronuncian de una manera y a veces de otra. Y de vez en cuando, ni se pronuncian. Esto le produce confusión a la gente.',3,0,'#ff0067',1,1,'2019-03-25 18:54:43','2019-05-02 19:16:02'),(25,1,6,'2#parrafo_15_1','pagina 15_1',20,'pagina 15_1','','Todas las otras letras que  no son vocales se llaman',3,0,'#0081ff',0,1,'2019-03-25 22:11:06','2019-04-29 21:56:17'),(26,1,6,'2#parrafo_15_2','pagina 15_2',42,'pagina 15_2','','consonantes',5,1,'#000000',0,1,'2019-03-26 19:32:48','2019-03-28 21:26:12'),(27,1,6,'2#parrafo_15_3','pagina 15_3',38,'pagina 15_3','','b c d f g',5,1,'#000000',0,1,'2019-03-26 19:45:56','2019-03-28 21:26:40'),(28,1,6,'2#parrafo_15_4','pagina 15_4',38,'pagina 15_4','','h j k l m',3,1,'#000000',0,1,'2019-03-27 22:32:39','2019-04-29 21:57:23'),(29,1,6,'2#parrafo_15_5','pagina 15_5',38,'pagina 15_5','','n p q r s',5,1,'#000000',0,1,'2019-03-27 22:43:08','2019-03-28 21:27:18'),(30,1,6,'2#parrafo_15_6','pagina 15_6',38,'pagina 15_6','','t v x y z',10,1,'#000000',1,1,'2019-03-27 22:59:05','2019-03-28 21:27:34'),(31,1,6,'2#parrafo_16_1','pagina 16_1',20,'pagina 16_1','','Y cuando juntas las vocales con las consonantes obtienes el',15,0,'#000000',0,1,'2019-03-28 00:43:19','2019-03-28 00:43:19'),(32,1,6,'2#parrafo_16_2','pagina 16_2',38,'pagina 16_2','','Alfabeto',15,0,'#0081ff',0,1,'2019-03-28 00:44:18','2019-03-28 00:44:44'),(33,1,3,'2#parrafo_16_3','pagina 16_3',0,'pagina 16_3','alfabeto.png','n/a',3,0,'#000000',1,1,'2019-03-28 21:51:05','2019-04-29 22:35:26'),(34,1,6,'2#parrafo_17_1','pagina 17_1',38,'pagina 17_1','','En esta Nivel vamos comprender los 5 diferentes sonidos que tiene  la letra  ',5,0,'#000000',0,1,'2019-04-23 23:53:28','2019-04-24 00:13:02'),(35,1,6,'2#parrafo_18_1','pagina 18_1',40,'pagina 18_1','','Además, te vamos a guiar con la manera en que se ordenan las palabras para hablar explicando cada paso de manera sencilla y divertida.',5,0,'#000000',1,1,'2019-04-24 00:07:12','2019-04-29 21:38:21'),(36,1,6,'2#parrafo_17_2','pagina 17_2',70,'pagina 17_2','','\"a\"',5,1,'#000000',1,1,'2019-04-24 00:12:37','2019-04-24 00:33:07'),(37,1,6,'2#parrafo_19_1','pagina 19_1',30,'Letra A','','Los sonidos de la',5,0,'#000000',0,1,'2019-04-29 21:40:58','2019-04-29 21:40:58'),(38,1,6,'2#parrafo_19_2','pagina 19_2',80,'la letra a','','\"a\"',5,0,'#000000',0,1,'2019-04-29 21:42:29','2019-04-29 21:42:29'),(39,1,6,'2#parrafo_19_3','pagina 19_3',20,'pagina 19','','La Letra “a” tiene cinco sonidos',5,0,'#000000',1,1,'2019-04-29 21:43:50','2019-04-29 22:41:17'),(40,1,6,'2#parrafo_20_1','pagina 20_1',30,'pagina 20','','A-simple',5,0,'#000000',0,1,'2019-04-29 22:07:21','2019-04-29 22:37:52'),(41,1,6,'2#parrafo_20_2','pagina 20_2',30,'pagina 20','','A-alfabeto',5,0,'#000000',0,1,'2019-04-29 22:10:34','2019-04-29 22:38:08'),(42,1,6,'2#parrafo_20_3','pagina 20_3',30,'pagina 20','','A-abierta',5,0,'#000000',0,1,'2019-04-29 22:14:03','2019-04-29 22:38:24'),(43,1,6,'2#parrafo_20_4','pagina 20_4',30,'pagina 20','','A + LL',5,0,'#000000',0,1,'2019-04-29 22:15:31','2019-04-29 22:38:40'),(44,1,6,'2#parrafo_20_5','pagina 20_5',30,'pagina 20','','A-suave',5,0,'#000000',1,1,'2019-04-29 22:19:58','2019-04-29 22:58:13'),(45,1,6,'2#parrafo_21_1','pagina 21_1',20,'pagina 21','','Te vamos a explicar su pronunciación y unos truquitos para saber cuál sonido tienes que pronunciar.',3,0,'#000000',0,1,'2019-04-29 22:55:45','2019-05-02 19:20:57'),(46,1,6,'2#parrafo_21_2','pagina 21_2',20,'pagina 21','','Siempre reconocerás el sonido porque va a estar entre dos barritas inclinadas:',3,0,'#000000',0,1,'2019-04-29 22:56:40','2019-05-02 19:21:15'),(47,1,6,'2#parrafo_21_3','pagina 21_3',35,'pagina 21','','/sonido/',3,1,'#000000',1,1,'2019-04-29 22:57:46','2019-05-02 19:21:26'),(48,1,6,'2#parrafo_22_1','pagina 22_1',30,'pagina 22','','OJO',3,0,'#000000',0,1,'2019-05-02 18:50:27','2019-05-02 19:28:01'),(49,1,6,'2#parrafo_22_2','pagina 22_2',20,'pagina 22','','A diferencia del español, en el inglés se pronuncian casi todas las consonantes aunque no tengan una vocal.',3,0,'#000000',0,1,'2019-05-02 18:56:11','2019-05-02 19:27:42'),(50,1,6,'2#parrafo_22_3','pagina 22_3',20,'pagina 22','','A afinar ese oído!!!',3,1,'#ff1a2a',1,1,'2019-05-02 18:59:41','2019-05-02 19:51:07'),(51,1,6,'2#parrafo_23_1','pagina 23_1',20,'pagina 23','','Vamos a utilizar los sonidos del español para guiarte. A veces se tendrán que aprender nuevos sonidos pero siempre se te dirá cómo hacerlo. Si hablas español, puedes hablar inglés!   Comienza la aventura de aprender otro idioma!  Disfrútala sin exámenes, ni ansiedades, tal como los niños aprenden!',3,0,'#000000',0,1,'2019-05-02 19:41:44','2019-05-02 19:41:44'),(52,2,2,'2#parrafo_24','pagina 24_1',40,'pagina 24','','Lección 1',5,0,'#000000',1,1,'2019-05-03 19:20:25','2019-05-03 23:45:45'),(53,2,1,'3#Video24','video_pag24',1,'Video pag 24','marie_calidad_media.mp4','n/a',3,0,'#000000',0,1,'2019-05-03 21:56:25','2019-05-03 22:01:17'),(54,2,6,'2#parrafo_25_1','pagina 25_1',30,'pagina 25','','PRIMER SONIDO',5,1,'#000000',0,1,'2019-05-03 23:36:37','2019-05-04 00:21:55'),(55,2,6,'2#parrafo_25_2','pagina 25_2',30,'pagina 25','','“a simple”',5,0,'#000000',0,1,'2019-05-04 00:16:44','2019-05-04 00:22:26'),(56,2,6,'2#parrafo_25_3','pagina 25_3',30,'pagina 25','','Es el sonido más usado y lo vamos a llamar “a simple”. Lo representaremos con dos punticos sobre la a:',5,0,'#000000',0,1,'2019-05-04 00:23:49','2019-05-04 00:23:49'),(57,2,6,'2#parrafo_25_4','pagina 25_4',45,'pagina 25','','/ä/',5,1,'#000000',1,1,'2019-05-04 00:34:03','2019-05-04 00:37:58'),(58,2,6,'2#parrafo_26_1','pagina 26_1',45,'pagina 26','','/ä/',5,0,'#05ff00',0,1,'2019-05-06 21:45:12','2019-05-06 21:47:31'),(59,2,6,'2#parrafo_26_2','pagina 26_2',35,'pagina 25','','Para hacer este sonido pronuncia “e” varias veces y sin cambiar la posición de la boca di “a”',5,0,'#00ff05',0,1,'2019-05-06 21:53:43','2019-05-06 21:55:00'),(60,2,6,'2#parrafo_26_3','pagina 26_3',30,'pagina 26','','Es una mezcla de los dos sonidos.',5,1,'#06ff00',1,1,'2019-05-06 22:07:50','2019-05-06 22:08:23'),(61,2,6,'2#parrafo_27_1','pagina 27_1',30,'pagina 27','','TRUQUITO 1',5,0,'#000000',0,1,'2019-05-06 22:16:46','2019-05-06 22:16:46'),(62,2,6,'2#parrafo_27_2','pagina 27_2',30,'pagina 27','','/ä/',5,0,'#000000',0,1,'2019-05-06 22:20:27','2019-05-06 22:20:27'),(63,2,6,'2#parrafo_27_3','pagina 27_3',30,'pagina 27','','La vocal “a”  se encuentra',5,0,'#000000',0,1,'2019-05-06 22:21:07','2019-05-06 22:21:07'),(64,2,6,'2#parrafo_27_4','pagina 27_4',30,'pagina 27','','en el medio de dos consonantes',7,1,'#000000',1,1,'2019-05-06 22:22:01','2019-05-06 22:23:27'),(65,3,2,'2#parrafo_28_1','pagina 28',40,'pagina 28','','GATO',5,1,'#212b68',0,1,'2019-05-06 22:44:50','2019-05-15 19:06:18'),(66,3,3,'2#parrafo_28_2','pagina 28_2',1,'pagina 28','cat.png','N/A',5,0,'#000000',0,1,'2019-05-06 22:47:23','2019-05-14 00:44:25'),(67,3,1,'2#parrafo_28_V','pagina 28_3_V',35,'pagina 28','prueba.mp4','n/a',10,0,'#000000',0,1,'2019-05-13 23:50:05','2019-05-14 18:41:37'),(69,3,6,'2#parrafo_28_3','pagina 28_3',20,'pagina 28','','consonante + “a corta” + consonante',5,1,'#e12b27',0,1,'2019-05-14 18:41:12','2019-05-15 19:04:12'),(70,3,4,'2#parrafo_28_4','pagina 28_4',45,'Letra C','','C',5,1,'#e12b27',0,1,'2019-05-14 19:43:43','2019-05-15 18:59:57'),(71,3,4,'2#parrafo_28_5','pagina 28_5',45,'Letra A','','A',5,0,'#212b68',0,1,'2019-05-14 19:46:30','2019-05-15 18:59:26'),(72,3,4,'2#parrafo_28_6','pagina 28_6',45,'Letra T','','T',5,1,'#e12b27',0,1,'2019-05-14 19:47:34','2019-05-15 19:00:30'),(73,4,2,'2#parrafo_29_1','pagina 29_1',40,'pagina 29','','LÁMPARA',5,0,'#212b68',0,1,'2019-05-16 17:48:40','2019-05-16 17:58:05'),(74,4,3,'2#parrafo_29_2','pagina 29_2',1,'imagen de lámpara','lampara.png','N/A',0,0,'#000000',0,1,'2019-05-16 17:53:47','2019-05-16 17:55:10'),(75,4,1,'2#parrafo_29_V','pagina 29_V',0,'Video de Lámpara','prueba.mp4','N/A',0,0,'#000000',0,1,'2019-05-16 18:01:24','2019-05-16 18:01:46'),(76,4,6,'2#parrafo_29_3','pagina 29_3',20,'pagina 29','','consonante + “a corta” + consonantes',5,0,'#e12b27',0,1,'2019-05-16 18:03:17','2019-05-16 18:26:51'),(77,4,4,'2#parrafo_29_4','pagina 29_4',40,'Letra L','','l',0,0,'#e12b27',0,1,'2019-05-16 18:16:07','2019-05-16 18:23:28'),(78,4,4,'2#parrafo_29_5','pagina 29_5',40,'Letra A','','a',0,0,'#212b68',0,1,'2019-05-16 18:18:45','2019-05-16 18:28:29'),(79,4,4,'2#parrafo_29_6','pagina 29_6',40,'Letra MP','','mp',0,0,'#e12b27',0,1,'2019-05-16 18:20:52','2019-05-16 18:25:26'),(80,6,2,'2#parrafo_30_1','pagina 30_1',40,'pagina 30','','BANDERA',5,0,'#212b68',0,1,'2019-05-16 17:48:40','2019-05-16 17:58:05'),(81,6,3,'2#parrafo_30_2','pagina 30_2',1,'imagen de bandera','bandera.png','N/A',0,0,'#000000',0,1,'2019-05-16 17:53:47','2019-05-16 18:48:29'),(82,6,6,'2#parrafo_30_3','pagina 30_3',20,'pagina 30','','consonantes + “a corta” + consonante',5,0,'#e12b27',0,1,'2019-05-16 18:03:17','2019-05-16 18:26:51'),(83,6,4,'2#parrafo_30_4','pagina 30_4',40,'Letra FL','','fl',0,0,'#e12b27',0,1,'2019-05-16 18:16:07','2019-05-16 18:23:28'),(84,6,4,'2#parrafo_30_5','pagina 30_5',40,'Letra A','','a',0,0,'#212b68',0,1,'2019-05-16 18:18:45','2019-05-16 18:28:29'),(85,6,4,'2#parrafo_30_6','pagina 30_6',40,'Letra G','','g',0,0,'#e12b27',0,1,'2019-05-16 18:20:52','2019-05-16 18:25:26'),(86,6,1,'2#parrafo_30_V','pagina 30_V',0,'Video de Lámpara','prueba.mp4','N/A',0,0,'#000000',0,1,'2019-05-16 18:01:24','2019-05-16 18:01:46'),(88,7,2,'2#parrafo_31_1','pagina 31_1',40,'pagina 31','','VASO',5,0,'#212b68',0,1,'2019-05-16 17:48:40','2019-05-16 17:58:05'),(89,7,3,'2#parrafo_31_2','pagina 31_2',1,'imagen de vaso','vaso.png','N/A',0,0,'#000000',0,1,'2019-05-16 17:53:47','2019-05-16 18:48:29'),(90,7,6,'2#parrafo_31_3','pagina 31_3',20,'pagina 31','','consonantes  +\"a corta\"+  consonantes',5,0,'#e12b27',0,1,'2019-05-16 18:03:17','2019-05-16 18:26:51'),(91,7,4,'2#parrafo_31_4','pagina 31_4',40,'Letra GL','','gl',0,0,'#e12b27',0,1,'2019-05-16 18:16:07','2019-05-16 18:23:28'),(92,7,4,'2#parrafo_31_5','pagina 31_5',40,'Letra A','','a',0,0,'#212b68',0,1,'2019-05-16 18:18:45','2019-05-16 18:28:29'),(93,7,4,'2#parrafo_31_6','pagina 31_6',40,'Letra SS','','ss',0,0,'#e12b27',0,1,'2019-05-16 18:20:52','2019-05-16 18:25:26'),(94,7,1,'2#parrafo_31_V','pagina 31_V',0,'Video de Vaso','prueba.mp4','N/A',0,0,'#000000',0,1,'2019-05-16 18:01:24','2019-05-16 18:01:46');
+INSERT INTO `Contenido` VALUES (9,1,1,'3#video','Bienvenido-Video',1,'video de bienvenida','introduccion_curso.mp4','no aplica',5,0,'#000000',0,1,'2018-06-29 21:44:19','2019-06-20 20:16:21'),(10,1,6,'1','pagina 1',50,'Título página 1','','Bienvenid@s al',10,1,'#1c2be8',0,1,'2019-09-13 19:15:12','2019-09-13 19:18:57'),(11,1,6,'2','pagina nivel',60,'Título página 1','','Nivel 1',10,1,'#000000',1,1,'2019-09-13 19:20:30','2019-09-13 19:20:40');
 /*!40000 ALTER TABLE `Contenido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,7 +415,7 @@ CREATE TABLE `Cursos` (
   PRIMARY KEY (`id_curso`),
   UNIQUE KEY `cursos_id_idioma_nombre_unique` (`id_idioma`,`nombre`),
   UNIQUE KEY `cursos_codigo_unique` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -396,7 +424,7 @@ CREATE TABLE `Cursos` (
 
 LOCK TABLES `Cursos` WRITE;
 /*!40000 ALTER TABLE `Cursos` DISABLE KEYS */;
-INSERT INTO `Cursos` VALUES (1,1,'C1','Curso Inglés Básico','Curso de Ingles 11 niveles',30.00,1,'españa.jpg','2018-07-19 07:02:00','2018-10-26 22:27:28'),(2,1,'C5','Curso Español','Curso Prueba Ingles espanol Abc Simple',55.00,1,NULL,'2019-01-28 22:15:06','2019-05-09 23:58:16');
+INSERT INTO `Cursos` VALUES (1,1,'C1','Curso Inglés Básico','Curso de Ingles 11 niveles',30.00,1,'españa.jpg','2018-07-19 07:02:00','2018-10-26 22:27:28'),(2,2,'C5','Curso Español 65756','Curso Prueba Ingles espanol Abc Simple',55.00,1,NULL,'2019-01-28 22:15:06','2019-08-08 22:42:22'),(3,1,'wwww','wwww','wwww',444.00,1,NULL,'2019-07-19 19:00:42','2019-07-19 19:00:42'),(4,4,'eee','eee','eee',333.00,1,NULL,'2019-07-19 19:01:27','2019-07-19 19:01:27'),(5,1,'rrrr','rrrr','3333',28.00,1,NULL,'2019-07-25 18:43:46','2019-07-25 18:43:46');
 /*!40000 ALTER TABLE `Cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -676,7 +704,7 @@ CREATE TABLE `Idiomas` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_idioma`),
   UNIQUE KEY `idiomas_nombre_unique` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -685,7 +713,7 @@ CREATE TABLE `Idiomas` (
 
 LOCK TABLES `Idiomas` WRITE;
 /*!40000 ALTER TABLE `Idiomas` DISABLE KEYS */;
-INSERT INTO `Idiomas` VALUES (1,'INGLES','APRENDE INGLES SIMPLE',1,'EEUU.jpg','2018-06-28 19:00:07','2019-03-15 23:08:12');
+INSERT INTO `Idiomas` VALUES (1,'INGLES','APRENDE INGLES SIMPLE',1,'EEUU.jpg','2018-06-28 19:00:07','2019-03-15 23:08:12'),(2,'tttt','ttttttt',1,NULL,'2019-07-04 15:43:16','2019-07-04 15:43:16'),(4,'DSFDSAFGSG','SFDSDGSDFGSF',1,NULL,'2019-07-04 15:46:25','2019-07-04 15:46:25'),(5,'RUSO','EEEEEE',1,NULL,'2019-07-25 14:57:23','2019-07-25 14:57:23');
 /*!40000 ALTER TABLE `Idiomas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -703,13 +731,14 @@ CREATE TABLE `Lecciones` (
   `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT '0',
+  `ruta` varchar(155) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_leccion`),
   UNIQUE KEY `lecciones_id_nivel_nombre_unique` (`id_nivel`,`nombre`),
   UNIQUE KEY `lecciones_codigo_unique` (`codigo`),
   CONSTRAINT `lecciones_id_nivel_foreign` FOREIGN KEY (`id_nivel`) REFERENCES `Niveles` (`id_nivel`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -718,8 +747,36 @@ CREATE TABLE `Lecciones` (
 
 LOCK TABLES `Lecciones` WRITE;
 /*!40000 ALTER TABLE `Lecciones` DISABLE KEYS */;
-INSERT INTO `Lecciones` VALUES (4,1,'N1-L0','Introduccion al Metodo','Introducion al metodo Nivel 1',1,'2018-08-27 22:09:11','2018-10-24 22:23:36');
+INSERT INTO `Lecciones` VALUES (4,1,'N1-L0','Lección 1','A corta Plural un / una',1,NULL,'2018-08-27 22:09:11','2019-05-29 23:21:37'),(5,1,'N1L0P23','3','3',1,NULL,'2019-07-04 16:02:53','2019-07-04 16:02:53'),(9,1,'YYYYYRRRRR','3RRRRRRRRRRRRRRRRRR','YYYY',1,NULL,'2019-07-04 19:10:29','2019-07-04 19:10:29');
 /*!40000 ALTER TABLE `Lecciones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Log_cliente`
+--
+
+DROP TABLE IF EXISTS `Log_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Log_cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) unsigned NOT NULL,
+  `estatus` tinyint(6) NOT NULL,
+  `fecha` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`id`),
+  KEY `fk_cliente_log` (`id_cliente`),
+  CONSTRAINT `fk_cliente_log` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Log_cliente`
+--
+
+LOCK TABLES `Log_cliente` WRITE;
+/*!40000 ALTER TABLE `Log_cliente` DISABLE KEYS */;
+INSERT INTO `Log_cliente` VALUES (17,15,1,'2019-09-26 18:58:08.992667');
+/*!40000 ALTER TABLE `Log_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -736,13 +793,14 @@ CREATE TABLE `Niveles` (
   `nombre` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `descripcion` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT '0',
+  `ruta` varchar(155) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_nivel`),
   UNIQUE KEY `niveles_codigo_unique` (`codigo`),
   UNIQUE KEY `niveles_id_curso_nombre_unique` (`id_curso`,`nombre`) USING BTREE,
   CONSTRAINT `nivel_id_curso_forein` FOREIGN KEY (`id_curso`) REFERENCES `Cursos` (`id_curso`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -751,7 +809,7 @@ CREATE TABLE `Niveles` (
 
 LOCK TABLES `Niveles` WRITE;
 /*!40000 ALTER TABLE `Niveles` DISABLE KEYS */;
-INSERT INTO `Niveles` VALUES (1,1,'N1','NIVEL 1','NIVEL UNO ESP-INGLES',1,'2018-06-28 19:48:37','2018-10-24 22:36:34');
+INSERT INTO `Niveles` VALUES (1,1,'N1','NIVEL UNO','NIVEL UNO ESP-INGLES',1,NULL,'2018-06-28 19:48:37','2019-05-29 23:21:01'),(2,1,'N7','NIVEL 7','NIVEL 7 PRUEBA CURSO ABC SIMPLE',1,NULL,'2019-07-25 15:05:24','2019-07-25 15:05:24'),(3,1,'N7EE','NIVEL 7RR','NIVEL 7 PRUEBA CURSO ABC SIMPLE',1,NULL,'2019-07-25 15:05:46','2019-07-25 15:05:46'),(4,3,'YYYYY','NIVEL 7','ADFAFAF',1,NULL,'2019-08-08 18:45:21','2019-08-08 18:45:21');
 /*!40000 ALTER TABLE `Niveles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -807,7 +865,7 @@ CREATE TABLE `Paquetes` (
   UNIQUE KEY `paquetes_codigo_unique` (`codigo`),
   UNIQUE KEY `paquetes_nombre_unique` (`nombre`),
   UNIQUE KEY `posicion` (`posicion`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -816,7 +874,7 @@ CREATE TABLE `Paquetes` (
 
 LOCK TABLES `Paquetes` WRITE;
 /*!40000 ALTER TABLE `Paquetes` DISABLE KEYS */;
-INSERT INTO `Paquetes` VALUES (1,'PAQ1','PAQUETE11o','DESCRIPCIÓN PAQUETE 1',150.00,1,NULL,1,'2018-10-03 23:41:43','2018-10-03 23:41:43'),(3,'PAQ123123uuuu','PAQUETE 123uuuu','EL 123uuu',450.00,1,NULL,12,'2018-11-20 22:18:18','2018-11-20 22:18:18'),(41,'PAQ12312349877','PAQUETE 1230987','EL 123uuu9877',0.00,1,NULL,13,'2018-12-19 19:58:53','2018-12-19 19:58:53'),(43,'cd5151','PAQUETE 123yyyyy','EL 123uuu',0.00,1,NULL,9,'2018-12-19 19:59:53','2018-12-19 19:59:53'),(44,'Paq2','PAQUETE 2','DESCRIPCION PAQUETE2',0.00,1,NULL,7,'2018-12-26 13:54:23','2018-12-26 13:54:23'),(45,'Paq3','PAQUETE 3','DESCRIPCION PAQUETE3',0.00,1,NULL,4,'2018-12-26 13:55:07','2018-12-26 13:55:07'),(46,'Paq4','PAQUETE 4','DESCRIPCION PAQUETE4',0.00,1,NULL,3,'2018-12-26 13:55:38','2018-12-26 13:55:38'),(47,'Paq5','PAQUETE 5','DESCRIPCION PAQUETE5',0.00,1,NULL,10,'2018-12-26 13:55:55','2018-12-26 13:55:55'),(48,'Paq6','PAQUETE 6','DESCRIPCION PAQUETE56',0.00,1,NULL,11,'2018-12-26 13:56:18','2018-12-26 13:56:18'),(49,'PAQ7','PAQUETE7','DESCRIPCION PAQUETE 7',0.00,1,NULL,5,'2019-01-02 17:35:21','2019-01-02 17:35:21'),(50,'PAQ8','PAQUETE8','DESCRIPCION PAQ8',0.00,1,NULL,6,'2019-01-02 19:03:01','2019-01-02 19:03:01'),(51,'PAQ9','PAQUETE9','DESCRIPCION PAQ9',0.00,1,NULL,8,'2019-01-02 19:04:26','2019-01-02 19:04:26'),(54,'PAQ10','PAQUETE10','DESCRIPCION PAQ10',0.00,1,NULL,2,'2019-01-02 19:05:37','2019-01-02 19:05:37');
+INSERT INTO `Paquetes` VALUES (1,'PAQ1','PAQUETE11o','DESCRIPCIÓN PAQUETE 1',150.00,1,NULL,1,'2018-10-03 23:41:43','2018-10-03 23:41:43'),(3,'PAQ123123uuuu','PAQUETE 123uuuu','EL 123uuu',450.00,1,NULL,12,'2018-11-20 22:18:18','2018-11-20 22:18:18'),(41,'PAQ12312349877','PAQUETE 1230987','EL 123uuu9877',0.00,1,NULL,13,'2018-12-19 19:58:53','2018-12-19 19:58:53'),(43,'cd5151','PAQUETE 123yyyyy','EL 123uuu',0.00,1,NULL,9,'2018-12-19 19:59:53','2018-12-19 19:59:53'),(44,'Paq2','PAQUETE 2','DESCRIPCION PAQUETE2',0.00,1,NULL,7,'2018-12-26 13:54:23','2018-12-26 13:54:23'),(45,'Paq3','PAQUETE 3','DESCRIPCION PAQUETE3',0.00,1,NULL,4,'2018-12-26 13:55:07','2018-12-26 13:55:07'),(46,'Paq4','PAQUETE 4','DESCRIPCION PAQUETE4',0.00,1,NULL,3,'2018-12-26 13:55:38','2018-12-26 13:55:38'),(47,'Paq5','PAQUETE 5','DESCRIPCION PAQUETE5',0.00,1,NULL,10,'2018-12-26 13:55:55','2018-12-26 13:55:55'),(48,'Paq6','PAQUETE 6','DESCRIPCION PAQUETE56',0.00,1,NULL,11,'2018-12-26 13:56:18','2018-12-26 13:56:18'),(49,'PAQ7','PAQUETE7','DESCRIPCION PAQUETE 7',0.00,1,NULL,5,'2019-01-02 17:35:21','2019-01-02 17:35:21'),(50,'PAQ8','PAQUETE8','DESCRIPCION PAQ8',0.00,1,NULL,6,'2019-01-02 19:03:01','2019-01-02 19:03:01'),(51,'PAQ9','PAQUETE9','DESCRIPCION PAQ9',0.00,1,NULL,8,'2019-01-02 19:04:26','2019-01-02 19:04:26'),(54,'PAQ10','PAQUETE10','DESCRIPCION PAQ10',0.00,1,NULL,2,'2019-01-02 19:05:37','2019-01-02 19:05:37'),(55,'232444','tttttt','ttttttt',0.00,1,NULL,14,'2019-06-06 15:55:51','2019-06-06 15:55:51'),(56,'tttt','tttt','tttt',0.00,1,NULL,15,'2019-06-06 15:56:05','2019-06-06 15:56:05');
 /*!40000 ALTER TABLE `Paquetes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -944,41 +1002,6 @@ LOCK TABLES `Plantillas` WRITE;
 /*!40000 ALTER TABLE `Plantillas` DISABLE KEYS */;
 INSERT INTO `Plantillas` VALUES (1,4,'N1L0P1','Bienvenida','Lamina de Bienvenida',1,1,3,'2018-06-28 19:58:33','2019-05-14 22:18:18'),(2,4,'N1L0P2','Lección 1','Desarrollo lección 1',1,2,3,'2019-05-03 19:09:46','2019-05-14 22:18:27'),(3,4,'N1L0P3','GATO','Imagen de gato',1,3,1,'2019-05-06 22:43:41','2019-05-06 22:43:41'),(4,4,'N1L0P4','LÁMPARA','Imagen de la Lámpara',1,4,1,'2019-05-16 17:47:27','2019-05-16 17:47:27'),(6,4,'N1L0P5','BANDERA','Imagen de la Bandera',1,5,1,'2019-05-16 17:47:27','2019-05-16 17:47:27'),(7,4,'N1L0P6','VASO','Imagen de el Vaso',1,6,1,'2019-05-16 17:47:27','2019-05-16 17:47:27');
 /*!40000 ALTER TABLE `Plantillas` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Productos`
---
-
-DROP TABLE IF EXISTS `Productos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Productos` (
-  `id_producto` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `precio` double(8,2) NOT NULL,
-  `activo` tinyint(1) NOT NULL,
-  `referencia` int(10) unsigned NOT NULL,
-  `id_t_producto` int(10) unsigned NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_producto`),
-  UNIQUE KEY `productos_nombre_unique` (`nombre`),
-  KEY `productos_referencia_foreign` (`referencia`),
-  KEY `productos_id_t_producto_foreign` (`id_t_producto`),
-  CONSTRAINT `productos_id_t_producto_foreign` FOREIGN KEY (`id_t_producto`) REFERENCES `Tipo_Productos` (`id_t_producto`) ON UPDATE CASCADE,
-  CONSTRAINT `productos_referencia_foreign` FOREIGN KEY (`referencia`) REFERENCES `Productos` (`id_producto`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Productos`
---
-
-LOCK TABLES `Productos` WRITE;
-/*!40000 ALTER TABLE `Productos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1152,6 +1175,37 @@ CREATE TABLE `Puntaje_examen` (
 LOCK TABLES `Puntaje_examen` WRITE;
 /*!40000 ALTER TABLE `Puntaje_examen` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Puntaje_examen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Seguimiento_cliente`
+--
+
+DROP TABLE IF EXISTS `Seguimiento_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Seguimiento_cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tipo_plantilla` tinyint(11) NOT NULL,
+  `id_cliente` int(11) unsigned NOT NULL,
+  `id_curso_cliente` int(11) unsigned NOT NULL,
+  `id_nivel_cliente` int(11) NOT NULL,
+  `id_leccion` int(11) NOT NULL,
+  `id_pagina_curso` int(11) NOT NULL,
+  `fecha` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `porcentaje_avance` tinyint(11) NOT NULL DEFAULT '0',
+  `puntos_acumulados` tinyint(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Seguimiento_cliente`
+--
+
+LOCK TABLES `Seguimiento_cliente` WRITE;
+/*!40000 ALTER TABLE `Seguimiento_cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Seguimiento_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1443,18 +1497,16 @@ DROP TABLE IF EXISTS `Ventas`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Ventas` (
   `id_venta` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_cliente` int(10) unsigned NOT NULL,
-  `id_estatus` int(10) unsigned NOT NULL,
-  `fecha` date NOT NULL,
-  `total` double(8,2) NOT NULL DEFAULT '0.00',
-  `referencia` int(11) NOT NULL,
+  `id_user` int(10) unsigned DEFAULT NULL,
+  `id_cliente` int(10) unsigned DEFAULT NULL,
+  `total` double(8,2) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_estatus` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_venta`),
-  KEY `ventas_id_cliente_foreing` (`id_cliente`),
-  KEY `ventas_id_estatus_foreing` (`id_estatus`),
-  CONSTRAINT `ventas_id_cliente_foreing` FOREIGN KEY (`id_cliente`) REFERENCES `clientes_o` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `ventas_id_estatus_foreing` FOREIGN KEY (`id_estatus`) REFERENCES `Tipo_Estatus` (`id_estatus`) ON DELETE NO ACTION ON UPDATE CASCADE
+  KEY `ventas_id_cliente_foreign` (`id_cliente`),
+  KEY `ventas_id_user_foreign` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1468,36 +1520,153 @@ LOCK TABLES `Ventas` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Ventas_Detalles`
+-- Table structure for table `Ventas_detalle`
 --
 
-DROP TABLE IF EXISTS `Ventas_Detalles`;
+DROP TABLE IF EXISTS `Ventas_detalle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Ventas_Detalles` (
+CREATE TABLE `Ventas_detalle` (
   `id_venta_d` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_venta` int(10) unsigned NOT NULL,
-  `id_curso` int(10) unsigned DEFAULT NULL,
-  `id_paquete` int(10) unsigned DEFAULT NULL,
-  `id_promocion` int(10) unsigned DEFAULT NULL,
-  `precio` double(8,2) DEFAULT NULL,
+  `id_producto` int(10) unsigned NOT NULL,
+  `precio_venta` double(8,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_venta_d`),
-  KEY `ventas_detalles_id_venta_foreign` (`id_venta`),
-  KEY `ventas_detalles_id_curso_foreign` (`id_curso`),
-  CONSTRAINT `ventas_detalles_id_curso_foreign` FOREIGN KEY (`id_curso`) REFERENCES `Cursos` (`id_curso`) ON UPDATE CASCADE,
-  CONSTRAINT `ventas_detalles_id_venta_foreign` FOREIGN KEY (`id_venta`) REFERENCES `Ventas` (`id_venta`) ON UPDATE CASCADE
+  KEY `ventas_detalle_id_venta_foreign` (`id_venta`),
+  KEY `ventas_detalle_id_producto_foreign` (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Ventas_Detalles`
+-- Dumping data for table `Ventas_detalle`
 --
 
-LOCK TABLES `Ventas_Detalles` WRITE;
-/*!40000 ALTER TABLE `Ventas_Detalles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Ventas_Detalles` ENABLE KEYS */;
+LOCK TABLES `Ventas_detalle` WRITE;
+/*!40000 ALTER TABLE `Ventas_detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Ventas_detalle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Ventas_detalle_pago`
+--
+
+DROP TABLE IF EXISTS `Ventas_detalle_pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Ventas_detalle_pago` (
+  `id_detalle_pago` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_venta` int(10) unsigned NOT NULL,
+  `id_tipo_pago` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL,
+  `id_cliente` int(10) unsigned NOT NULL,
+  `referencia` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `activo` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_detalle_pago`),
+  KEY `ventas_detalle_pago_id_venta_foreign` (`id_venta`),
+  KEY `ventas_detalle_pago_id_tipo_pago_foreign` (`id_tipo_pago`),
+  KEY `ventas_detalle_pago_id_user_foreign` (`id_user`),
+  KEY `ventas_detalle_pago_id_cliente_foreign` (`id_cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Ventas_detalle_pago`
+--
+
+LOCK TABLES `Ventas_detalle_pago` WRITE;
+/*!40000 ALTER TABLE `Ventas_detalle_pago` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Ventas_detalle_pago` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Ventas_subdetalle`
+--
+
+DROP TABLE IF EXISTS `Ventas_subdetalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Ventas_subdetalle` (
+  `id_s_venta` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_venta_d` int(10) unsigned NOT NULL,
+  `id_promocion` int(11) DEFAULT NULL,
+  `id_paquete` int(11) DEFAULT NULL,
+  `id_curso` int(11) DEFAULT NULL,
+  `precio` double(8,2) NOT NULL,
+  `nombre` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_s_venta`),
+  KEY `ventas_subdetalle_id_venta_d_foreign` (`id_venta_d`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Ventas_subdetalle`
+--
+
+LOCK TABLES `Ventas_subdetalle` WRITE;
+/*!40000 ALTER TABLE `Ventas_subdetalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Ventas_subdetalle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `View_Plantilla`
+--
+
+DROP TABLE IF EXISTS `View_Plantilla`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `View_Plantilla` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) unsigned NOT NULL,
+  `id_plantilla` int(11) unsigned NOT NULL,
+  `id_curso` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `View_Plantilla`
+--
+
+LOCK TABLES `View_Plantilla` WRITE;
+/*!40000 ALTER TABLE `View_Plantilla` DISABLE KEYS */;
+/*!40000 ALTER TABLE `View_Plantilla` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Vista_plantilla`
+--
+
+DROP TABLE IF EXISTS `Vista_plantilla`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Vista_plantilla` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) unsigned NOT NULL,
+  `id_curso` int(11) unsigned NOT NULL,
+  `id_plantilla` int(11) unsigned NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fk_cliente` (`id_cliente`),
+  KEY `fk_plantilla` (`id_plantilla`),
+  CONSTRAINT `fk_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_plantilla` FOREIGN KEY (`id_plantilla`) REFERENCES `Plantillas` (`id_plantilla`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Vista_plantilla`
+--
+
+LOCK TABLES `Vista_plantilla` WRITE;
+/*!40000 ALTER TABLE `Vista_plantilla` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Vista_plantilla` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1643,7 +1812,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (3,'admin','admin-last','04142392030','abcsimple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','TiONMMHhqMyxdIFJfFa4aU3KY2d9OU8Co3up2PerVGFd8k5zaDtjH1qeiDkP','2018-10-01 21:29:54','2018-10-01 21:29:54',NULL,1,'0',NULL,NULL,0,1),(14,'admin','admin-last','04142392030','abc3simple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','lNkuIZUU72VHusaFAuV5ZnzBHXgHcvO3F3gNlKvSWkTzAgOQgUeFeg4dcj5Q','2018-10-11 13:46:47','2018-10-11 13:46:47',NULL,1,'1',NULL,NULL,0,1),(15,'Carlos','Suarez','04166954964','csuarezr@gmail.com','$2y$10$iG5ScP6xXPmiRVwx8EyY3ObxEkReFURjUuSiI90Q1hTvN95DORDJK','vsm7loGIL4YxJLnUvRAon5aNUT360EO3no3HulQafdObBUf34rWOGPai0BGI','2018-11-08 22:34:05','2019-04-29 21:51:04',NULL,1,'10797999',NULL,'',0,1),(16,'Renny','Hernandez','09998887766','renny1@gmail.com','$2y$10$OIQOJihWmcqo9rT8L8nVWu2.eiZL56MYx6ALTR4DJ0xyHLwr.w1jG','77QEb8ejWvxPigBBS20bzSr6FTVbM0uOMd4slyfFSPifNXyi6EFVRaynyDlX','2019-02-22 22:54:12','2019-04-23 18:53:52',NULL,1,'6645747',NULL,'',0,1),(17,'Carlos','Rojas','45454545','crojas@gmail.com','$2y$10$RQ.j3r93uWs3TshsdQoOmexFkfzIyBEZenI0wSXh0WnJSWvYC6asK','Cw9QER7vOrc2BZBakxGF14tnj6c4pgGLfru8Eo0NQ3M9HKV2ZQMwfHJc4Jmp','2019-04-23 00:13:04','2019-04-23 00:16:33',NULL,1,'10797999','2019-04-10','',0,1),(18,'jacqueline','Lopez','98989809','oboequintero@gmail.com','$2y$10$rYHgETPEBnjFDR3ZnkO8pORapTHHHAdDdBWJwBMUBrYM520CYhGJW','rpaeH2YvxyVlnlB77VSKdLIbTPSs27PyJUySbKozRIjj8g80LiQqZdbX3lDk','2019-04-25 22:54:56','2019-04-25 22:55:14',NULL,1,'15656545','2019-04-11','',0,1);
+INSERT INTO `clientes` VALUES (3,'admin','admin-last','04142392030','abcsimple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','TiONMMHhqMyxdIFJfFa4aU3KY2d9OU8Co3up2PerVGFd8k5zaDtjH1qeiDkP','2018-10-01 21:29:54','2018-10-01 21:29:54',NULL,1,'0',NULL,NULL,0,1),(14,'admin','admin-last','04142392030','abc3simple@domain.com','$2y$10$ElAlUeMSSq/BL486.6EEj.skUQQhEw2vBJhbjO0OQ0syheIkaczau','lNkuIZUU72VHusaFAuV5ZnzBHXgHcvO3F3gNlKvSWkTzAgOQgUeFeg4dcj5Q','2018-10-11 13:46:47','2018-10-11 13:46:47',NULL,1,'1',NULL,NULL,0,1),(15,'Carlos Andrés','Suarez','04166954964','csuarezr@gmail.com','$2y$10$iG5ScP6xXPmiRVwx8EyY3ObxEkReFURjUuSiI90Q1hTvN95DORDJK','mzcJLI0mYSvfk6vItlvy1lJUHAPARntqCwVvjOE8wwqp6ppsKu0jkaSP1tHg','2018-11-08 22:34:05','2019-09-12 17:50:01',NULL,1,'10797999','1973-05-31','',1,1),(16,'Renny','Hernandez','09998887766','renny1@gmail.com','$2y$10$OIQOJihWmcqo9rT8L8nVWu2.eiZL56MYx6ALTR4DJ0xyHLwr.w1jG','77QEb8ejWvxPigBBS20bzSr6FTVbM0uOMd4slyfFSPifNXyi6EFVRaynyDlX','2019-02-22 22:54:12','2019-04-23 18:53:52',NULL,1,'6645747',NULL,'',0,1),(17,'Carlos','Rojas','45454545','crojas@gmail.com','$2y$10$RQ.j3r93uWs3TshsdQoOmexFkfzIyBEZenI0wSXh0WnJSWvYC6asK','Cw9QER7vOrc2BZBakxGF14tnj6c4pgGLfru8Eo0NQ3M9HKV2ZQMwfHJc4Jmp','2019-04-23 00:13:04','2019-04-23 00:16:33',NULL,1,'10797999','2019-04-10','',0,1),(18,'jacqueline','Lopez','98989809','oboequintero@gmail.com','$2y$10$rYHgETPEBnjFDR3ZnkO8pORapTHHHAdDdBWJwBMUBrYM520CYhGJW','rpaeH2YvxyVlnlB77VSKdLIbTPSs27PyJUySbKozRIjj8g80LiQqZdbX3lDk','2019-04-25 22:54:56','2019-04-25 22:55:14',NULL,1,'15656545','2019-04-11','',0,1);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1807,7 +1976,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1816,7 +1985,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (26,'2014_10_12_000000_create_users_table',1),(27,'2014_10_12_100000_create_password_resets_table',1),(28,'2015_01_20_084450_create_roles_table',1),(29,'2015_01_20_084525_create_role_user_table',1),(30,'2015_01_24_080208_create_permissions_table',1),(31,'2015_01_24_080433_create_permission_role_table',1),(32,'2015_12_04_003040_add_special_role_column',1),(33,'2017_02_18_194922_update_users',1),(34,'2017_05_19_190822_create_table_cei_migration',1),(35,'2017_05_23_193042_create_table_formulario_migration',1),(36,'2017_10_17_170735_create_permission_user_table',1),(37,'2018_05_20_171526_create_table_idioma',1),(38,'2018_05_28_200209_create_tabla__niveles',1),(39,'2018_05_28_200442_create_tabla__lecciones',1),(40,'2018_05_31_183342_create_table_pantilla',1),(41,'2018_05_31_184559_create_table_contenido',1),(42,'2018_05_31_184632_create_table__tips',1),(43,'2018_05_31_184701_create_table__tips__by__plantilla',1),(44,'2018_06_08_201944_update_table_tips_by_plantilla',1),(45,'2018_06_18_175358_agregar_campo_tabla_contenido',1),(46,'2018_06_19_133546_eliminar_campo_unico_plantilla',1),(47,'2018_06_19_135514_actualizar_campo_unico_contenido',1),(48,'2018_06_20_023452_abc_simple',1),(49,'2018_06_20_171557_create_table_diccionario',1),(50,'2018_06_20_171642_create_table_opciones',1),(51,'2018_06_20_195249_add_campo_table_tips',1),(52,'2018_06_22_161054_actualizar_campo_ruta_tabla_tips',1),(53,'2018_06_22_180015_actualizar_tabla_idioma',1),(54,'2018_06_22_182019_agregacamponombretablaopciones',1),(55,'2018_06_26_153421_actualizartablaopciones',1),(56,'2018_06_20_171908_actualizar_foreing_key_nivel',2),(57,'2018_06_29_150342_add__campo_idhtml__tabla__contenido',3),(58,'2018_07_16_153421_actualizartablatipoplantilla',4),(60,'2018_07_06_145850_agregar__campo__pagina__tabla__plantilla',5),(61,'2018_07_18_145422_create_tabla_cursos',6),(62,'2018_08_05_150157_tipo_producto',7),(63,'2018_08_05_153844_producto',8),(65,'2018_08_15_151758_tipo_estatus',9),(66,'2018_08_16_142232_ventas',9),(67,'2018_08_16_172217_ventas_detalles',10),(68,'2018_07_24_030831_create_tipo_examen_table',11),(69,'2018_08_03_055540_create_promocion_table',12),(70,'2018_08_03_060306_create_promocion_paquete_table',12),(72,'2018_08_03_061307_create_compra_promocion_table',12),(73,'2018_08_22_152859_carrito_compras',13),(75,'2018_06_22_225640_create_examenes_table',15),(76,'2018_07_26_135921_add__campo__id_tipo_examen_tabla_examen',16),(77,'2018_06_20_024054_create_tipo_ejercicio_table',17),(78,'2018_06_22_235308_create_ejercicios_table',17),(79,'2018_07_16_031706_create_puntaje_examen_table',17),(80,'2018_07_29_193249_examen_ejercicio',17),(81,'2018_08_02_200233_create_compra_table',18),(82,'2018_08_02_200302_create_paquetes_table',18),(83,'2018_08_03_055540_create_promociones_table',18),(84,'2018_08_12_054621_create_fecha_promocion_table',18),(85,'2018_08_03_061101_create_promocion_curso_table',19),(86,'2018_09_27_152406_tipo_contenido',20),(87,'2018_09_27_152432_contenido_ejercicio',20),(88,'2018_07_07_192341_create_admins_table',21),(89,'2018_07_07_192342_create_admin_password_resets_table',21),(90,'2018_11_29_184444_create_permission_tables',22);
+INSERT INTO `migrations` VALUES (26,'2014_10_12_000000_create_users_table',1),(27,'2014_10_12_100000_create_password_resets_table',1),(28,'2015_01_20_084450_create_roles_table',1),(29,'2015_01_20_084525_create_role_user_table',1),(30,'2015_01_24_080208_create_permissions_table',1),(31,'2015_01_24_080433_create_permission_role_table',1),(32,'2015_12_04_003040_add_special_role_column',1),(33,'2017_02_18_194922_update_users',1),(34,'2017_05_19_190822_create_table_cei_migration',1),(35,'2017_05_23_193042_create_table_formulario_migration',1),(36,'2017_10_17_170735_create_permission_user_table',1),(37,'2018_05_20_171526_create_table_idioma',1),(38,'2018_05_28_200209_create_tabla__niveles',1),(39,'2018_05_28_200442_create_tabla__lecciones',1),(40,'2018_05_31_183342_create_table_pantilla',1),(41,'2018_05_31_184559_create_table_contenido',1),(42,'2018_05_31_184632_create_table__tips',1),(43,'2018_05_31_184701_create_table__tips__by__plantilla',1),(44,'2018_06_08_201944_update_table_tips_by_plantilla',1),(45,'2018_06_18_175358_agregar_campo_tabla_contenido',1),(46,'2018_06_19_133546_eliminar_campo_unico_plantilla',1),(47,'2018_06_19_135514_actualizar_campo_unico_contenido',1),(48,'2018_06_20_023452_abc_simple',1),(49,'2018_06_20_171557_create_table_diccionario',1),(50,'2018_06_20_171642_create_table_opciones',1),(51,'2018_06_20_195249_add_campo_table_tips',1),(52,'2018_06_22_161054_actualizar_campo_ruta_tabla_tips',1),(53,'2018_06_22_180015_actualizar_tabla_idioma',1),(54,'2018_06_22_182019_agregacamponombretablaopciones',1),(55,'2018_06_26_153421_actualizartablaopciones',1),(56,'2018_06_20_171908_actualizar_foreing_key_nivel',2),(57,'2018_06_29_150342_add__campo_idhtml__tabla__contenido',3),(58,'2018_07_16_153421_actualizartablatipoplantilla',4),(60,'2018_07_06_145850_agregar__campo__pagina__tabla__plantilla',5),(61,'2018_07_18_145422_create_tabla_cursos',6),(62,'2018_08_05_150157_tipo_producto',7),(63,'2018_08_05_153844_producto',8),(65,'2018_08_15_151758_tipo_estatus',9),(66,'2018_08_16_142232_ventas',9),(67,'2018_08_16_172217_ventas_detalles',10),(68,'2018_07_24_030831_create_tipo_examen_table',11),(69,'2018_08_03_055540_create_promocion_table',12),(70,'2018_08_03_060306_create_promocion_paquete_table',12),(72,'2018_08_03_061307_create_compra_promocion_table',12),(73,'2018_08_22_152859_carrito_compras',13),(75,'2018_06_22_225640_create_examenes_table',15),(76,'2018_07_26_135921_add__campo__id_tipo_examen_tabla_examen',16),(77,'2018_06_20_024054_create_tipo_ejercicio_table',17),(78,'2018_06_22_235308_create_ejercicios_table',17),(79,'2018_07_16_031706_create_puntaje_examen_table',17),(80,'2018_07_29_193249_examen_ejercicio',17),(81,'2018_08_02_200233_create_compra_table',18),(82,'2018_08_02_200302_create_paquetes_table',18),(83,'2018_08_03_055540_create_promociones_table',18),(84,'2018_08_12_054621_create_fecha_promocion_table',18),(85,'2018_08_03_061101_create_promocion_curso_table',19),(86,'2018_09_27_152406_tipo_contenido',20),(87,'2018_09_27_152432_contenido_ejercicio',20),(88,'2018_07_07_192341_create_admins_table',21),(89,'2018_07_07_192342_create_admin_password_resets_table',21),(90,'2018_11_29_184444_create_permission_tables',22),(91,'2019_06_06_155949_create_shoppingcart_table',23);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1976,7 +2145,7 @@ CREATE TABLE `products` (
   CONSTRAINT `products_id_categoria_foreign` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON UPDATE CASCADE,
   CONSTRAINT `products_id_curso_foreign` FOREIGN KEY (`id_curso`) REFERENCES `Cursos` (`id_curso`) ON UPDATE CASCADE,
   CONSTRAINT `products_id_paquete_foreign` FOREIGN KEY (`id_paquete`) REFERENCES `Paquetes` (`id_paquete`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1985,6 +2154,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,NULL,NULL,1,2,NULL,1,'2019-06-06 15:55:51','2019-06-06 15:55:51'),(2,3,NULL,NULL,1,NULL,1,'2019-07-19 15:00:42','2019-07-19 15:00:42'),(3,4,NULL,NULL,1,NULL,1,'2019-07-19 15:01:27','2019-07-19 15:01:27'),(4,5,NULL,NULL,1,NULL,1,'2019-07-25 14:43:46','2019-07-25 14:43:46');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2074,6 +2244,32 @@ INSERT INTO `roles` VALUES (2,'admin ','web','2018-11-29 20:20:41','2018-11-29 2
 UNLOCK TABLES;
 
 --
+-- Table structure for table `shoppingcart`
+--
+
+DROP TABLE IF EXISTS `shoppingcart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shoppingcart` (
+  `identifier` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `instance` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`identifier`,`instance`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shoppingcart`
+--
+
+LOCK TABLES `shoppingcart` WRITE;
+/*!40000 ALTER TABLE `shoppingcart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shoppingcart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -2102,7 +2298,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','abcsimple@domain.com','$2y$10$kj711G/q1yG31TqboGUDrexqrjnYqEWpLzhydVJIk3IY26WOgJKUC','9ep8Jjybf5FW179ypPKB6GvK192tHKbJOLnaDk8cWQa5OZM47uEv0Rgd7PQJ','2018-06-28 00:35:30','2018-12-03 22:44:18',NULL,NULL,NULL),(2,'usuario','usuario@domain.com','$2y$10$Nyy/fTKnDzvIhKv7khptie0xBO4C1nh.K1eP1w1qmi3nQmVjoS5Nm','4EYGcMlz6y5KkNLdQk6JLPmRcUrC9Oit71zP7aUHl7xOR3Q3rCdS0Ve0PBMj','2018-06-28 22:38:12','2018-11-30 18:06:20',NULL,NULL,NULL),(3,'Carlos Suarez','csuarezr@gmail.com','$2y$10$.Hxn0GvB9Q0OhPxof4VETu7tv9KpyiTVs4ZctUxZ9Xq2WcAwG0ytK','OdGYbdCDyPDto4Ch9ZBtk4HGMcW67yOOQNZ9GGoV5EdjtXZs46YmrQsjKOVS','2018-11-29 19:18:35','2018-12-05 21:56:12',NULL,NULL,NULL),(4,'Aristides Cortesía','cochejose@gmail.com','$2y$10$HWwBUvLWtnNXx0m7G0URQOfMkYS0XRaarYhWK3TzfFbmvCBS7UewO',NULL,'2018-12-03 23:12:39','2018-12-03 23:12:39',NULL,NULL,NULL),(5,'Renny Hernández','rennytox@gmail.com','$2y$10$D/9CAwyjEHcDR2Zlzd.tkO4NliJMhwBC66iidVqjXdzzJP31VyHXy',NULL,'2018-12-04 22:34:55','2018-12-04 22:34:55',NULL,NULL,NULL),(6,'Geraldo Marcano','geraldomarcano@gmail.com','$2y$10$YltNwC8khz3toEihqvRubO//xVKUZwxwktWEwM1//w2Vgq6pt0foy',NULL,'2018-12-04 22:45:54','2018-12-04 22:45:54',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin','abcsimple@domain.com','$2y$10$kj711G/q1yG31TqboGUDrexqrjnYqEWpLzhydVJIk3IY26WOgJKUC','A8oEUTOV3HztlMILSUxysWsfT9gElCm0svbaa2d5Us28z4ekRiAP7s8bCeUG','2018-06-28 00:35:30','2018-12-03 22:44:18',NULL,NULL,NULL),(2,'usuario','usuario@domain.com','$2y$10$Nyy/fTKnDzvIhKv7khptie0xBO4C1nh.K1eP1w1qmi3nQmVjoS5Nm','4EYGcMlz6y5KkNLdQk6JLPmRcUrC9Oit71zP7aUHl7xOR3Q3rCdS0Ve0PBMj','2018-06-28 22:38:12','2018-11-30 18:06:20',NULL,NULL,NULL),(3,'Carlos Suarez','csuarezr@gmail.com','$2y$10$OqJ/bW9Q370gQpgQrbdwxue0F6HUkE74dpJS8uZNEdZdjbJpA5Ehu','OdGYbdCDyPDto4Ch9ZBtk4HGMcW67yOOQNZ9GGoV5EdjtXZs46YmrQsjKOVS','2018-11-29 19:18:35','2019-09-13 18:59:15',NULL,NULL,NULL),(4,'Aristides Cortesía','cochejose@gmail.com','$2y$10$HWwBUvLWtnNXx0m7G0URQOfMkYS0XRaarYhWK3TzfFbmvCBS7UewO',NULL,'2018-12-03 23:12:39','2018-12-03 23:12:39',NULL,NULL,NULL),(5,'Renny Hernández','rennytox@gmail.com','$2y$10$D/9CAwyjEHcDR2Zlzd.tkO4NliJMhwBC66iidVqjXdzzJP31VyHXy',NULL,'2018-12-04 22:34:55','2018-12-04 22:34:55',NULL,NULL,NULL),(6,'Geraldo Marcano','geraldomarcano@gmail.com','$2y$10$YltNwC8khz3toEihqvRubO//xVKUZwxwktWEwM1//w2Vgq6pt0foy',NULL,'2018-12-04 22:45:54','2018-12-04 22:45:54',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2115,4 +2311,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-16 13:54:12
+-- Dump completed on 2019-09-26 15:01:30

@@ -83,12 +83,14 @@
   <script>
     //imagen completa de banner principal
     $(document).ready(function() {
-     $("#fondohome").css({"height":$(window).height() + "px"});
+
+        $("#fondohome").css({"height":$(window).height() + "px"});
+        $("#fondoc1").css({"height":$(window).height() + "px"});
+        cursos_gratis();
+        log_cliente();
+
     });
 
-    $(document).ready(function() {
-     $("#fondoc1").css({"height":$(window).height() + "px"});
-    });
 
 
   //reloj
@@ -159,7 +161,7 @@
 
                 $.each(data.data, function (index, value) {
 
-                  scHTML += '<form  method="POST" action="{{ route("nivel") }}"><input name="_method" type="hidden" value="POST"> <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">  <li><button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;"> '+value.Nombre+' </button></li> <input type="hidden" name="id_curso" value="'+value.id_curso+'"> <input type="text" name="id_cliente" value="{{ auth()->user()->id }} "> </form>'
+                  scHTML += '<form  method="POST" action="{{ route("nivel") }}"><input name="_method" type="hidden" value="POST"> <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">  <li><button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;"> '+value.Nombre+' </button></li> <input type="hidden" name="id_curso" value="'+value.id_curso+'"> <input type="hidden" name="id_cliente" value="{{ auth()->user()->id }} "> </form>'
 
                 $('#z').append(scHTML);
                 scHTML = '';
@@ -169,12 +171,37 @@
        });
     }
 
-    $(document).ready(function() {
-      window.onload=show5;
-      cursos_gratis();
-    });
+    function log_cliente() {
+        var scHTML = '';
 
-        // ajax para actualizar datos
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+          });
+
+        var parametros = {
+            "identidad" : $('#clienteUser').val(),
+            'token': "token"
+            };
+        $.ajax({
+               data:  parametros,
+               url:   'log_cliente',
+               type:  'post',
+               async:  true,
+               dataType: "json",
+           error: function() {
+                  alert('Ha surgido un error');
+           },
+           success:  function (data) {
+
+                alert(data.msg);
+
+           }
+       });
+    }
+
+            // ajax para actualizar datos
 
          /* $(document).on('click', '#completar', function(){
             var USER = $(this).attr("id");
