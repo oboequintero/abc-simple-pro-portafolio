@@ -77,10 +77,10 @@ class ContenidoController extends Controller
      */
     public function create()
     {
-        $error_msg = ""; 
+        $error_msg = "";
         $_class    = "";
         $_idhtml     = "";
-        $_nomb     = ""; 
+        $_nomb     = "";
         $_descrip  = "";
         $_tamano     = "";
         $_parrafo     = "";
@@ -88,9 +88,9 @@ class ContenidoController extends Controller
         $_fin     = "";
         $_margen_superior   = "";
         $_margen_inferior   = "";
-        
 
-        
+
+
 
         $id = Input::get('id_plantilla');
 
@@ -115,7 +115,7 @@ class ContenidoController extends Controller
 
             if($id_plantilla){
 
-                
+
                 $plantilla=DB::table('Plantillas')->where('id_plantilla', '=', $id_plantilla)->first();
                 $leccion=DB::table('Lecciones')->where('id_leccion', '=', $plantilla->id_leccion)->first();
                 $nivel=DB::table('Niveles')->where('id_nivel', '=', $leccion->id_nivel)->first();
@@ -136,7 +136,7 @@ class ContenidoController extends Controller
                 ->get();
             }
 
- 
+
 
         return view($this->path . ".create", compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_id_plantilla','_fin','_margen_superior','_margen_inferior'));
     }
@@ -147,7 +147,7 @@ class ContenidoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store1(Request $request)
+    /*public function store1(Request $request)
     {
         //
          try{
@@ -184,7 +184,7 @@ class ContenidoController extends Controller
             $contenido->tiempo        = $request->tiempo;
             $contenido->activo        = $request->status;
             $contenido->color         = $request->color;
-            
+
             if (!($request->negrita)) {
                 $request->negrita=0;
             }
@@ -211,7 +211,7 @@ class ContenidoController extends Controller
             return $e->getMessage();
         }
     }
-
+  */
     /**
      * Display the specified resource.
      *
@@ -220,12 +220,12 @@ class ContenidoController extends Controller
      */
 
     public function store(Request $request){
-          
-        $error_msg = ""; 
+
+        $error_msg = "";
         $_class    = "";
 
         $_idhtml     = $request->idhtml;
-        $_nomb     = $request->nombre; 
+        $_nomb     = $request->nombre;
         $_descrip  = $request->descripcion;
         $_tamano     = $request->tamano;
         $_parrafo     = $request->parrafo;
@@ -241,10 +241,10 @@ class ContenidoController extends Controller
         else{
                 $id=$request->id;
             }
-    
 
 
-        
+
+
             //Obtener y mostrar las plantillas existentes y activas
             $plantillas = DB::table('Plantillas')
             ->select('id_plantilla', 'nombre as plantilla')
@@ -252,25 +252,25 @@ class ContenidoController extends Controller
             ->where('activo', true)
             ->get();
 
-        
+
         //Obtener los tipos de contenidos activos
         $tipo_contenido = DB::table('Tipo_Contenido')
         ->select('id_tipo_con', 'nombre')
         ->orderby('nombre')
         ->where('activo', true)
         ->get();
-        
-        
-        $nombre=''; 
-        
+
+
+        $nombre='';
+
         $contenido = new ContenidoModel();
 
         $id_plantilla=$id;
 
-           
-               
+
+
         $file = $request->file('input-b1');
-        
+
         $tipo_c = DB::table('Tipo_Contenido')->get();
 
 
@@ -292,7 +292,7 @@ class ContenidoController extends Controller
             $contenido->id_plantilla  = $id;
             $contenido->idhtml        = $request->idhtml;
             $contenido->nombre        = $request->nombre;
-            $contenido->tamano          = $request->tamano;
+            $contenido->tamano        = $request->tamano;
             $contenido->descripcion   = $request->descripcion;
             $contenido->ruta          = $nombre;
             $contenido->parrafo       = $request->parrafo;
@@ -302,7 +302,7 @@ class ContenidoController extends Controller
 
             $contenido->margen_superior  = $request->margen_superior;
             $contenido->margen_inferior  = $request->margen_inferior;
-            
+
             if (!($request->negrita)) {
                 $request->negrita=0;
             }
@@ -318,7 +318,7 @@ class ContenidoController extends Controller
             $contenido->save();
 
              $_idhtml     = "";
-             $_nomb     = ""; 
+             $_nomb     = "";
              $_descrip  = "";
              $_tamano     = "";
              $_parrafo     = "";
@@ -326,11 +326,11 @@ class ContenidoController extends Controller
              $_fin     = "";
              $_margen_superior     = "";
              $_margen_inferior     = "";
-                
-            $_class = "alert alert-success";
-            $error_msg = "Registrado correctamente."; 
 
-           return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin','_margen_superior','_margen_inferior'));   
+            $_class = "alert alert-success";
+            $error_msg = "Registrado correctamente.";
+
+           return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin','_margen_superior','_margen_inferior'));
 
 
             }
@@ -340,12 +340,12 @@ class ContenidoController extends Controller
             }
 
         }
-       
+
         else{
-            $error_msg = $msg; 
+            $error_msg = $msg;
             $_class    = "alert alert-warning";
-  
-             return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin','_margen_superior','_margen_inferior'));  
+
+             return view($this->path . '.create', compact('plantillas','id','tipo_contenido','error_msg','_class','_idhtml','_nomb','_descrip','_tamano','_parrafo','_tiempo','_fin','_margen_superior','_margen_inferior'));
 
             }
 
@@ -366,9 +366,9 @@ class ContenidoController extends Controller
     public function edit($id)
     {
 
-        $error_msg = "";  
+        $error_msg = "";
         $_class    = "";
-  
+
         try{
             $contenido = ContenidoModel::find($id);
             $tipo_c = DB::table('Tipo_Contenido')->get();
@@ -460,7 +460,7 @@ class ContenidoController extends Controller
 
          $data=DB::table('Contenido')->where('nombre', '=', $request->nombre)->first();
         $data2=DB::table('Contenido')->where('idhtml', '=', $request->idhtml)->first();
-       
+
         $data_aux = DB::select('SELECT *
                                     FROM Contenido AS p
                                     WHERE  p.nombre = :_nomb',
@@ -468,83 +468,83 @@ class ContenidoController extends Controller
         $data_aux2 = DB::select('SELECT *
                                     FROM Contenido AS p
                                     WHERE  p.idhtml = :_idhtml',
-                                    ['_idhtml'=>$idhtml]); 
+                                    ['_idhtml'=>$idhtml]);
 
        if ($aux == 1)
        {
 
 /*
-        if(empty($data_aux[0]->id_contenido) or is_null($data_aux[0]->id_contenido)){             
-            
+        if(empty($data_aux[0]->id_contenido) or is_null($data_aux[0]->id_contenido)){
+
             return true;
         }
-        elseif(empty($data_aux2[0]->id_contenido) or is_null($data_aux2[0]->id_contenido)){            
-            
+        elseif(empty($data_aux2[0]->id_contenido) or is_null($data_aux2[0]->id_contenido)){
+
             return true;
         }
         else
-        {$msg = "Data Inválida. No debe repetirse nombre o idhtml del cotenido"; 
+        {$msg = "Data Inválida. No debe repetirse nombre o idhtml del cotenido";
             return false;} */
          if($data){
-            
-            $msg = "Data Inválida. No debe repetirse nombre del cotenido"; 
+
+            $msg = "Data Inválida. No debe repetirse nombre del cotenido";
             return false;
         }
 
          elseif($data2){
-            
-            $msg = "Data Inválida. No debe repetirse Idhtml del cotenido"; 
+
+            $msg = "Data Inválida. No debe repetirse Idhtml del cotenido";
             return false;
         }
          else
-           return true; 
+           return true;
 
        }
 
        elseif ($aux == 0)
        { # Se valida : si el nombre es el mismo, el id de contenido tambien debe ser igual
 
-              
+
         if(empty($data_aux[0]->id_contenido) or is_null($data_aux[0]->id_contenido)){
-        # Para este error Undefined offset: 0 en caso de modificar por un nombre nuevo y no uno que ya existe.             
-            
+        # Para este error Undefined offset: 0 en caso de modificar por un nombre nuevo y no uno que ya existe.
+
             return true;
         }
         elseif(empty($data_aux2[0]->id_contenido) or is_null($data_aux2[0]->id_contenido)){
-        # Para este error Undefined offset: 0 en caso de modificar por un idhtml nuevo y no uno que ya existe.             
-            
+        # Para este error Undefined offset: 0 en caso de modificar por un idhtml nuevo y no uno que ya existe.
+
             return true;
         }
           elseif($data_aux[0]->id_contenido != $id ){
             $msg = "Data Inválida. No debe repetirse nombre del cotenido";
-            
+
             return false;
              }
 
           elseif($data_aux2[0]->id_contenido != $id ){
             $msg = "Data Inválida. No debe repetirse idhtml del cotenido";
-            
+
             return false;
              }
-        
+
           else
            return true;
-        
+
        }# AUX 0 */
 
     #return true;
-                
+
     }
 
 
     public function update(Request $request, $id){
-          
-        $error_msg = ""; 
-       
+
+        $error_msg = "";
+
         $_class    = "";
-        
-        $nombre=''; 
-        
+
+        $nombre='';
+
         $contenido = ContenidoModel::find($id);
 
         $id_plantilla=$contenido->id_plantilla;
@@ -555,9 +555,9 @@ class ContenidoController extends Controller
         $curso=DB::table('Cursos')->where('id_curso', '=', $nivel->id_curso)->first();
         $idioma=DB::table('Idiomas')->where('id_idioma', '=', $curso->id_idioma)->first();
 
-               
+
         $file = $request->file('input-b1');
-        
+
         $tipo_c = DB::table('Tipo_Contenido')->get();
 
         if($file){
@@ -585,7 +585,7 @@ class ContenidoController extends Controller
             $contenido->tiempo        = $request->tiempo;
             $contenido->activo        = $request->status;
             $contenido->color         = $request->color;
-            
+
             if (!($request->negrita)) {
                 $request->negrita=0;
             }
@@ -597,14 +597,14 @@ class ContenidoController extends Controller
             $contenido->id_tipo_con   = $request->tipo_contenido;
             $contenido->margen_superior   = $request->margen_superior;
             $contenido->margen_inferior   = $request->margen_inferior;
-            
+
             #dd ($request->idhtml);
             $contenido->save();
-                
-            $_class = "alert alert-success";
-            $error_msg = "Actualizado correctamente."; 
 
-           return view($this->path . '.edit', compact('contenido','tipo_c','error_msg', '_class','plantilla','leccion','nivel','idioma','curso','id_plantilla','id'));  
+            $_class = "alert alert-success";
+            $error_msg = "Actualizado correctamente.";
+
+           return view($this->path . '.edit', compact('contenido','tipo_c','error_msg', '_class','plantilla','leccion','nivel','idioma','curso','id_plantilla','id'));
 
 
             }
@@ -614,12 +614,12 @@ class ContenidoController extends Controller
             }
 
         }
-       
+
         else{
-            $error_msg = $msg; 
+            $error_msg = $msg;
             $_class    = "alert alert-warning";
-  
-             return view($this->path . '.edit', compact('contenido','tipo_c','error_msg', '_class','plantilla','leccion','nivel','idioma','curso','id_plantilla','id'));  
+
+             return view($this->path . '.edit', compact('contenido','tipo_c','error_msg', '_class','plantilla','leccion','nivel','idioma','curso','id_plantilla','id'));
 
             }
 

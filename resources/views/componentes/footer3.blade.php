@@ -191,26 +191,21 @@
                     }
                     if(data[f].id_tipo_con ==6 && seccion==0 ){
                         var letra = data[f].tamano;
+                        var mar_sup= data[f].margen_superior;
+                        var mar_izq= data[f].margen_inferior;
                         $("#scroll1").css('display','block');
                         $('#scroll1').prop('style','font-size:'+letra+'px');
                         $("#s1").css('display','block');
-                        scHTML += '<div "class="text-center" style="margin-top: 10px;" ><p id="'+ data[f].id_contenido+'" ></p><div/>';
+
+                        scHTML = '<div "class="text-center" style="margin-top: '+mar_sup+'px;" ><p id="'+ data[f].id_contenido+'" ></p><div/>';
+
                         $('.c-seccion').append(scHTML);
-                        $('#'+data[f].id_contenido).prop('style','font-size:'+letra+'px');
-                        if(titulo==0){
-                            $('#'+data[f].id_contenido).css('color',data[f].color);
-                            if (data[f].negrita==1) {
-                                $('#'+data[f].id_contenido).prop('style','font:italic bold  georgia, serif; color:'+data[f].color+'; font-size:'+letra+'px;');
-                            }
-                            $('#'+data[f].id_contenido).append(data[f].parrafo);
-                        }else{
-                            titulo=0;
-                            if (data[f].negrita==1) {
-                                $('#'+data[f].id_contenido).prop('style','font:italic bold georgia, serif; color:'+data[f].color+'; font-size:'+letra+'px;');
-                            }
-                            $('#'+data[f].id_contenido).css('color',data[f].color);
-                            $('#'+data[f].id_contenido).append(data[f].parrafo);
+                        $('#'+data[f].id_contenido).prop('style','color:'+data[f].color+'; font-size:'+letra+'px');
+                        if (data[f].negrita==1) {
+                            $('#'+data[f].id_contenido).prop('style','font:italic bold; font-weight:900; color:'+data[f].color+'; font-size:'+letra+'px;');
                         }
+                        $('#'+data[f].id_contenido).append(data[f].parrafo);
+
                         if(data[f].fin_s ==0){
                             f++;
                         }else{
