@@ -21,12 +21,12 @@
             @endif
              <li><a >
                 <form id="form_contenido" action="{{route('contenido.index')}}" method="GET">
-                                        
+
                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                    
-                 <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Contenido"><i class="glyphicon glyphicon-chevron-left"></i></button>                                                                            
+
+                 <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Contenido"><i class="glyphicon glyphicon-chevron-left"></i></button>
                  </form>
-                 </a></li>  
+                 </a></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -52,7 +52,7 @@
                         Mensaje de alerta
                     </div> <!--div id="div_msg2"-->
                 @endif
-             
+
                 <!-- form start -->
                     <form id="idForm_Contenido" method="post"
                         action="{{ route('contenido.update', $contenido->id_contenido ) }}"
@@ -169,7 +169,7 @@
                              <input class="form-control" id="margen_superior" type="number" name="margen_superior" value="{{$contenido->margen_superior}}" placeholder="Margen Superior"  required>
                              </div>
                             <div class="form-group">
-                            <label>Margen Inferior</label>
+                            <label>Margen Izquierdo</label>
                             <input class="form-control" id="margen_inferior" type="number" name="margen_inferior" value="{{$contenido->margen_inferior}}" placeholder="Margen Inferior" required>
                             </div>
                             <div class="form-group">

@@ -66,7 +66,7 @@
                         <div id="t1" class="mb-2" style="display:none;">
                             <p id="titulo"></p>
                         </div>
-                        <div id="scroll1" class="contenido" style="text-align: justify;">
+                        <div id="scroll1" >
                             <p id="maquinas" ></p>
                         </div>
                         <div id="s1" style="display:none;">

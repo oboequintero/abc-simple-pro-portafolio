@@ -5,7 +5,7 @@
          Registro de Contenido Insert
         </h1>
         <ol class="breadcrumb">
-            
+
                 <li><a href="{{ route('idioma.index') }}" >Idioma: Todos</a></li>
                 <li><a href="{{ route('curso.index')}}"  >Curso: Todos </a></li>
                 <li><a href="{{ route('nivel.index') }}" >Niveles: Todos</a></li>
@@ -13,12 +13,12 @@
                 <li><a href="{{ route('plantilla.index') }}" >Plantillas: Todas</a></li>
                 <li><a >
                 <form id="form_contenido" action="{{route('contenido.index')}}" method="GET">
-                                        
+
                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                    
-                 <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Contenido"><i class="glyphicon glyphicon-chevron-left"></i></button>                                                                            
+
+                 <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Contenido"><i class="glyphicon glyphicon-chevron-left"></i></button>
                  </form>
-                 </a></li>   
+                 </a></li>
       </ol>
     </section>
      <!-- Main content -->
@@ -39,23 +39,23 @@
                             <div id="div_msg" class="{{$_class}}" style="display:block">
                                 {{$error_msg}}
                             </div> <!--div id="div_msg"-->
-                          @else  
+                          @else
                             <div id="div_msg" class="{{$_class}}" style="display:none">
-                              Mensaje de alerta                
+                              Mensaje de alerta
                             </div> <!--div id="div_msg2"-->
                           @endif
-                        
+
                         <!--Fin Bloque que muestra u oculta mensaje de error-->
                 <form role="form"  method="post" action="{{ route('crear_co') }}"
                         accept-charset="UTF-8" enctype="multipart/form-data">
                         <input name="_method" type="hidden" value="GET">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        
+
                     <div class="container-fluid">
                         <input name="id" type="hidden" value="{{ $id }}">
-                      
-                      
-                        @if($id==0)  
+
+
+                        @if($id==0)
                             <div  class="form-group">
                                 <label>SELECCIONE PLANTILLA</label>
                             <select name="idplantilla" class="form-control">
@@ -74,7 +74,7 @@
                     <label>id Html</label>
                         <input class="form-control" id="idhtml" type="text" name="idhtml"  placeholder="Referencia en Lamina HTML" value="{{$_idhtml}}" />
                     </div>
-                    
+
                      <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputEmail">TIPO CONTENIDO</label>
@@ -88,7 +88,7 @@
                                     <label for="exampleInputEmail">¿Fin de Sección?</label>
                                     <div class="text-left" style="margin-left: 8% ;">
                                         <input id="fin_s_id" name="fin_s" style="text-align:center" type="checkbox" data-toggle="toggle" value="{{$_fin}}">
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                                     <label>¿negrita?</label>
                                     <div class="text-left" style="margin-left: 8% ;">
                                             <input id="negrita_id" name="negrita" style="text-align:center" type="checkbox" data-toggle="toggle">
-                                           
+
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                         <input class="form-control" id="margen_superior" type="number" name="margen_superior" placeholder="Margen Superior" value="{{$_margen_superior}}" required>
                     </div>
                     <div class="form-group">
-                    <label>Margen Inferior</label>
+                    <label>Margen Izquierdo</label>
                         <input class="form-control" id="margen_inferior" type="number" name="margen_inferior"  placeholder="Margen Inferior" value="{{$_margen_inferior}}" required>
                     </div>
                     <div class="form-group">
@@ -166,7 +166,7 @@
 <script>
     $(document).ready(function () {
         $( "#fin_s_id" ).change(function() {
-             
+
             /* alert($("#fin_s_id").val()); */
             if ($("#fin_s_id").val()=="on" || $("#fin_s_id").val()==0 ) {
                /* alert("cambiando el valor a 1"); */

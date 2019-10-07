@@ -197,7 +197,7 @@
                         $('#scroll1').prop('style','font-size:'+letra+'px');
                         $("#s1").css('display','block');
 
-                        scHTML = '<div "class="text-center" style="margin-top: '+mar_sup+'px;" ><p id="'+ data[f].id_contenido+'" ></p><div/>';
+                        scHTML = '<div style="margin-top: '+mar_sup+'px; margin-left:'+mar_izq+'px" ><p id="'+ data[f].id_contenido+'" ></p><div/>';
 
                         $('.c-seccion').append(scHTML);
                         $('#'+data[f].id_contenido).prop('style','color:'+data[f].color+'; font-size:'+letra+'px');
