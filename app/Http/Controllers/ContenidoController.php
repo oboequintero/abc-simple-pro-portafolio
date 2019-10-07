@@ -261,30 +261,30 @@ class ContenidoController extends Controller
         ->get();
         
         
-        $nombre=''; 
-        
         $contenido = new ContenidoModel();
 
         $id_plantilla=$id;
 
-           
-               
-        $file = $request->file('input-b1');
-        
         $tipo_c = DB::table('Tipo_Contenido')->get();
 
 
-        if($file){
+            $nombre='';
+            $file = $request->file('input-b1');
+
+            if($file){
                 //obtenemos el nombre del archivo
                 $nombre = $file->getClientOriginalName();
-
-                if (Storage::exists($contenido->ruta ))
+                #
+                if (Storage::exists($contenido->ruta))
                 {
-                    Storage::delete($contenido->ruta );
+                    Storage::delete($contenido->ruta);
                 }
+                #dd($nombre);
                 //indicamos que queremos guardar un nuevo archivo en el disco local
                 Storage::disk('local')->put($nombre,  \File::get($file));
             }
+
+            //verificamos el nombre del archivo  y lo borramos si existe
 
         if($this->validadata($request, $msg,1)){
          try{

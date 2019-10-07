@@ -169,8 +169,8 @@
                              <input class="form-control" id="margen_superior" type="number" name="margen_superior" value="{{$contenido->margen_superior}}" placeholder="Margen Superior"  required>
                              </div>
                             <div class="form-group">
-                            <label>Margen Inferior</label>
-                            <input class="form-control" id="margen_inferior" type="number" name="margen_inferior" value="{{$contenido->margen_inferior}}" placeholder="Margen Inferior" required>
+                            <label>Margen Izquierdo</label>
+                            <input class="form-control" id="margen_inferior" type="number" name="margen_inferior" value="{{$contenido->margen_inferior}}" placeholder="Margen Izquierdo" required>
                             </div>
                             <div class="form-group">
                                 <label>Estatus</label>
