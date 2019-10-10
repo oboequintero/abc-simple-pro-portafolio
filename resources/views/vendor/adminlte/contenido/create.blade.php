@@ -1,3 +1,4 @@
+
 @extends('adminlte::layouts.app')
 @section('main-content')
     <section class="content-header">

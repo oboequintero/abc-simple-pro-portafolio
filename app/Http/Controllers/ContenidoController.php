@@ -44,6 +44,7 @@ class ContenidoController extends Controller
 
             }
             else{
+                
 
                 $contenido = DB::table('Contenido as c')
                 ->join('Plantillas as p', 'p.id_plantilla', '=', 'c.id_plantilla')
