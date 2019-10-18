@@ -1,0 +1,314 @@
+/*
+Fade content bs-carousel with hero headers
+Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
+Image credits: unsplash.com
+*/
+
+/********************************/
+/*       Fade Bs-carousel       */
+/********************************/
+@media(max-width: 1920px){
+  .fade-carousel .slides .slide-1,
+  .fade-carousel .slides .slide-2,
+  .fade-carousel .slides .slide-3{
+    height: 57vh;
+  }
+
+  .hero{
+    left: 46vw !important;
+    top: 25vh !important;
+  }
+}
+
+.carousel-indicators{
+  bottom: 16vh;
+}
+
+.fade-carousel {
+    position: relative;
+    height: 80vh;
+}
+.fade-carousel .carousel-inner .item {
+    height: 80vh;
+}
+.fade-carousel .carousel-indicators > li {
+    margin: 0 2px;
+    background-color: #2b246a;
+    border-color: #2b246a;
+}
+.fade-carousel .carousel-indicators > li.active {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-color: #fff;
+  opacity: 1;
+
+}
+
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
+    position: absolute;
+    top: 35vh;
+    left: 55vw;
+    z-index: 3;
+    color: #0c1518;
+    text-align: left;
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h2 {
+  font-weight: lighter;
+  margin: 0;
+  padding: 0;
+  font-size: 3em;
+  color: #140f35;
+}
+
+.hero1 {
+    position: absolute;
+    top: 30vh;
+    left: 25vw;
+    z-index: 3;
+    color: #0c1518;
+    text-align: left;
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero1 h2 {
+  font-weight: lighter;
+  margin: 0;
+  padding: 0;
+  font-size: 3em;
+  color: #140f35;
+  padding-bottom: 15px;
+}
+
+.fade-carousel .carousel-inner .item .hero {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s;
+        -ms-transition: 2s all ease-in-out .1s;
+         -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+}
+.fade-carousel .carousel-inner .item.active .hero {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s;
+        -ms-transition: 2s all ease-in-out .1s;
+         -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+}
+
+.fade-carousel .carousel-inner .item .hero1 {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s;
+        -ms-transition: 2s all ease-in-out .1s;
+         -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+}
+.fade-carousel .carousel-inner .item.active .hero1 {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s;
+        -ms-transition: 2s all ease-in-out .1s;
+         -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+}
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .7;
+}
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-hero{
+    color: #140f35;
+    background-color: rgba(242, 242, 242, 0.58);
+    outline: none;
+    margin: 20px auto;
+    border-radius: 0px !important;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn.btn-hero:hover,
+.btn.btn-hero:focus {
+    color: #fff;
+    background-color: rgba(12, 21, 24, 0.48);
+    transition: all 0.6s ease;
+    outline: none;
+    margin: 20px auto;
+    border-radius: 0px !important;
+}
+
+.btn.btn-hero-rojo{
+  background: #d52f36;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 0px;
+  font-weight: bold;
+}
+
+.btn.btn-hero-rojo:hover,
+.btn.btn-hero-rojo:focus {
+    border: 2px solid #d52f36;
+    background-color: transparent; /*rgba(242, 242, 242, 0.58);*/
+    transition: all 0.6s ease;
+    outline: none;
+    margin: 20px auto;
+    border-radius: 0px !important;
+    color: #d52f36;
+}
+
+.btn.btn-hero-interno{
+  background: #fff;
+  color: #51505b;
+  text-transform: uppercase;
+  border-radius: 0px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn.btn-hero-interno:hover,
+.btn.btn-hero-interno:focus {
+    border: 2px solid #51505b;
+    background-color: transparent; /*rgba(242, 242, 242, 0.58);*/
+    transition: all 0.6s ease;
+    outline: none;
+    border-radius: 0px !important;
+    color: #51505b;
+}
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1,
+.fade-carousel .slides .slide-2,
+.fade-carousel .slides .slide-3{
+  height: 55vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.fade-carousel .slides .slide-1 {
+  background-image: url('../img/banner.png');
+}
+
+.fade-carousel .slides .slide-2 {
+  background-image: url('../img/banner.png');
+}
+
+.fade-carousel .slides .slide-3 {
+  background-image: url('../img/banner.png');
+}
+
+.slide-nosotros{
+  /*background-image: url('../img/banner.png');*/
+  background: #ccc;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: 115px;
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+
+@media(max-width: 1680px){
+  .carousel-indicators{
+    bottom: 8vhd;
+  }
+}
+@media(max-width: 1024px){
+  .hero{
+    left: 60vw !important;
+  }
+  .hero h2{
+    font-size: 2.5em;
+  }
+  .btn.btn-hero, .btn.btn-hero-rojo{
+    font-size: 12px;
+  }
+  .carousel-indicators{
+    bottom: 12vh;
+  }
+}
+
+@media(max-width: 990px){
+  .carousel-indicators{
+    bottom: 7vh;
+  }
+  .slide-nosotros{
+    height: 250px;
+  }
+  .hero1{
+    top: 52vh;
+    left: 39vw;
+  }
+}
+
+@media screen and (min-width: 980px){
+    .hero { width: 980px; }
+}
+@media screen and (max-width: 640px){
+    .hero h2 { font-size: 3em; }
+}
+
+@media(max-width: 988px){
+  .hero{
+    padding-left: 35px !important;
+  }
+}
+
+@media(max-width: 945px){
+  .hero{
+    left: 27% !important;
+  }
+}
+
+@media(max-width: 767px){
+  
+  .btn.btn-hero, .btn.btn-hero-rojo{
+    font-size: 10px;
+  }
+  .hero{
+    left: 35vw !important;
+  }
+  .hero h2{
+    font-size: 2em;
+  }
+}
+
+@media(max-width: 990px){
+  .carousel-indicators{
+    bottom: 3vh;
+  }
+}
+
+@media(max-width: 405px){
+  .hero h2{
+    font-size: 1.8em;
+  }
+
