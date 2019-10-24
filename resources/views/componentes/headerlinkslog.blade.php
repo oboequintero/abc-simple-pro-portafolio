@@ -34,7 +34,7 @@
                 <div class="mr-auto"></div>
                 <div class=""><a class="nav-link" href="#"><i class="fas fa-phone" style="font-size:24px; color:#0e9a9d;"></i></a></div>
                 <div class=""><a class="nav-link" href="#"><i class="fas fa-envelope" style="font-size:24px; color:#0e9a9d;"></i></a></div>
-                <div class=""><a class="btn btn-outline-primary" style=" color:#0e9a9d;" href="{{ url('/cliente/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a></div>
+                <div class=""><a class="btn btn-outline-primary" style=" color:#0e9a9d;" href="{{ url('/cliente/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();unlog_cliente();">Salir</a></div>
                 <form id="logout-form" action="{{ url('/cliente/logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
                 </form>

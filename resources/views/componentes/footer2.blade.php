@@ -81,60 +81,8 @@
     </body>
 
   <script>
-    //imagen completa de banner principal
-    $(document).ready(function() {
 
-        $("#fondohome").css({"height":$(window).height() + "px"});
-        $("#fondoc1").css({"height":$(window).height() + "px"});
-        cursos_gratis();
-        log_cliente();
-
-    });
-
-
-
-  //reloj
-  function show5(){
-        if (!document.layers&&!document.all&&!document.getElementById)
-          return
-          var Digital=new Date()
-          var hours=Digital.getHours()
-          var minutes=Digital.getMinutes()
-          var seconds=Digital.getSeconds()
-
-          if (hours >= 0 && hours <= 11) {
-            var saludo = 'Buenos Dias';
-          }
-          if (hours >= 12 && hours <= 18) {
-            var saludo = 'Buenas Tardes';
-          }
-          if (hours >= 19 && hours <= 23) {
-            var saludo = 'Buenas Noches';
-          }
-            var dn="PM"
-            if (hours<12)
-              dn="AM"
-            if (hours>12)
-              hours=hours-12
-            if (hours==0)
-              hours=12
-            $('#saludo').html(saludo);
-            if (minutes<=9)
-              minutes="0"+minutes
-            if (seconds<=9)
-              seconds="0"+seconds
-            //change font size here to your desire
-            myclock=""+hours+":"+minutes+" "+dn+"</b></font>"
-            if (document.layers){
-              document.layers.liveclock.document.write(myclock)
-              document.layers.liveclock.document.close()
-            }
-            else if (document.all)
-              liveclock.innerHTML=myclock
-            else if (document.getElementById)
-              document.getElementById("liveclock").innerHTML=myclock
-              setTimeout("show5()",1000)
-    }
+  
     function cursos_gratis() {
         var scHTML = '';
 
@@ -161,7 +109,7 @@
 
                 $.each(data.data, function (index, value) {
 
-                  scHTML += '<form  method="POST" action="{{ route("nivel") }}"><input name="_method" type="hidden" value="POST"> <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">  <li><button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;"> '+value.Nombre+' </button></li> <input type="hidden" name="id_curso" value="'+value.id_curso+'"> <input type="hidden" name="id_cliente" value="{{ auth()->user()->id }} "> </form>'
+                  scHTML += '<form  method="POST" action="{{ route("nivel") }}"><input name="_method" type="hidden" value="POST"> <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">  <li><button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;"> '+value.Nombre+' </button></li> <input type="hidden" name="id_curso" value="'+value.id_curso+'"> <input type="hidden" name="id_cliente" value="{{ auth()->user()->id }} "> <input type="hidden" name="name_cliente" value="{{ auth()->user()->name }} "> <input type="hidden" name="photo_cliente" value="{{ auth()->user()->photo1}} "> </form>'
 
                 $('#z').append(scHTML);
                 scHTML = '';
@@ -171,60 +119,6 @@
        });
     }
 
-    function log_cliente() {
-        var scHTML = '';
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-             }
-          });
-
-        var parametros = {
-            "identidad" : $('#clienteUser').val(),
-            'token': "token"
-            };
-        $.ajax({
-               data:  parametros,
-               url:   'log_cliente',
-               type:  'post',
-               async:  true,
-               dataType: "json",
-           error: function() {
-                  alert('Ha surgido un error');
-           },
-           success:  function (data) {
-
-                alert(data.msg);
-
-           }
-       });
-    }
-
-            // ajax para actualizar datos
-
-         /* $(document).on('click', '#completar', function(){
-            var USER = $(this).attr("id");
-              $.ajax({
-                url:"{{ url('/cliente/update_cliente{id}') }}",
-                method:"POST",
-                data:{Auth::user()},
-                dataType:"json",
-                _token: '{{csrf_token()}}'
-                success:function(data){
-                  $('#name').val(data.name);
-                  $('#last_name').val(data.last_name);
-                  $('#email').val(data.email);
-                  $('#phone').val(data.phone);
-                  $('#password').val(data.password);
-                  $('#documento').val(data.documento);
-                  $('#fecha_nac').val(data.fecha_nac);
-                  $('#id').val(data.id);
-                  $('#submit').val('update');
-              }
-              });
-            });
-          }); */
 
 
   </script>

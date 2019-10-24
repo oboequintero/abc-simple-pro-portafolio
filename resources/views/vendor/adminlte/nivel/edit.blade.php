@@ -14,15 +14,6 @@
         <li><a href="{{ route('curso.index')}}">Curso: {{$curso->nombre}}</a></li>
 		@endif
         <li class="active"><a href="{{ route('nivel.index') }}">Niveles: Todos</a></li>
-        <li><a>
-				<form id="form_paquete" action="{{route('nivel.index')}}" method="GET">
-                                        
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-																																	  
-					<button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Regresar a Niveles"><i class="glyphicon glyphicon-chevron-left"></i></button>                                                                            
-				</form>
-			</a>
-		</li>
 
       </ol>
     </section>
@@ -57,7 +48,7 @@
 				    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				    <input name="id_nivel" type="hidden" value="{{ $id }}">
 	              <div class="box-body">
-		            <!-- <div class="form-group">
+		             <div class="form-group">
 		                <label>Curso</label>
 		                <select class="form-control select2" name="lista_id_curso" style="width: 100%;">
 		                @foreach($data as $row)
@@ -70,11 +61,7 @@
 							@endif
 						@endforeach
 		                </select>
-		            </div> -->
-		            <div class="form-group">
-	                  <label for="exampleInputEmail1">Curso</label>
-	                  <input type="text" name="lista_id_curso" class="form-control" id="exampleInputEmail1" value="{{ $curso->nombre }}" readonly>
-	                </div>
+		            </div>
 	                <div class="form-group">
 	                  <label for="exampleInputEmail1">Código</label>
 	                  <input type="text" name="codigo" class="form-control" id="exampleInputEmail1" value="{{ $nivel->codigo }}"readonly>

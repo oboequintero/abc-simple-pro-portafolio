@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use App\Cliente;
 use App\User;
-
 use Storage;
 
 class ClienteController extends Controller

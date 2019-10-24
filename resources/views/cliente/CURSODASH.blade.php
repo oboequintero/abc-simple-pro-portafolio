@@ -9,32 +9,23 @@
                     <nav class="navmenu" style="padding-top:25px;">
                         <ul>
                             <li class="has-subnav">
-                                <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="/assets_f/src/img/avatar1.png"></i>
+                                <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="{{ asset('/storage/contenido/'.$photo_cliente)}}"></i>
                                     <span class="" style="margin-top:15px;">
-                                    {{ $nombre }}
-
+                                    {{ $name_cliente }}
                                     <input type="hidden" id="clienteUser" value="">
                                     </span>
                                 </a>
                             </li>
                             <hr>
 
-                            <form name="nivel" method="post" action="{{route ('nivel')}}">
-                            {{ csrf_field() }}
-                            <input name="_method" type="hidden" value="post">
-                            <input name="usuario" type="hidden" value="{{ $nombre }}">
-
-                            <li class="has-subnav">
-                            </li>
-                            </form>
-
-
+                            
                             <li class="has-subnav">
                                 <a  href="#z" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="faa"><img width="55%" src="/assets_f/src/img/n1-png.png"></i>
                                     @foreach($niveles as $row)
                                         <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
                                             {{$row->nombre}}
                                         </button>
+                                        
                                     @endforeach
                                 </a>
                                 <ul class="collapse list-unstyled" id="z">
@@ -42,8 +33,10 @@
                                         <li><a style="color:primary" href="#"> </a></li>
                                         <form  method="POST" action="{{ route('nivel_1') }}">
                                             <input name="_method" type="hidden" value="POST">
-                                            <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                                            <input type="hidden" name="id_cur" value="{{$curso[0]->id_curso}}">
+                                            <input name="_token" type="hidden" value="{{csrf_token()}}" id="token">
+                                            <input name="id_cur" type="hidden" value="{{$curso[0]->id_curso}}">
+                                            <input name="usuario" type="hidden" value="{{ $name_cliente }}">
+                                            <input name="photoq" type="hidden" value="{{ $photo_cliente }}">
                                            
 
                                               <li>
@@ -100,10 +93,10 @@
               </div>
               <div class="ch-info-2-back">
                 <h3>Usted tiene un avance de:</h3>
-                <h2>0%</h2>
+                <h2>12%</h2>
                 <p>
                 <button type="button" data-toggle="modal"  data-target="#prueba2">mas info</button>
-                  <a href="#">Comenzar</a>
+                  <a href="{{ route('cliente.exercise') }}">Comenzar</a>
                 </p>
               </div>
             </div>

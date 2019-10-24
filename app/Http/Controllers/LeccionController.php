@@ -101,11 +101,9 @@ class LeccionController extends Controller
 
 	function validadata($request, &$msg, $aux){
       
-	   #$codigo=DB::table('Lecciones')->where('codigo', '=', $request->codigo)->first();
+	   $codigo=DB::table('Lecciones')->where('codigo', '=', $request->codigo)->first();
 
-      
-       
-       
+
        if($request->id_nivel==0)
             {
                 $id=$request->lista_id_nivel;
@@ -121,12 +119,6 @@ class LeccionController extends Controller
 
        if ($aux==1) {
 
-         $codigo_data = DB::select('SELECT *
-                                    FROM Lecciones AS p
-                                    WHERE p.codigo = :_codigo',
-                                    ['_codigo'=>$codigo]);
-
-         #dd ($codigo_data);
          #No debe repetirse la combinacion de leccion y nombre, pero si se puede repetir el mismo nombre para DIFERENTES NIVELES
 
          $nombre = DB::select('SELECT *
@@ -135,7 +127,7 @@ class LeccionController extends Controller
                                     ['_id'=>$id, '_nomb'=>$nomb]);
       
 
-        if($codigo_data){
+        if($codigo){
             $msg = "Código de Lección duplicado. Introduzca un código válido.";           
             return false;
         }
@@ -251,8 +243,7 @@ class LeccionController extends Controller
         $_descrip  = "";
         $_ruta     = "";
         $msg       = "";  
-        $_class    = "";
-           
+        $_class    = "";   
 
          
 	

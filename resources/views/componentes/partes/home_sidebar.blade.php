@@ -31,7 +31,7 @@
               <li><a style="color:primary" href="#">Mis Regalos 3</a></li>
             </ul>
           </li>
-
+         
           <li class="has-subnav">
             <a  href="#f" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="faa"><img width="55%" src="/assets_f/src/img/icono22.png"></i>
               <span class="nav-text">
@@ -41,7 +41,7 @@
             <ul class="collapse list-unstyled" id="f">
               <li><a style="color:primary" href="#">Promocion 1</a></li>
               <li><a style="color:primary" href="#">Promocion 2</a></li>
-              <li><a style="color:primary" href="#">Promocion 8</a></li>
+              <li><a style="color:primary" href="#">Promocion 3</a></li>
             </ul>
           </li>
           <li class="has-subnav">

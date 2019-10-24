@@ -47,15 +47,8 @@
         </div>
 
   <script>
-    //imagen completa de banner principal
-    $(document).ready(function() {
-     $("#fondohome").css({"height":$(window).height() + "px"});
-    });
 
-    $(document).ready(function() {
-     $("#fondoc1").css({"height":$(window).height() + "px"});
-    });
-
+  
 ////////////////// DECLARACION DE VARIABALES PARA MAQUINA //////////////////////
     var i=0;
     var f=0;
@@ -66,54 +59,7 @@
     var divHTML ='<div class="c-seccion text-center"><div/>';
     $('#s1').append(divHTML);
 //////////////////////// FIN DECLARACION ////////////////////////////////////////
-  //reloj
-  function show5(){
-        if (!document.layers&&!document.all&&!document.getElementById)
-          return
-          var Digital=new Date()
-          var hours=Digital.getHours()
-          var minutes=Digital.getMinutes()
-          var seconds=Digital.getSeconds()
-
-          if (hours >= 0 && hours <= 11) {
-            var saludo = 'Buenos Dias';
-          }
-          if (hours >= 12 && hours <= 18) {
-            var saludo = 'Buenas Tardes';
-          }
-          if (hours >= 19 && hours <= 23) {
-            var saludo = 'Buenas Noches';
-          }
-            var dn="PM"
-            if (hours<12)
-              dn="AM"
-            if (hours>12)
-              hours=hours-12
-            if (hours==0)
-              hours=12
-            $('#saludo').html(saludo);
-            if (minutes<=9)
-              minutes="0"+minutes
-            if (seconds<=9)
-              seconds="0"+seconds
-            //change font size here to your desire
-            myclock=""+hours+":"+minutes+" "+dn+"</b></font>"
-            if (document.layers){
-              document.layers.liveclock.document.write(myclock)
-              document.layers.liveclock.document.close()
-            }
-            else if (document.all)
-              liveclock.innerHTML=myclock
-            else if (document.getElementById)
-              document.getElementById("liveclock").innerHTML=myclock
-              setTimeout("show5()",1000)
-    }
-
-    $(document).ready(function() {
-      window.onload=show5;
-    });
-
-
+ 
 
     $("#menu-toggle").click(function(e) {
     e.preventDefault();
@@ -191,21 +137,26 @@
                     }
                     if(data[f].id_tipo_con ==6 && seccion==0 ){
                         var letra = data[f].tamano;
-                        var mar_sup= data[f].margen_superior;
-                        var mar_izq= data[f].margen_inferior;
                         $("#scroll1").css('display','block');
                         $('#scroll1').prop('style','font-size:'+letra+'px');
                         $("#s1").css('display','block');
-
-                        scHTML = '<div style="margin-top: '+mar_sup+'px; margin-left:'+mar_izq+'px" ><p id="'+ data[f].id_contenido+'" ></p><div/>';
-
+                        scHTML += '<div "class="text-center" style="margin-top: 10px;" ><p id="'+ data[f].id_contenido+'" ></p><div/>';
                         $('.c-seccion').append(scHTML);
-                        $('#'+data[f].id_contenido).prop('style','color:'+data[f].color+'; font-size:'+letra+'px');
-                        if (data[f].negrita==1) {
-                            $('#'+data[f].id_contenido).prop('style','font:italic bold; font-weight:900; color:'+data[f].color+'; font-size:'+letra+'px;');
+                        $('#'+data[f].id_contenido).prop('style','font-size:'+letra+'px');
+                        if(titulo==0){
+                            $('#'+data[f].id_contenido).css('color',data[f].color);
+                            if (data[f].negrita==1) {
+                                $('#'+data[f].id_contenido).prop('style','font:italic bold  georgia, serif; color:'+data[f].color+'; font-size:'+letra+'px;');
+                            }
+                            $('#'+data[f].id_contenido).append(data[f].parrafo);
+                        }else{
+                            titulo=0;
+                            if (data[f].negrita==1) {
+                                $('#'+data[f].id_contenido).prop('style','font:italic bold georgia, serif; color:'+data[f].color+'; font-size:'+letra+'px;');
+                            }
+                            $('#'+data[f].id_contenido).css('color',data[f].color);
+                            $('#'+data[f].id_contenido).append(data[f].parrafo);
                         }
-                        $('#'+data[f].id_contenido).append(data[f].parrafo);
-
                         if(data[f].fin_s ==0){
                             f++;
                         }else{
@@ -303,32 +254,6 @@
             }, false);
           }
         });
-
-
-        // ajax para actualizar datos
-
-         /* $(document).on('click', '#completar', function(){
-            var USER = $(this).attr("id");
-              $.ajax({
-                url:"{{ url('/cliente/update_cliente{id}') }}",
-                method:"POST",
-                data:{Auth::user()},
-                dataType:"json",
-                _token: '{{csrf_token()}}'
-                success:function(data){
-                  $('#name').val(data.name);
-                  $('#last_name').val(data.last_name);
-                  $('#email').val(data.email);
-                  $('#phone').val(data.phone);
-                  $('#password').val(data.password);
-                  $('#documento').val(data.documento);
-                  $('#fecha_nac').val(data.fecha_nac);
-                  $('#id').val(data.id);
-                  $('#submit').val('update');
-              }
-              });
-            });
-          }); */
 
 
   </script>

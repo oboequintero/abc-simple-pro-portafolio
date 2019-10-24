@@ -7,13 +7,13 @@
             
             <div class="col-lg-4">
               <a id="saludo"></a>&nbsp;
-                <span style="padding-left: 5px;">{{ $nombre }}.</span>&nbsp;
+                <span style="padding-left: 5px;">{{ $name_cliente }}.</span>&nbsp;
                 <a style="text-align:center" id="liveclock"></a>&nbsp;
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active d-none d-lg-none">
                     <a class="nav-link" href="#">&nbsp; <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item d-none d-lg-none">
+                  <li class="nav-item d-none d-lg-none"> 
                     <a class="nav-link" href="#">&nbsp;</a>
                   </li>
                 </ul>
@@ -23,7 +23,7 @@
                 <div class="mr-auto"></div>
                 <div class=""><a class="nav-link" href="#"><i class="fas fa-phone" style="font-size:24px; color:#0e9a9d;"></i></a></div>
                 <div class=""><a class="nav-link" href="#"><i class="fas fa-envelope" style="font-size:24px; color:#0e9a9d;"></i></a></div>
-                <div class=""><a class="btn btn-outline-primary" style=" color:#0e9a9d;" href="{{ url('/cliente/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a></div>
+                <div class=""><a class="btn btn-outline-primary" style=" color:#0e9a9d;" href="{{ url('/cliente/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();unlog_cliente();">Salir</a></div>
                 <form id="logout-form" action="{{ url('/cliente/logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
                 </form>
@@ -34,8 +34,7 @@
               <form name="nivel" method="post" enctype='multipart/form-data' action="{{route ('nivel')}}">
                 {{ csrf_field() }}
                   <input name="_method" type="hidden" value="post">
-                  <input name="usuario" type="hidden" value="{{ $nombre }}">
-                  
+                 <!--falta el input name usuario $nombre -->
                   
                   <li class="">
                     <a class="a-style" href='#' onclick='document.forms["nivel"].submit(); return false;'><i class="faar"><img width="55%" src="/assets_f/src/img/icono15.png"></i>

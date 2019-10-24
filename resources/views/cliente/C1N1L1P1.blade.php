@@ -8,22 +8,22 @@
                 <nav class="navmenu2" style="padding-top:25px;">
                     <ul>
                         <li class="has-subnav">
-                            <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="/assets_f/src/img/avatar1.png"></i>
+                            <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="{{ asset('/storage/contenido/'.$photo_cliente)}}"></i>
                                 <span class="" style="margin-top:15px;">
-                                {{ $nombre }}
+                                {{ $name_cliente }}
                                 <input type="hidden" id="clienteUser" value="">
                                 </span>
-                            </a>
+                            </a> 
                         </li>
                         <hr>
 
-                        <form name="nivel" method="post" action="{{route ('nivel')}}">
+                        <!--<form name="nivel" method="post" action="{{route ('nivel')}}">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="post">
-                        <input name="usuario" type="hidden" value="{{ $nombre }}">
+                        <input  type="hidden" value="">
                         <li class="has-subnav">
                         </li>
-                        </form>
+                        </form>-->
 
                         <li class="has-subnav">
                             <a  href="#z" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i></i>
@@ -57,7 +57,8 @@
                     <hr>
                 </nav>
             </div>
-        @if($plantilla[0]->tipo_plantilla==3)
+            @if($plantilla[0]->tipo_plantilla==3)
+
             <div class="tele col-xl-5 col-lg-5">
                 <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
                     @php($a=0)
@@ -66,10 +67,11 @@
                         <div id="t1" class="mb-2" style="display:none;">
                             <p id="titulo"></p>
                         </div>
-                        <div id="scroll1" >
+                        <div id="scroll1" class="contenido p-3" style="text-align: justify;">
                             <p id="maquinas" ></p>
                         </div>
                         <div id="s1" style="display:none;">
+
                         </div>
                     @php($a++)
                 </div>
@@ -91,10 +93,10 @@
 
 
             </div>
-          @endif
+            @endif
 
-          @if($plantilla[0]->tipo_plantilla==1)
-          <div class="tele col-xl-5 col-lg-5">
+            @if($plantilla[0]->tipo_plantilla==1)
+            <div class="tele col-xl-5 col-lg-5">
               <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
                   @php($a=0)
                   @foreach($contenido as $row)
@@ -161,10 +163,12 @@
                       <form  method="post" action="{{route ('view')}}">
                           {{ csrf_field() }}
                           <input name="_method" type="hidden" value="post">
-                          <input name="usuario" type="hidden" value="{{ $nombre }}">
+                          <input name="usuario" type="hidden" value="{{ $name_cliente }}">
+                          <input name="photoq" type="hidden" value="{{ $photo_cliente }}">
+                          
 
                           <input name="pagina" type="hidden" value="{{ $plan[0]->pagina }}">
-                          <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguiente.png" width="40px"></button>
+                          <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguient.png" width="40px"></button>
                       </form>
                   </div>
               </div>
@@ -174,9 +178,11 @@
         <div class="conta sig-atras-video">
             <div class="container">
                 <div class="row barra-prog">
+
                     <div class="col-1 col-lg-1">
                         <button class="btn btn-sm boton-sig-atras" onclick="history.back(-1)"><img src="../assets_f/src/img/anterior.png" ></button>
                     </div>
+
                     <div class="col-10 col-lg-10 d-none d-md-block">
                         <div class="progress">
                             <div class="progress-bar bg-success progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%">
@@ -184,6 +190,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-10 d-md-none " >
                         <div class="progress barraprogreso">
                             <div class="progress-bar bg-success progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%">
@@ -191,16 +198,19 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-1 col-lg-1">
                         <form  method="post" enctype='multipart/form-data' action="{{route ('view')}}">
                             {{ csrf_field() }}
                             <input name="_method" type="hidden" value="post">
-                            <input name="usuario" type="hidden" value="{{ $nombre }}">
+                            <input name="usuario" type="hidden" value="{{ $name_cliente }}">
                             <input name="id_curso" type="hidden" value="{{ $id_curso }}">
                             <input name="pagina" type="hidden" value="{{ $plan[0]->pagina }}">
+                            <input name="photoq" type="hidden" value="{{ $photo_cliente }}">
                             <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguiente.png" ></button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

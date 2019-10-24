@@ -14,6 +14,7 @@
                 {{ Auth::user()->name }}
 
                 <input type="hidden" id="clienteUser" value="{{ Auth::user()->id }}">
+                
                 </span>
               </a>
             </li>
@@ -46,7 +47,7 @@
               <ul class="collapse list-unstyled" id="f">
                 <li><a style="color:primary" href="#">Promocion 1</a></li>
                 <li><a style="color:primary" href="#">Promocion 2</a></li>
-                <li><a style="color:primary" href="#">Promocion 8</a></li>
+                <li><a style="color:primary" href="#">Promocion 3</a></li>
               </ul>
             </li>
             <li class="has-subnav">
@@ -109,7 +110,7 @@
                 </a>
               </li>
               <li class="nav-items">
-              <span>Telefono:</span>
+              <span>Telefonosss:</span>
                 <a href="#" class="nav-link">
                 {{ Auth::user()->phone }} <span class="float-right badge bg-info"></span>
                 </a>
@@ -120,12 +121,12 @@
                 {{ Auth::user()->documento}}<span class="float-right badge bg-success"></span>
                 </a>
               </li>
-              <li>
+              <!--<li>
               <span>Nacimiento:</span>
                 <a href="#" class="nav-link">
                 {{ Auth::user()->fecha_nac}}<span class="float-right badge bg-success"></span>
                 </a>
-              </li>
+              </li>-->
             </ul>
           </div>
           <!--<div class="card-footer">

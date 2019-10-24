@@ -4,7 +4,7 @@
     <section class="b-qs">
       <div class="container">
         <div class="row justify-content-end">
-          <div class="col-12 col-md-6 text-center">
+          <div class="col-12 col-md-6 text-center" style="margin-top:10%;">
             <h1>¿Quienes Somos?</h1>
           </div>
         </div>

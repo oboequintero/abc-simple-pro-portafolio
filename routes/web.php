@@ -215,7 +215,12 @@ Route::group(['prefix' => 'cliente'], function () {
     Route::post('nivel',[ 'as' => 'nivel', 'uses' => 'LaminaController@mostrar'] );
     Route::post('nivel_1',[ 'as' => 'nivel_1', 'uses' => 'LaminaController@mostrar_curso'] );
     Route::post('cursos_gratis',[ 'as' => 'cursos_gratis', 'uses' => 'LaminaController@cursos_gratis'] );
+
+
     Route::post('log_cliente',[ 'as' => 'log_cliente', 'uses' => 'LaminaController@log_cliente'] );
+    Route::post('unlog_cliente',[ 'as' => 'unlog_cliente', 'uses' => 'LaminaController@unlog_cliente'] );
+
+
     //prueba//
     Route::post('view',[ 'as' => 'view', 'uses' => 'LaminaController@ver'] );
     Route::post('vista',[ 'as' => 'vista', 'uses' => 'LaminaController@ver'] );
@@ -232,6 +237,9 @@ Route::group(['prefix' => 'cliente'], function () {
        Route::post('Tienda',[ 'as' => 'tienda', 'uses' => 'Controller@mostrarTienda'] );
        Route::post('Galeria',[ 'as' => 'galeria', 'uses' => 'Controller@mostrarGaleria'] );
        //Route::get('/quienes', array('before' => 'auth','uses'=>'Controller@ViewwQuienes'))->name('vieww.quienes');
+
+       //ruta para los ejercicios 
+       Route::get('Cliente/exercise', 'Controller@exercise')->name('cliente.exercise');
 
         //ruta para modificar datos de cliente
         Route::get('./home', 'ClienteController@viewCliente')->name('view.cliente');

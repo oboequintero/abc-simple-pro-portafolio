@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ClienteAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    
 
     use AuthenticatesUsers, LogsoutGuard {
         LogsoutGuard::logout insteadof AuthenticatesUsers;
@@ -45,6 +47,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('cliente.guest', ['except' => 'logout']);
+
     }
 
     /**

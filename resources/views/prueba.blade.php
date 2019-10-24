@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/assets_f/src/css/estilos_li.css">
     <title>Hello, world!</title>
   </head>
-  <body>
+  <body> 
     <!-- Seccion del Carrusel -->
   <div class="bd-example">
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

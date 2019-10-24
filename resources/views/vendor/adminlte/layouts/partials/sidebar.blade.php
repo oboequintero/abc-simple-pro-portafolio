@@ -56,7 +56,7 @@
                     <li><a href="{{ route('plantilla.index') }}">Plantillas</a></li>
                     <li><a href="{{ route('contenido.index') }}">Contenido</a></li>
 
-                    <li><a href="{{ route('categoria.index') }}">Productos Cliente</a></li>
+                    <li><a href="{{ route('categoria.index') }}">Productos Clientes</a></li>
                     <li><a href="{{ route('product.index') }}">Productos Back-Office</a></li>
 
                     <li><a href="{{ route('limite_transacciones.index') }}">Limite Transacciones</a></li>

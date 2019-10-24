@@ -52,6 +52,16 @@ class Controller extends BaseController
       return view ('cliente.home');
     }
 
+    public function exercise(){
+      $name_cliente=Input::get('name_cliente');
+      $id_curso=Input::get('id_cur');
+      $id_cliente=Input::get('id_cliente');
+      $name_cliente=Input::get('usuario');
+      $photo_cliente=Input::get('photoq');
+
+      return view ($this->path . '.exercise', compact('name_cliente', 'id_cur', 'id_cliente', 'usuario', 'photoq' ));
+    }
+
   public function mostrarQuienes()
   { $id=Input::get('id');
     $nombre=Input::get('user');
