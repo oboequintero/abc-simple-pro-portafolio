@@ -61,7 +61,7 @@
             <div class="tele col-xl-5 col-lg-5">
                 <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
                     @php($a=0)
-                    @foreach($contenido as $row)
+                @foreach($contenido as $row)
                     @if ( ($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6)  && $a == 0 )
                         <div id="t1" class="mb-2" style="display:none;">
                             <p id="titulo"></p>
@@ -88,8 +88,6 @@
                 </div>
                 @endif
                 @endforeach
-
-
             </div>
           @endif
 
@@ -99,48 +97,23 @@
                   @php($a=0)
                   @foreach($contenido as $row)
                   @if ( ($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6 || $row->id_tipo_con  == 4 || $row->id_tipo_con  == 3)  )
-                       @if($row->id_tipo_con  == 2)
-                            <div id="t1" class="mb-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};">
+                       @if($row->id_tipo_con  == 6)
+                            <div id="t1" class="mb-2 "
+                                style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                      margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                 <p id="titulo"> {{$row->parrafo}} </p>
                             </div>
                        @endif
                        @if($row->id_tipo_con  == 3)
                             <div class="row text-center" style="display:block;">
                                 <img class="img-fluid" style="width:200px;height:200px;" src="/storage/contenido/{{$row->ruta}}">
-
                             </div>
                        @endif
-                       @if($row->id_tipo_con  == 6)
-                          <div id="s1" style="display:block;">
-                            <div class="text-center" style="margin-top: 10px;" >
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12" style="font-size:{{$row->tamano}}px;font-weight:700;color:{{$row->color}};">
-                                        <p id="" >
-                                            {{$row->parrafo}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                      @endif
-                      @if($row->id_tipo_con  == 4)
-                        @if($a==0)
-                          <div id="s2" style="display:block;">
-                            <div class="text-center" style="margin-top: 10px;" >
-                                <div class="row">
-                          @php($a++)
-                        @endif
-                            <div class="text-center col-xl-4 col-lg-4" style="font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};">
-                              <p class="text-center" id="" >
-                                  {{$row->parrafo}}
-                              </p>
-                            </div>
-                      @endif
+
+
               @endif
             @if($row->id_tipo_con  == 1)
-                      </div>
-                  </div>
-                </div>
+
             </div>
 
         </div>
