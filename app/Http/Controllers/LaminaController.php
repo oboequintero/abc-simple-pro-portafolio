@@ -122,7 +122,7 @@ class LaminaController extends Controller
                         ->where('id_plantilla', '=', $plan[0]->id_plan)
                         ->orderBy('idhtml')
                         ->get();
-           dd($parrafo);
+           //dd($parrafo);
 
             if (!is_null($contenido))
             {

@@ -74,7 +74,7 @@
                                                 <a class="btn btn-xs">
                                                         <form  method="GET" action="{{ route('contenido.index') }}">
                                                                 <input name="_method" type="hidden" value="GET">
-                                                                <button type="submit" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Ir a Niveles" >
+                                                                <button type="submit" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Ir a Contenido" >
                                                                     <i class="glyphicon glyphicon-folder-open"></i>
                                                                 </button>
                                                                 <input type="hidden" name="id_plantilla" value="{{ $row->id_plantilla }}">
