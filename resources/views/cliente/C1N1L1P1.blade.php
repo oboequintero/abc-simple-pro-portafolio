@@ -137,6 +137,53 @@
                @endforeach
             </div>
         @endif
+        @if($plantilla[0]->tipo_plantilla==7)
+        <div class="tele col-xl-11 col-lg-11">
+            <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
+                @php($a=0)
+            @foreach($contenido as $row)
+             @if(($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6) )
+                <div class="row">
+                    @if($a==0)
+                        <div class="col-xl-4 col-lg-4" style="background-color:#aaa">
+                            <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                <p id="titulo">{{$row->parrafo}}</p>
+                            </div>
+                        </div>
+                    @endif
+                    @if($a==1)
+                    <div class="col-xl-3 col-lg-3" style="background-color:green">
+                        <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                            margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                            <p id="titulo">{{$row->parrafo}}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @if($a==2)
+                    <div class="col-xl-2 col-lg-2">
+                        <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                            margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                            <p id="titulo">{{$row->parrafo}}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @if($a==3)
+                        <div class="col-xl-3 col-lg-3">
+                            <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                <p id="titulo">{{$row->parrafo}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
+            </div>
+            @endif
+            @php($a++)
+           @endforeach
+        </div>
+    @endif
 
         @if($plantilla[0]->tipo_plantilla==1)
             <div class="tele col-xl-5 col-lg-5">
@@ -157,27 +204,13 @@
                                 <img class="img-fluid" style="width:200px;height:200px;" src="/storage/contenido/{{$row->ruta}}">
                             </div>
                         @endif
-                        @if($a == 2)
-                            <div class="row text-center" style="display:block;">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6" style="font-size:20px;font-weight:900;color:{{$row->color}};">
-                                        <p id="" >
-                                          consonante
-                                        </p>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6" style="font-size:20px;font-weight:900;color:{{$row->color}};">
-                                        <p id="" >
-                                          consonante
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
+
                         @if($row->id_tipo_con  == 4)
                         @if($b==0)
                           <div id="s2" style="display:block;">
-                            <div class="text-center" style="margin-top: 10px;" >
-                                <div class="row">
+                            <div class="text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                <div class="row text-center">
                           @php($b++)
                         @endif
                             <div class="text-center col-xl-4 col-lg-4" style="font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};">
