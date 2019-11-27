@@ -164,7 +164,6 @@ class LaminaController extends Controller
 
         try
         {
-
             $curso=DB::table('Cursos')
                     ->where('id_curso', '=', $id_curso)
                     ->get();

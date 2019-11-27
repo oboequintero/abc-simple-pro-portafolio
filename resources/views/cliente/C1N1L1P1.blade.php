@@ -141,49 +141,98 @@
         <div class="tele col-xl-11 col-lg-11">
             <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
                 @php($a=0)
-            @foreach($contenido as $row)
-             @if(($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6) )
-                <div class="row">
-                    @if($a==0)
-                        <div class="col-xl-4 col-lg-4" style="background-color:#aaa">
-                            <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
-                                margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
-                                <p id="titulo">{{$row->parrafo}}</p>
-                            </div>
-                        </div>
-                    @endif
-                    @if($a==1)
-                    <div class="col-xl-3 col-lg-3" style="background-color:green">
-                        <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
-                            margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
-                            <p id="titulo">{{$row->parrafo}}</p>
-                        </div>
-                    </div>
-                    @endif
-                    @if($a==2)
-                    <div class="col-xl-2 col-lg-2">
-                        <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
-                            margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
-                            <p id="titulo">{{$row->parrafo}}</p>
-                        </div>
-                    </div>
-                    @endif
-                    @if($a==3)
-                        <div class="col-xl-3 col-lg-3">
-                            <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
-                                margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
-                                <p id="titulo">{{$row->parrafo}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
+
+
+
+                    @foreach($contenido as $row)
+                        @if(($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6) )
+                            @if($a==0)
+                            <div class="row" style="background-color:#CCE2E2" > <!--1-->
+                                <div class="col-xl-4 col-lg-4" >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==1)
+                                <div class="col-xl-3 col-lg-3" >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==2)
+                                <div class="col-xl-2 col-lg-2"  >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==3)
+                                <div class="col-xl-3 col-lg-3" >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                                </div><!--1-->
+                            @endif
+                            @if($a==4)
+                            <div class="row"> <!--1-->
+                                <div class="col-xl-3 col-lg-3" style="background-color:#yellow">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id=""></p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==5)
+
+                                <div class="col-xl-1 col-lg-1" style="background-color:#aaa">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==6)
+
+                                <div class="col-xl-3 col-lg-3" style="background-color:#aaa">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==7)
+
+                                <div class="col-xl-2  col-lg-2" style="background-color:#aaa">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==8)
+                                <div class="col-xl-3 col-lg-3" style="background-color:green">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                                </div><!--1-->
+                            @endif
+
+                        @endif
+                        @php($a++)
+                    @endforeach
 
             </div>
-            @endif
-            @php($a++)
-           @endforeach
         </div>
-    @endif
+        @endif
 
         @if($plantilla[0]->tipo_plantilla==1)
             <div class="tele col-xl-5 col-lg-5">
