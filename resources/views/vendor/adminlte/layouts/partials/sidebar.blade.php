@@ -38,12 +38,13 @@
                 <li><a href="{{ route('auth.show',0) }}"><i class='fa fa-users'></i> <span>Usuario</span></a></li>
             @endrole
             <li class="treeview">
-                    <a href="#"><i class="fas fa-id-card-alt"></i> <span>Gestión Usuario</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class="fas fa-id-card-alt"></i> <span>Gestión Usuario</span> <i class="fa fa-angle-left pull-right"></i></a>
                     @hasrole('writer')
                         <ul class="treeview-menu">
                             <li><a href="{{ route('auth.edit',auth()->user()->id) }}">Usuario</a></li>
                         </ul>
                     @endrole
+
                 <a href="#"><i class='fa fa-book'></i> <span>Administrar</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('product.index') }}">Productos</a></li>
@@ -55,6 +56,14 @@
                     <li><a href="{{ route('leccion.index') }}">Lección</a></li>
                     <li><a href="{{ route('plantilla.index') }}">Plantillas</a></li>
                     <li><a href="{{ route('contenido.index') }}">Contenido</a></li>
+
+                    
+
+                </ul>
+
+                <a href="#"><i class='fa fa-book'></i> <span>Compras</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                   
 
                     <li><a href="{{ route('categoria.index') }}">Productos Cliente</a></li>
                     <li><a href="{{ route('product.index') }}">Productos Back-Office</a></li>
@@ -96,6 +105,9 @@
 
             </li>
         </ul><!-- /.sidebar-menu -->
+
+
     </section>
     <!-- /.sidebar -->
 </aside>
+
