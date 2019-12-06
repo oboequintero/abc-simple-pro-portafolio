@@ -117,6 +117,7 @@ class LaminaController extends Controller
                         ->where('id_plantilla', '=',$plan[0]->id_plan)
                         ->orderBy('idhtml')
                         ->get();
+
             $parrafo=DB::table('Contenido')
                         ->where('id_plantilla', '=', $plan[0]->id_plan)
                         ->orderBy('idhtml')
@@ -163,7 +164,6 @@ class LaminaController extends Controller
 
         try
         {
-
             $curso=DB::table('Cursos')
                     ->where('id_curso', '=', $id_curso)
                     ->get();
@@ -180,10 +180,14 @@ class LaminaController extends Controller
                         ->where('id_plantilla', '=', $plan[0]->id_plantilla)
                         ->orderBy('idhtml')
                         ->get();
+
             $parrafo=DB::table('Contenido')
                         ->where('id_plantilla', '=', $plan[0]->id_plantilla)
                         ->orderBy('idhtml')
                         ->get();
+
+            //dd($parrafo);
+
 
             if (!is_null($contenido))
             {

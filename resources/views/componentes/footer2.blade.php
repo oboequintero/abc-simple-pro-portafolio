@@ -155,7 +155,7 @@
                async:  true,
                dataType: "json",
            error: function() {
-                  alert('Ha surgido un error');
+                  alert('Ha surgido un error leyendo cursos');
            },
            success:  function (data) {
 

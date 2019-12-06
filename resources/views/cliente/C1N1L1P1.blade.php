@@ -61,7 +61,7 @@
             <div class="tele col-xl-5 col-lg-5">
                 <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
                     @php($a=0)
-                    @foreach($contenido as $row)
+                @foreach($contenido as $row)
                     @if ( ($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6)  && $a == 0 )
                         <div id="t1" class="mb-2" style="display:none;">
                             <p id="titulo"></p>
@@ -88,47 +88,179 @@
                 </div>
                 @endif
                 @endforeach
-
-
             </div>
-          @endif
+        @endif
+        @if($plantilla[0]->tipo_plantilla==4)
+            <div class="tele col-xl-5 col-lg-5">
+                <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
+                    @php($a=0)
+                @foreach($contenido as $row)
+                    @if ( ($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6) )
+                        <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                            margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                            <p id="titulo">{{$row->parrafo}}</p>
+                        </div>
+                    @php($a++)
 
-          @if($plantilla[0]->tipo_plantilla==1)
-          <div class="tele col-xl-5 col-lg-5">
-              <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
-                  @php($a=0)
-                  @foreach($contenido as $row)
-                  @if ( ($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6 || $row->id_tipo_con  == 4 || $row->id_tipo_con  == 3)  )
-                       @if($row->id_tipo_con  == 2)
-                            <div id="t1" class="mb-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};">
-                                <p id="titulo"> {{$row->parrafo}} </p>
-                            </div>
-                       @endif
-                       @if($row->id_tipo_con  == 3)
-                            <div class="row text-center" style="display:block;">
-                                <img class="img-fluid" style="width:200px;height:200px;" src="/storage/contenido/{{$row->ruta}}">
 
-                            </div>
-                       @endif
-                       @if($row->id_tipo_con  == 6)
-                          <div id="s1" style="display:block;">
-                            <div class="text-center" style="margin-top: 10px;" >
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12" style="font-size:{{$row->tamano}}px;font-weight:700;color:{{$row->color}};">
-                                        <p id="" >
-                                            {{$row->parrafo}}
-                                        </p>
+                @endif
+              @if($row->id_tipo_con  == 1)
+              </div>
+            </div>
+
+            <div class="tele col-xl-6 col-lg-6">
+                <div class="video1" id="div2" style="">
+                    <span style="color:#ff0000;">(Video Introductorio)</span>
+                    <video class="" id="miVideo" src={{ asset('/storage/contenido/'.$row->ruta) }}></video>
+                    <button class="btn boton-video" data-toggle="tooltip2" title="reproducir" id="boton-play" onclick="playPause('maquinas','{{$row->parrafo}}',1000,{{$parrafo}})"><i class="fa fa-play"></i></button>
+                    <button class="btn boton-video" data-toggle="tooltip2" title="recargar" onclick="reload()"><i class="fa fa-sync-alt"></i></button>
+                    <button class="btn boton-video" data-toggle="tooltip2" title="maximizar" id="fullscreen"><i class="fa fa-arrows-alt"></i></button>
+                </div>
+                @endif
+                @endforeach
+            </div>
+        @endif
+        @if($plantilla[0]->tipo_plantilla==5)
+            <div class="tele col-xl-11 col-lg-11">
+                <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
+                    @php($a=0)
+                @foreach($contenido as $row)
+                 @if(($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6)  && $a == 0 )
+                        <div id="t1" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                            margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                            <p id="titulo">{{$row->parrafo}}</p>
+                        </div>
+                    @php($a++)
+                </div>
+                @endif
+                @php($a++)
+               @endforeach
+            </div>
+        @endif
+        @if($plantilla[0]->tipo_plantilla==7)
+        <div class="tele col-xl-11 col-lg-11">
+            <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
+                @php($a=0)
+
+
+
+                    @foreach($contenido as $row)
+                        @if(($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6) )
+                            @if($a==0)
+                            <div class="row" style="background-color:#CCE2E2" > <!--1-->
+                                <div class="col-xl-4 col-lg-4" >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
                                     </div>
                                 </div>
+                            @endif
+                            @if($a==1)
+                                <div class="col-xl-3 col-lg-3" >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==2)
+                                <div class="col-xl-2 col-lg-2"  >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==3)
+                                <div class="col-xl-3 col-lg-3" >
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                                </div><!--1-->
+                            @endif
+                            @if($a==4)
+                            <div class="row"> <!--1-->
+                                <div class="col-xl-3 col-lg-3" style="background-color:#yellow">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id=""></p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==5)
+
+                                <div class="col-xl-1 col-lg-1" style="background-color:#aaa">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==6)
+
+                                <div class="col-xl-3 col-lg-3" style="background-color:#aaa">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==7)
+
+                                <div class="col-xl-2  col-lg-2" style="background-color:#aaa">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($a==8)
+                                <div class="col-xl-3 col-lg-3" style="background-color:green">
+                                    <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                        margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                        <p id="">{{$row->parrafo}}</p>
+                                    </div>
+                                </div>
+                                </div><!--1-->
+                            @endif
+
+                        @endif
+                        @php($a++)
+                    @endforeach
+
+            </div>
+        </div>
+        @endif
+
+        @if($plantilla[0]->tipo_plantilla==1)
+            <div class="tele col-xl-5 col-lg-5">
+                <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
+                  @php($a=0)
+                  @php($b=0)
+                  @foreach($contenido as $row)
+                  @if ( ($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6 || $row->id_tipo_con  == 4 || $row->id_tipo_con  == 3)  )
+                        @if($row->id_tipo_con  == 6)
+                            <div id="t1" class="mr-2"
+                                style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                      margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                <p id="titulo"> {{$row->parrafo}} </p>
                             </div>
-                          </div>
-                      @endif
-                      @if($row->id_tipo_con  == 4)
-                        @if($a==0)
+                        @endif
+                        @if($row->id_tipo_con  == 3)
+                            <div class="row text-center" style="display:block;">
+                                <img class="img-fluid" style="width:200px;height:200px;" src="/storage/contenido/{{$row->ruta}}">
+                            </div>
+                        @endif
+
+                        @if($row->id_tipo_con  == 4)
+                        @if($b==0)
                           <div id="s2" style="display:block;">
-                            <div class="text-center" style="margin-top: 10px;" >
-                                <div class="row">
-                          @php($a++)
+                            <div class="text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                <div class="row text-center">
+                          @php($b++)
                         @endif
                             <div class="text-center col-xl-4 col-lg-4" style="font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};">
                               <p class="text-center" id="" >
@@ -136,15 +268,13 @@
                               </p>
                             </div>
                       @endif
-              @endif
+                    @endif
             @if($row->id_tipo_con  == 1)
-                      </div>
-                  </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-        </div>
-
             <div class="tele col-xl-6 col-lg-6">
               <div class="video1" id="div2" style="">
                   <span style="color:#ff0000;">(Video Introductorio)</span>
@@ -154,6 +284,7 @@
                   <button class="btn boton-video" data-toggle="tooltip2" title="maximizar" id="fullscreen"><i class="fa fa-arrows-alt"></i></button>
               </div>
               @endif
+              @php($a++)
               @endforeach
               <div class="d-lg-none"  style="padding-top:25px;">
                   <button class="btn btn-xs boton-sig-atras" style="" onclick="history.back(-1)"><img src="../assets_f/src/img/anterior.png" alt="" width="40px"></button>
@@ -168,8 +299,7 @@
                       </form>
                   </div>
               </div>
-
-          </div>
+            </div>
         @endif
         <div class="conta sig-atras-video">
             <div class="container">
