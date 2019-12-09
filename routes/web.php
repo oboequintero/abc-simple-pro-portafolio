@@ -190,16 +190,58 @@ Route::get('/', function () {
     Route::get('checkout', 'CartController@getCheckout')->name('checkout');
     Route::post('checkoutp', 'CartController@postCheckout')->name('cart.checkout');
     #Route::resource('cart', 'CartController', ['only' => ['index', 'store','update','destroy']]);
+     #Route::resource('cart', 'CartController', ['only' => ['index', 'store','update','destroy']]);
     Route::resource('cart', 'CartController');
     Route::delete('emptyCart', 'CartController@emptyCart');
     Route::post('switchToWishlist/{id}', 'CartController@switchToWishlist');
     Route::resource('wishlist', 'WishlistController');
     Route::delete('emptyWishlist', 'WishlistController@emptyWishlist');
     Route::post('switchToCart/{id}', 'WishlistController@switchToCart');
-    Route::get('paywithpaypal', array(
-        'as' => 'paywithpaypal',
-        'uses' => 'PaymentController@index',
-    ));
+    
+ 
+
+Route::get('paywithpaypal', array(
+    'as' => 'paywithpaypal',
+    'uses' => 'PaymentController@index',
+));
+#Route::post('paypal', 'PaymentController@payWithpaypal');
+#Route::get('paywithpaypal', 'PaymentController@index');
+// route for check status of the payment
+#Route::get('status', 'PaymentController@getPaymentStatus');
+
+Route::post('paypal', array(
+    'as' => 'paypal',
+    'uses' => 'PaymentController@payWithpaypal',
+));
+
+Route::post('paypal_list', array(
+    'as' => 'paypal_list',
+    'uses' => 'PaymentController@payWithpaypal_list',
+));
+
+Route::get('paypal/status', array(
+    'as' => 'paypal.status',
+    'uses' => 'PaymentController@getPaymentStatus',
+));
+#-----------------------------------
+
+
+Route::resource('tipo_pago', 'TipoPagoController');
+#Route::get('tipo-pago',[ 'as' => 'crear_pago', 'uses' => 'TipoPagoController@create'] );
+
+
+Route::resource('tipo_tarjeta', 'TipoTarjetaController');
+
+Route::resource('limite_transacciones', 'LimiteTransaccionesController');
+
+Route::get('crear-limite',[ 'as' => 'crear_limite', 'uses' => 'LimiteTransaccionesController@store'] );
+
+
+Route::get('crear-tarjeta',[ 'as' => 'crear_tarjeta', 'uses' => 'TipoTarjetaController@store'] );
+
+
+Route::get('crear-pago',[ 'as' => 'crear_pago', 'uses' => 'TipoPagoController@store'] );
+
 });
 
 Route::group(['prefix' => 'cliente'], function () {
