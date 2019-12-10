@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Log_cliente;
-use Storage;
 use App\ContenidoModel;
 use App\Niveles;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -47,6 +46,7 @@ class LaminaController extends Controller
                         ->get();
             $contenido=DB::table('Contenido')
                         ->where('id_plantilla', '=',$plan[0]->id_plan)
+                        ->where('activo','=',1)
                         ->orderBy('idhtml')
                         ->get();
             $parrafo=DB::table('Contenido')
@@ -115,11 +115,13 @@ class LaminaController extends Controller
                         ->get();
             $contenido=DB::table('Contenido')
                         ->where('id_plantilla', '=',$plan[0]->id_plan)
+                        ->where('activo','=',1)
                         ->orderBy('idhtml')
                         ->get();
 
             $parrafo=DB::table('Contenido')
                         ->where('id_plantilla', '=', $plan[0]->id_plan)
+
                         ->orderBy('idhtml')
                         ->get();
            //dd($parrafo);
@@ -178,11 +180,13 @@ class LaminaController extends Controller
                         ->get();
             $contenido=DB::table('Contenido')
                         ->where('id_plantilla', '=', $plan[0]->id_plantilla)
+                        ->where('activo','=',1)
                         ->orderBy('idhtml')
                         ->get();
 
             $parrafo=DB::table('Contenido')
                         ->where('id_plantilla', '=', $plan[0]->id_plantilla)
+                        ->where('activo','=',1)
                         ->orderBy('idhtml')
                         ->get();
 
