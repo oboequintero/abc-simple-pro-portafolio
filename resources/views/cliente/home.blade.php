@@ -44,7 +44,7 @@
                 </span>
               </a>
               <ul class="collapse list-unstyled" id="f">
-                <li><a style="color:primary" href="#">Promocion 1</a></li>
+                <li><a style="color:primary" href="#">Promocion 11</a></li>
                 <li><a style="color:primary" href="#">Promocion 2</a></li>
                 <li><a style="color:primary" href="#">Promocion 8</a></li>
               </ul>

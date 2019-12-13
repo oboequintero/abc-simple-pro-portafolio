@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 use Exception;

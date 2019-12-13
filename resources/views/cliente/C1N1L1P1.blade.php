@@ -239,15 +239,15 @@
 
                             @if($a==9)
                             <div class="row"> <!--1-->
-                                <div class="col-xl-3 col-lg-3" style="background-color:yellow">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
-                                        <p id=""></p>
+                                        <p id="">1. La “a” se encuentra entre dos consonantes:</p>
                                     </div>
                                 </div>
                             @endif
                             @if($a==10)
-                                <div class="col-xl-1 col-lg-1" style="background-color:#aaa">
+                                <div class="col-xl-1 col-lg-1" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -256,7 +256,7 @@
                             @endif
                             @if($a==11)
 
-                                <div class="col-xl-3 col-lg-3" style="background-color:#aaa">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -265,7 +265,7 @@
                             @endif
                             @if($a==12)
 
-                                <div class="col-xl-2  col-lg-2" style="background-color:#aaa">
+                                <div class="col-xl-2  col-lg-2" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -273,7 +273,7 @@
                                 </div>
                             @endif
                             @if($a==13)
-                                <div class="col-xl-3 col-lg-3" style="background-color:green">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -282,7 +282,7 @@
                                 </div><!--1-->
                                 <div class="row"> <!--1-->
                                     <div class="col-xl-3 col-lg-3" style="background-color:white;">
-                                        <br>
+                                      <br>
                                     </div>
                                     <div class="col-xl-1 col-lg-1  border border-white " style="background-color:#CCE2E2;">
                                         <br>
@@ -300,7 +300,7 @@
                             @endif
                             @if($a==14)
                             <div class="row"> <!--1-->
-                                <div class="col-xl-3 col-lg-3" style="background-color:cyan">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id=""></p>
@@ -308,7 +308,7 @@
                                 </div>
                             @endif
                             @if($a==15)
-                                <div class="col-xl-1 col-lg-1" style="background-color:#aaa">
+                                <div class="col-xl-1 col-lg-1" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -317,7 +317,7 @@
                             @endif
                             @if($a==16)
 
-                                <div class="col-xl-3 col-lg-3" style="background-color:#aaa">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -325,8 +325,7 @@
                                 </div>
                             @endif
                             @if($a==17)
-
-                                <div class="col-xl-2  col-lg-2" style="background-color:#aaa">
+                                <div class="col-xl-2  col-lg-2" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -334,7 +333,7 @@
                                 </div>
                             @endif
                             @if($a==18)
-                                <div class="col-xl-3 col-lg-3" style="background-color:green">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -361,7 +360,7 @@
                             @endif
                             @if($a==19)
                             <div class="row"> <!--1-->
-                                <div class="col-xl-3 col-lg-3" style="background-color:brown">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id=""></p>
@@ -369,7 +368,7 @@
                                 </div>
                             @endif
                             @if($a==20)
-                                <div class="col-xl-1 col-lg-1" style="background-color:#aaa">
+                                <div class="col-xl-1 col-lg-1" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -377,8 +376,7 @@
                                 </div>
                             @endif
                             @if($a==21)
-
-                                <div class="col-xl-3 col-lg-3" style="background-color:#aaa">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -386,8 +384,7 @@
                                 </div>
                             @endif
                             @if($a==22)
-
-                                <div class="col-xl-2  col-lg-2" style="background-color:#aaa">
+                                <div class="col-xl-2  col-lg-2" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -395,7 +392,7 @@
                                 </div>
                             @endif
                             @if($a==23)
-                                <div class="col-xl-3 col-lg-3" style="background-color:green">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -403,7 +400,7 @@
                                 </div>
                                 </div><!--1-->
                                 <div class="row"> <!--1-->
-                                    <div class="col-xl-3 col-lg-3" style="background-color:white;">
+                                    <div class="col-xl-3 col-lg-3 border border-white" style="background-color:#CCE2E2;">
                                         <br>
                                     </div>
                                     <div class="col-xl-1 col-lg-1  border border-white " style="background-color:#CCE2E2;">
@@ -422,15 +419,15 @@
                             @endif
                             @if($a==24)
                             <div class="row"> <!--1-->
-                                <div class="col-xl-3 col-lg-3" style="background-color:blue">
+                                <div class="col-xl-3 col-lg-3" style="background-color:#CCE2E2">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
-                                        <p id=""></p>
+                                        <p id="">2. La “a” se encuentra  adelante de  dos consonantes:</p>
                                     </div>
                                 </div>
                             @endif
                             @if($a==25)
-                                <div class="col-xl-1 col-lg-1" style="background-color:#aaa">
+                                <div class="col-xl-1 col-lg-1" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -438,8 +435,7 @@
                                 </div>
                             @endif
                             @if($a==26)
-
-                                <div class="col-xl-3 col-lg-3" style="background-color:#aaa">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -448,7 +444,7 @@
                             @endif
                             @if($a==27)
 
-                                <div class="col-xl-2  col-lg-2" style="background-color:#aaa">
+                                <div class="col-xl-2  col-lg-2" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -456,7 +452,7 @@
                                 </div>
                             @endif
                             @if($a==28)
-                                <div class="col-xl-3 col-lg-3" style="background-color:green">
+                                <div class="col-xl-3 col-lg-3" style="background-color:white">
                                     <div id="" class="mr-2 text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
                                         margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
                                         <p id="">{{$row->parrafo}}</p>
@@ -464,8 +460,6 @@
                                 </div>
                                 </div><!--1-->
                             @endif
-
-
                         @endif
                         @php($a++)
                     @endforeach
@@ -492,6 +486,78 @@
                             <div class="row text-center" style="display:block;">
                                 <img class="img-fluid" style="width:200px;height:200px;" src="/storage/contenido/{{$row->ruta}}">
                             </div>
+                        @endif
+
+                        @if($row->id_tipo_con  == 4)
+                        @if($b==0)
+                          <div id="s2" style="display:block;">
+                            <div class="text-center" style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                                <div class="row text-center">
+                          @php($b++)
+                        @endif
+                            <div class="text-center col-xl-4 col-lg-4" style="font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};">
+                              <p class="text-center" id="" >
+                                  {{$row->parrafo}}
+                              </p>
+                            </div>
+                      @endif
+                    @endif
+            @if($row->id_tipo_con  == 1)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tele col-xl-6 col-lg-6">
+              <div class="video1" id="div2" style="">
+                  <span style="color:#ff0000;">(Video Introductorio)</span>
+                  <video class="" id="miVideo" src={{ asset('/storage/contenido/'.$row->ruta) }}></video>
+                  <button class="btn boton-video" data-toggle="tooltip2" title="reproducir" id="boton-play" onclick="playPause()"><i class="fa fa-play"></i></button>
+                  <button class="btn boton-video" data-toggle="tooltip2" title="recargar" onclick="reload()"><i class="fa fa-sync-alt"></i></button>
+                  <button class="btn boton-video" data-toggle="tooltip2" title="maximizar" id="fullscreen"><i class="fa fa-arrows-alt"></i></button>
+              </div>
+              @endif
+              @php($a++)
+              @endforeach
+              <div class="d-lg-none"  style="padding-top:25px;">
+                  <button class="btn btn-xs boton-sig-atras" style="" onclick="history.back(-1)"><img src="../assets_f/src/img/anterior.png" alt="" width="40px"></button>
+                  <div style="float:right;">
+                      <form  method="post" action="{{route ('view')}}">
+                          {{ csrf_field() }}
+                          <input name="_method" type="hidden" value="post">
+                          <input name="usuario" type="hidden" value="{{ $nombre }}">
+
+                          <input name="pagina" type="hidden" value="{{ $plan[0]->pagina }}">
+                          <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguiente.png" width="40px"></button>
+                      </form>
+                  </div>
+              </div>
+            </div>
+        @endif
+        @if($plantilla[0]->tipo_plantilla==8)
+            <div class="tele col-xl-5 col-lg-5">
+                <div class="miscrollspy"  id='div2' data-spy="scroll" data-target="#spy">
+                  @php($a=0)
+                  @php($b=0)
+                  @foreach($contenido as $row)
+                  @if ( ($row->id_tipo_con  == 2 || $row->id_tipo_con  == 6 || $row->id_tipo_con  == 4 || $row->id_tipo_con  == 3)  )
+                    <div class="row ">
+                        <div class="col-xl-5 col-lg-5">
+                                @if($row->id_tipo_con  == 3)
+                                <div class="row text-center" style="display:block;">
+                                    <img class="img-fluid" style="width:200px;height:200px;" src="/storage/contenido/{{$row->ruta}}">
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                        @if($row->id_tipo_con  == 6)
+                        <div id="t1" class="mr-2"
+                            style="display:block; font-size:{{$row->tamano}}px;font-weight:900;color:{{$row->color}};
+                                  margin-top: {{$row->margen_superior}}px; margin-left:{{$row->margen_inferior}}px;">
+                            <p id="titulo"> {{$row->parrafo}} </p>
+                        </div>
                         @endif
 
                         @if($row->id_tipo_con  == 4)
