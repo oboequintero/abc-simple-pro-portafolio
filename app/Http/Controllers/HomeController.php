@@ -6,7 +6,7 @@
  */
 
 namespace App\Http\Controllers;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;

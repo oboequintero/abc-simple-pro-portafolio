@@ -195,7 +195,7 @@
            },
            success:  function (data) {
 
-                alert(data.msg);
+                //alert(data.msg);
 
            }
        });

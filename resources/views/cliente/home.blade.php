@@ -12,7 +12,6 @@
               <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" src="{{ asset('/storage/contenido/'.Auth::user()->photo1)}}"></i>
                 <span class="nav-text">
                 {{ Auth::user()->name }}
-
                 <input type="hidden" id="clienteUser" value="{{ Auth::user()->id }}">
                 </span>
               </a>
@@ -44,9 +43,7 @@
                 </span>
               </a>
               <ul class="collapse list-unstyled" id="f">
-                <li><a style="color:primary" href="#">Promocion 11</a></li>
-                <li><a style="color:primary" href="#">Promocion 2</a></li>
-                <li><a style="color:primary" href="#">Promocion 8</a></li>
+
               </ul>
             </li>
             <li class="has-subnav">
@@ -56,9 +53,7 @@
                 </span>
               </a>
               <ul class="collapse list-unstyled" id="q">
-                <li><a style="color:primary" href="#">Curso 1</a></li>
-                <li><a style="color:primary" href="#">Curso 2</a></li>
-                <li><a style="color:primary" href="#">Curso 3</a></li>
+
               </ul>
             </li>
             <li class="has-subnav">
@@ -68,9 +63,7 @@
                 </span>
               </a>
               <ul class="collapse list-unstyled" id="w">
-                <li><a style="color:primary" href="#">Producto 1</a></li>
-                <li><a style="color:primary" href="#">Producto 2</a></li>
-                <li><a style="color:primary" href="#">Producto 3</a></li>
+
               </ul>
             </li>
             <li class="has-subnav">
@@ -80,9 +73,7 @@
                 </span>
               </a>
               <ul class="collapse list-unstyled" id="v">
-                <li><a style="color:primary" href="#">Mi Curso 1</a></li>
-                <li><a style="color:primary" href="#">Mi Curso 2</a></li>
-                <li><a style="color:primary" href="#">Mi Curso 3</a></li>
+
               </ul>
             </li>
           </ul>

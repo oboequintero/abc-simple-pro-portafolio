@@ -5,7 +5,8 @@
           </button>
             <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
                 <a id="saludo"></a>&nbsp;
-                <a >La hora es</a>&nbsp;
+                <a >La hora es:</a>&nbsp;
+
                 <a style="text-align:left" id="liveclock"></a>&nbsp;
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active d-none d-lg-block">
@@ -14,7 +15,7 @@
                     <li class="nav-item d-none d-lg-block">
                     <a class="nav-link" href="#">&nbsp;</a>
                     </li>
-                    
+
                 </ul>
                 <div class=" d-none d-lg-block">
                 <form class="form-inline my-2 my-lg-0 opcional-md" id="boton-barra1">

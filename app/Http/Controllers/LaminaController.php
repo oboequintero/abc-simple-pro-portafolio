@@ -9,7 +9,7 @@ use App\ContenidoModel;
 use App\Niveles;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-
+use Exception;
 
 class LaminaController extends Controller
 {
@@ -55,9 +55,6 @@ class LaminaController extends Controller
                         ->get();
            //dd($parrafo);
 
-
-
-
             if (!is_null($contenido))
             {
                 return view($this->path . '.CURSODASH', compact('contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones'));
@@ -75,13 +72,14 @@ class LaminaController extends Controller
 
     public function mostrar()
     {
-        $nombre=Input::get('usuario');
-        $photo=Input::get('photo');
+
         $id_curso=Input::get('id_curso');
+        $id_cliente=Input::get('id_cliente');
+        $cliente=DB::table('clientes')
+        ->where('id', '=', $id_cliente)
+        ->get();
 
-        //dd($id_curso);
-
-            return $this->show($nombre, $photo,$id_curso);
+            return $this->show($cliente[0]->name, $cliente[0]->photo1,$id_curso);
     }
 
 

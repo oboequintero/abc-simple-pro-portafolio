@@ -9,10 +9,9 @@
                     <nav class="navmenu" style="padding-top:25px;">
                         <ul>
                             <li class="has-subnav">
-                                <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="/assets_f/src/img/avatar1.png"></i>
+                                <a href="" data-toggle="collapse" aria-expanded="false"><i class="fa"><img width="65%" style="margin-top:5px;" src="{{ asset('/storage/contenido/'.$photo)}}"></i>
                                     <span class="" style="margin-top:15px;">
-                                    {{ $nombre }}
-
+                                        {{ $nombre }}
                                     <input type="hidden" id="clienteUser" value="">
                                     </span>
                                 </a>
@@ -29,43 +28,45 @@
                             </form>
 
 
-                            <li class="has-subnav">
-                                <a  href="#z" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="faa"><img width="55%" src="/assets_f/src/img/n1-png.png"></i>
-                                    @foreach($niveles as $row)
+
+                                @foreach($niveles as $row)
+                                <li class="has-subnav">
+                                    <a  href="#z" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="faa"><img width="55%" src="/assets_f/src/img/n1-png.png"></i>
                                         <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
                                             {{$row->nombre}}
                                         </button>
-                                    @endforeach
-                                </a>
-                                <ul class="collapse list-unstyled" id="z">
+                                    </a>
                                     @foreach($lecciones as $row)
-                                        <li><a style="color:primary" href="#"> </a></li>
-                                        <form  method="POST" action="{{ route('nivel_1') }}">
-                                            <input name="_method" type="hidden" value="POST">
-                                            <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-                                            <input type="hidden" name="id_cur" value="{{$curso[0]->id_curso}}">
-                                           
+                                        <ul class="collapse list-unstyled" id="z">
+                                            <li><a style="color:primary" href="#"> </a></li>
+                                            <form  method="POST" action="{{ route('nivel_1') }}">
+                                                <input name="_method" type="hidden" value="POST">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
+                                                <input type="hidden" name="id_cur" value="{{$curso[0]->id_curso}}">
+                                                  <li>
+                                                    <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
+                                                        {{$row->nombre}}
+                                                    </button>
+                                                  </li>
+                                                  <li>
+                                                    <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
+                                                        {{$row->descripcion}}
+                                                    </button>
+                                                  </li>
+                                                <input type="hidden" name="id_curso" value="'+value.id_curso+'"> </form>
+                                            </ul>
+                                        @endforeach
 
-                                              <li>
-                                                <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
-                                                    {{$row->nombre}}
-                                                </button>
-                                              </li>
-                                              <li>
-                                                <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
-                                                    {{$row->descripcion}}
-                                                </button>
-                                              </li>
-                                            <input type="hidden" name="id_curso" value="'+value.id_curso+'"> </form>
-                                    @endforeach
-                                </ul>
-                            </li>
+                                </li>
+                                @endforeach
+
+
                         </ul>
                         <hr>
                     </nav>
                 </div>
 
-                <div class="col-lg-11"> 
+                <div class="col-lg-11">
 
 <div class="row justify-content-center">
     <h1 class="linksmenu" style="margin-top:50px; margin-left:-80px;">{{$curso[0]->nombre}}</h1>
@@ -122,9 +123,9 @@
       </li>
     </ul>
   </div>
-    
+
     <div class="col-md-12 col-lg-12">
-    
+
       <ul class="nav flex-column"style="margin-top:100px;">
         <li class="nav-items text-center">
             <span class="float-center nav-link linksmenu"  ><h5>Progreso:</h5></span>
@@ -135,12 +136,12 @@
           </div>
         </div>
       </ul>
-    
+
       <!--calendario------------
       <div style="margin-right:-100px; margin-top:-30px;" id="calendar">
       </div>-->
     </div>
-    
+
 </div>
 
 <div class="row">
@@ -226,13 +227,13 @@
     </div>
   </div>-->
 
-  
-  
+
+
 </div>
-</div> 
-   
 </div>
-</section> 
+
+</div>
+</section>
 <!--seccion de la informacion de los cursos+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
 
@@ -273,9 +274,9 @@
   </div>
 
   <div class="tele col-xl-5 col-lg-2">
-  <div class="ejercice"> 
+  <div class="ejercice">
   <div class="section-row-dibujo">
-  <div class="row"> 
+  <div class="row">
 
   <div class="col-lg-12 ">
   <div class="row">
@@ -329,7 +330,7 @@
      </li>
      <hr>
      <form name="nivel" method="post" action="">
-     
+
        <input name="_method" type="hidden" value="post">
        <input name="usuario" type="hidden" value="">
        <li class="has-subnav">
@@ -350,9 +351,9 @@
 </div>
 
 <div class="tele col-xl-5 col-lg-2">
-    <div class="ejercice"> 
+    <div class="ejercice">
         <div class="section-row-dibujo">
-            <div class="row"> 
+            <div class="row">
 
                 <div class="col-lg-12 ">
                     <div class="row">

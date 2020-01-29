@@ -16,6 +16,7 @@
         "laravelcollective/html": "^5.4.0",
         "nesbot/carbon": "^1.26.3",
         "paypal/rest-api-sdk-php": "^1.14",
+        "spatie/laravel-permission": "^2.32",
         "swiftmailer/swiftmailer": "^6.1"
     },
     "require-dev": {
