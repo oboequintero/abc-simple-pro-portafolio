@@ -158,9 +158,14 @@ class LaminaController extends Controller
         $photo =Input::get('photo');
         $id_curso=Input::get('id_curso');
 
+        $plan=[];
         $plan=DB::table('Plantillas')
         ->where('pagina', '=', $pag+1)
         ->get();
+
+        if(empty($plan[0])){
+            dd(empty($plan[0]));
+        }
 
         try
         {
@@ -181,14 +186,12 @@ class LaminaController extends Controller
                         ->where('activo','=',1)
                         ->orderBy('idhtml')
                         ->get();
-
             $parrafo=DB::table('Contenido')
                         ->where('id_plantilla', '=', $plan[0]->id_plantilla)
                         ->where('activo','=',1)
                         ->orderBy('idhtml')
                         ->get();
 
-            //dd($parrafo);
 
 
             if (!is_null($contenido))
