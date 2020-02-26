@@ -164,49 +164,55 @@ class LaminaController extends Controller
         ->get();
 
         if(empty($plan[0])){
-            dd(empty($plan[0]));
+            //dd(empty($plan[0]));
+            return view($this->path . '.EXERCISE', compact('id_curso','curso','niveles','lecciones','contenido','parrafo','plantilla','nombre','plan','photo'));
         }
-
-        try
-        {
-            $curso=DB::table('Cursos')
-                    ->where('id_curso', '=', $id_curso)
-                    ->get();
-            $niveles=DB::table('Niveles')
-                    ->where('id_curso', '=', $id_curso)
-                    ->get();
-            $lecciones=DB::table('Lecciones')
-                    ->where('id_nivel', '=', $niveles[0]->id_nivel)
-                    ->get();
-            $plantilla=DB::table('Plantillas')
-                        ->where('id_plantilla', '=', $plan[0]->id_plantilla)
-                        ->get();
-            $contenido=DB::table('Contenido')
-                        ->where('id_plantilla', '=', $plan[0]->id_plantilla)
-                        ->where('activo','=',1)
-                        ->orderBy('idhtml')
-                        ->get();
-            $parrafo=DB::table('Contenido')
-                        ->where('id_plantilla', '=', $plan[0]->id_plantilla)
-                        ->where('activo','=',1)
-                        ->orderBy('idhtml')
-                        ->get();
-
-
-
-            if (!is_null($contenido))
+        else{
+            try
             {
-                return view($this->path . '.C1N1L1P1', compact('id_curso','curso','niveles','lecciones','contenido','parrafo','plantilla','nombre','plan','photo'));
+                $curso=DB::table('Cursos')
+                        ->where('id_curso', '=', $id_curso)
+                        ->get();
+                $niveles=DB::table('Niveles')
+                        ->where('id_curso', '=', $id_curso)
+                        ->get();
+                $lecciones=DB::table('Lecciones')
+                        ->where('id_nivel', '=', $niveles[0]->id_nivel)
+                        ->get();
+                $plantilla=DB::table('Plantillas')
+                            ->where('id_plantilla', '=', $plan[0]->id_plantilla)
+                            ->get();
+                $contenido=DB::table('Contenido')
+                            ->where('id_plantilla', '=', $plan[0]->id_plantilla)
+                            ->where('activo','=',1)
+                            ->orderBy('idhtml')
+                            ->get();
+                $parrafo=DB::table('Contenido')
+                            ->where('id_plantilla', '=', $plan[0]->id_plantilla)
+                            ->where('activo','=',1)
+                            ->orderBy('idhtml')
+                            ->get();
+
+                if (!is_null($contenido))
+                {
+                    return view($this->path . '.C1N1L1P1', compact('id_curso','curso','niveles','lecciones','contenido','parrafo','plantilla','nombre','plan','photo'));
+                }
+                else
+                {
+                    return response('Data no existe.', 404);
+                }
             }
-            else
+            catch(exception $e)
             {
-                return response('Data no existe.', 404);
+                return $e->getMessage();
             }
+
+
+
+
         }
-        catch(exception $e)
-        {
-            return $e->getMessage();
-        }
+
+
     }
     public function cursos_gratis(){
 

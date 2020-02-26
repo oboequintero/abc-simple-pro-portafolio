@@ -34,6 +34,14 @@
         background-repeat: no-repeat;
 
       }
+
+      section#fondoexamen{
+        width: 100%;
+        background-image: url("http://127.0.0.1:8000/assets_f/src/img/examen.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+      }
       section#fondohome{
         width: 100%;
         background-image: url("http://127.0.0.1:8000/assets_f/src/img/home1900x800.jpg");

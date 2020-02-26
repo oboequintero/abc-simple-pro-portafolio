@@ -19,7 +19,7 @@
               </ul>
             </div>-->
         </div>
-              
+
         <div class="col-xl-3 col-lg-4" style="padding-bottom:5%;">
           <form method="POST" action="{{ route('cliente.register.post') }}" class="ajustargrande">
               {{ csrf_field() }}
@@ -50,7 +50,7 @@
                 <input type="phone" class="form-control number" id="phone" name="phone" required>
               </fieldset>
               <fieldset class="form-group field-form">
-                <label for="password" class="label-index-form">Contraseña</label> 
+                <label for="password" class="label-index-form">Contraseña</label>
                 <div class="input-group mb-3">
                   <input class="form-control" type="password" name="password" id="password" required>
                   <div class="input-group-append">
@@ -69,7 +69,7 @@
       </div>
     </div>
   </section>
-  
+
   <section id="banner2" class="d-lg-none">
     <div class="container-fluid">
       <div class="row" >
@@ -87,7 +87,7 @@
               </ul>
             </div>-->
         </div>
-              
+
         <div class="col-xl-3 col-lg-4" style="padding-bottom:5%;">
           <form method="POST" action="{{ route('cliente.register.post') }}" class="ajustargrande">
               {{ csrf_field() }}
@@ -116,7 +116,7 @@
                 <input type="phone" class="form-control number" id="phonea" name="phone" required>
               </fieldset>
               <fieldset class="form-group field-form">
-                <label for="password" class="label-index-form">Contraseña</label> 
+                <label for="password" class="label-index-form">Contraseña</label>
                 <div class="input-group mb-3">
                   <input class="form-control" type="password" name="password" id="passa" required>
                   <div class="input-group-append">
@@ -126,7 +126,7 @@
               </fieldset>
               <div class="form-group text-center">
                 <div class="checkbox">
-                  <label class="label-check"><input type="checkbox" {{ old('remember') ? 'checked' : '' }} checked value="">&nbspENVÍENME NOTICIAS Y PROMOCIONES POR EMAIL</label>
+                  <label class="label-check"><input type="checkbox" {{ old('remember') ? 'checked' : '' }} checked value="">&nbspENVÍENME NOTICIASSSSS Y PROMOCIONES POR EMAIL</label>
                 </div>
               </div>
               <button type="submit" class="opcional parrafos btn btn-primary" style="background-color:#0e9a9d; border-color:#007bff00;">Empezar</button>
@@ -135,7 +135,7 @@
       </div>
     </div>
   </section>
-  
+
   <!--boton de bact to top-->
   <a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
 
@@ -299,7 +299,7 @@
       </div>
     </div>
   </section>
-  
+
 <!--3 columnas de texto++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
   <section  class="sec-texto">
     <div class="container">
