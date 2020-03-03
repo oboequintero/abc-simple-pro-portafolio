@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use App\Log_cliente;
+use App\auditoria_cliente;
 use App\ContenidoModel;
 use App\Niveles;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -16,7 +16,7 @@ class LaminaController extends Controller
     private $path = "cliente";
     use AuthenticatesUsers;
 
-    public function show($n, $p,$id_curso)
+    public function show($n, $p,$id_curso,$porce)
     {
 
        $nombre=$n;
@@ -57,7 +57,7 @@ class LaminaController extends Controller
 
             if (!is_null($contenido))
             {
-                return view($this->path . '.CURSODASH', compact('contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones'));
+                return view($this->path . '.CURSODASH', compact('contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones','porce'));
             }
             else
             {
@@ -79,7 +79,37 @@ class LaminaController extends Controller
         ->where('id', '=', $id_cliente)
         ->get();
 
-            return $this->show($cliente[0]->name, $cliente[0]->photo1,$id_curso);
+        $total_curso = DB::select(' SELECT
+                                       COUNT(*) as total
+                                    FROM
+                                        Cursos C
+                                        INNER JOIN Niveles N ON C.id_curso = N.id_curso
+                                        INNER JOIN Lecciones L ON N.id_nivel = L.id_nivel
+                                        INNER JOIN Plantillas P ON P.id_leccion = L.id_leccion
+                                    WHERE
+                                        C.id_curso = :id_curso',["id_curso"=>$id_curso]);
+        $auditoria = DB::select('   SELECT porcentaje
+                                    FROM auditoria_cliente
+                                    WHERE idcliente = :id_cli',["id_cli"=>$id_cliente]);
+
+        if($auditoria){
+
+            $porce=$auditoria[0]->porcentaje;
+
+        }else{
+
+            $audi = new auditoria_cliente;
+
+            $audi->idcliente = $id_cliente;
+            $audi->idcurso = $id_curso;
+            $audi->porcentaje = 0;
+
+            $audi->save();
+
+            dd($total_curso);
+        }
+
+            return $this->show($cliente[0]->name, $cliente[0]->photo1,$id_curso,$porce);
     }
 
 

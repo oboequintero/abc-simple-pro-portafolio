@@ -83,7 +83,7 @@
               </div>
               <div class="ch-info-2-back">
                 <h3>Usted tiene un avance de:</h3>
-                <h2>0%</h2>
+              <h2>{{ $porce }}%</h2>
                 <p>
                 <button type="button" data-toggle="modal"  data-target="#prueba">mas info</button>
                   <a href="#">Comenzar</a>
