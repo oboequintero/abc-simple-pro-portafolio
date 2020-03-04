@@ -43,6 +43,7 @@
                                                 <input name="_method" type="hidden" value="POST">
                                                 <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
                                                 <input type="hidden" name="id_cur" value="{{$curso[0]->id_curso}}">
+                                                <input type="hidden" name="id_cliente" value="{{$id_cliente}}">
                                                   <li>
                                                     <button type="submit" class="btn btn-link" style="color: #17909C; text-decoration:none;">
                                                         {{$row->nombre}}
@@ -69,7 +70,7 @@
                 <div class="col-lg-11">
 
 <div class="row justify-content-center">
-    <h1 class="linksmenu" style="margin-top:50px; margin-left:-80px;">{{$curso[0]->nombre}}</h1>
+<h1 class="linksmenu" style="margin-top:50px; margin-left:-80px;">{{$curso[0]->nombre}}</h1>
 </div>
 
 <div class="row">

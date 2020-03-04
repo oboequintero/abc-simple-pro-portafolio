@@ -16,7 +16,7 @@ class LaminaController extends Controller
     private $path = "cliente";
     use AuthenticatesUsers;
 
-    public function show($n, $p,$id_curso,$porce)
+    public function show($n, $p,$id_curso,$porce,$id_cliente)
     {
 
        $nombre=$n;
@@ -29,7 +29,7 @@ class LaminaController extends Controller
                     INNER JOIN  Lecciones Le On Pl.id_leccion = Le.id_leccion
                     INNER JOIN  Niveles Ni ON Le.id_nivel = Ni.id_nivel
                     INNER JOIN  Cursos Cu ON Ni.id_curso = Cu.id_curso
-                 WHERE pagina=1');
+                 WHERE pagina=1 AND Cu.id_curso=:id_curso',["id_curso"=>$id_curso]);
 
 
             $curso=DB::table('Cursos')
@@ -57,7 +57,7 @@ class LaminaController extends Controller
 
             if (!is_null($contenido))
             {
-                return view($this->path . '.CURSODASH', compact('contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones','porce'));
+                return view($this->path . '.CURSODASH', compact('contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones','porce','id_cliente'));
             }
             else
             {
@@ -88,9 +88,12 @@ class LaminaController extends Controller
                                         INNER JOIN Plantillas P ON P.id_leccion = L.id_leccion
                                     WHERE
                                         C.id_curso = :id_curso',["id_curso"=>$id_curso]);
-        $auditoria = DB::select('   SELECT porcentaje
-                                    FROM auditoria_cliente
-                                    WHERE idcliente = :id_cli',["id_cli"=>$id_cliente]);
+
+        $auditoria = DB::select('SELECT porcentaje
+                                 FROM auditoria_cliente
+                                 WHERE  id
+                                 IN
+                                 (SELECT MAX(id) FROM auditoria_cliente WHERE idcliente = :id_cli )',["id_cli"=>$id_cliente]);
 
         if($auditoria){
 
@@ -100,20 +103,20 @@ class LaminaController extends Controller
 
             $audi = new auditoria_cliente;
 
-            $audi->idcliente = $id_cliente;
-            $audi->idcurso = $id_curso;
-            $audi->porcentaje = 0;
+            $audi->idcliente    = $id_cliente;
+            $audi->idcurso      = $id_curso;
+            $audi->porcentaje   = 0;
 
             $audi->save();
 
-            dd($total_curso);
+            //dd($total_curso);
         }
 
-            return $this->show($cliente[0]->name, $cliente[0]->photo1,$id_curso,$porce);
+            return $this->show($cliente[0]->name, $cliente[0]->photo1,$id_curso,$porce,$id_cliente);
     }
 
 
-    public function show_curso($n,$id_curso)
+    public function show_curso($n,$id_curso,$id_cliente)
     {
 
        $nombre=$n;
@@ -126,8 +129,9 @@ class LaminaController extends Controller
                     INNER JOIN  Lecciones Le On Pl.id_leccion = Le.id_leccion
                     INNER JOIN  Niveles Ni ON Le.id_nivel = Ni.id_nivel
                     INNER JOIN  Cursos Cu ON Ni.id_curso = Cu.id_curso
-                 WHERE pagina=1');
+                 WHERE pagina=1 AND Cu.id_curso = :id_curso',["id_curso"=>$id_curso]);
 
+            //dd($plan);
 
             $curso=DB::table('Cursos')
                         ->where('id_curso', '=', $id_curso)
@@ -156,7 +160,7 @@ class LaminaController extends Controller
 
             if (!is_null($contenido))
             {
-                return view($this->path . '.C1N1L1P1', compact('id_curso','contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones'));
+                return view($this->path . '.C1N1L1P1', compact('id_curso','contenido','parrafo','plantilla','nombre','plan','photo','niveles','curso','lecciones','id_cliente'));
             }
             else
             {
@@ -172,12 +176,12 @@ class LaminaController extends Controller
     public function mostrar_curso()
     {
         $nombre=Input::get('usuario');
-
+        $id_cliente=Input::get('id_cliente');
         $id_curso=Input::get('id_cur');
 
-        //dd($id_curso);
+        //dd($id_cliente);
 
-            return $this->show_curso($nombre,$id_curso);
+        return $this->show_curso($nombre,$id_curso,$id_cliente);
     }
 
     public function ver()
@@ -187,10 +191,69 @@ class LaminaController extends Controller
         $pag   =Input::get('pagina');
         $photo =Input::get('photo');
         $id_curso=Input::get('id_curso');
+        $id_cliente=Input::get('id_cliente');
+
+        //dd($id_cliente);
+
+        $total_curso = DB::select('SELECT
+                                    COUNT(*) as total
+                                    FROM
+                                        Cursos C
+                                        INNER JOIN Niveles N ON C.id_curso = N.id_curso
+                                        INNER JOIN Lecciones L ON N.id_nivel = L.id_nivel
+                                        INNER JOIN Plantillas P ON P.id_leccion = L.id_leccion
+                                    WHERE
+                                        C.id_curso = :id_curso',["id_curso"=>$id_curso]);
+
+        $id_plantilla = DB::select('SELECT id_plantilla AS id_plan, pagina AS pagina
+                 FROM Plantillas Pl
+                    INNER JOIN  Lecciones Le On Pl.id_leccion = Le.id_leccion
+                    INNER JOIN  Niveles Ni ON Le.id_nivel = Ni.id_nivel
+                    INNER JOIN  Cursos Cu ON Ni.id_curso = Cu.id_curso
+                 WHERE pagina=:pagina AND Cu.id_curso = :id_curso',["id_curso"=>$id_curso,"pagina"=>$pag+1]);
+
+
+        $auditoria = DB::select('SELECT id as id,porcentaje,CASE WHEN idplantilla is NULL THEN 0 ELSE idplantilla END as id_plantilla
+                                 FROM auditoria_cliente
+                                 WHERE idplantilla = :id_plantilla AND
+                                 id IN
+                                 (SELECT MAX(id) FROM auditoria_cliente WHERE idcliente = :id_cli )'
+                                 ,["id_cli"=>$id_cliente,"id_plantilla"=>$id_plantilla[0]->id_plan]);
+
+
+        if(!$auditoria){
+
+            $avance = DB::select('   SELECT COUNT(*) as avance FROM auditoria_cliente
+            WHERE idcurso = :id_curso AND idcliente = :id_cli'
+            ,["id_cli"=>$id_cliente,"id_curso"=>$id_curso]);
+
+            $porce=round(($avance[0]->avance * 100) / $total_curso[0]->total,2);
+
+            $audi = new auditoria_cliente;
+
+            $audi->idcliente    = $id_cliente;
+            $audi->idplantilla  = $id_plantilla[0]->id_plan;
+            $audi->idcurso      = $id_curso;
+            $audi->porcentaje   = $porce;
+
+            $audi->save();
+
+
+
+        }
+
+
+
+        $id_plantilla = DB::select('SELECT id_plantilla AS id_plan, pagina AS pagina
+                 FROM Plantillas Pl
+                    INNER JOIN  Lecciones Le On Pl.id_leccion = Le.id_leccion
+                    INNER JOIN  Niveles Ni ON Le.id_nivel = Ni.id_nivel
+                    INNER JOIN  Cursos Cu ON Ni.id_curso = Cu.id_curso
+                 WHERE pagina=:pagina AND Cu.id_curso = :id_curso',["id_curso"=>$id_curso,"pagina"=>$pag+1]);
 
         $plan=[];
         $plan=DB::table('Plantillas')
-        ->where('pagina', '=', $pag+1)
+        ->where('id_plantilla', '=', $id_plantilla[0]->id_plan)
         ->get();
 
         if(empty($plan[0])){
@@ -225,7 +288,7 @@ class LaminaController extends Controller
 
                 if (!is_null($contenido))
                 {
-                    return view($this->path . '.C1N1L1P1', compact('id_curso','curso','niveles','lecciones','contenido','parrafo','plantilla','nombre','plan','photo'));
+                    return view($this->path . '.C1N1L1P1', compact('id_curso','curso','niveles','lecciones','contenido','parrafo','plantilla','nombre','plan','photo','id_cliente'));
                 }
                 else
                 {

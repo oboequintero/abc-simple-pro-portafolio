@@ -616,6 +616,7 @@
                             <input name="_method" type="hidden" value="post">
                             <input name="usuario" type="hidden" value="{{ $nombre }}">
                             <input name="id_curso" type="hidden" value="{{ $id_curso }}">
+                            <input name="id_cliente" type="hidden" value="{{ $id_cliente }}">
                             <input name="pagina" type="hidden" value="{{ $plan[0]->pagina }}">
                             <button type="submit" class="btn btn-sm boton-sig-atras" style=""><img src="../assets_f/src/img/siguiente.png" ></button>
                         </form>
