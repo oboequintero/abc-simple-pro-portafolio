@@ -215,11 +215,8 @@ class LaminaController extends Controller
 
         $auditoria = DB::select('SELECT id as id,porcentaje,CASE WHEN idplantilla is NULL THEN 0 ELSE idplantilla END as id_plantilla
                                  FROM auditoria_cliente
-                                 WHERE idplantilla = :id_plantilla AND
-                                 id IN
-                                 (SELECT MAX(id) FROM auditoria_cliente WHERE idcliente = :id_cli )'
+                                 WHERE idplantilla = :id_plantilla AND idcliente = :id_cli'
                                  ,["id_cli"=>$id_cliente,"id_plantilla"=>$id_plantilla[0]->id_plan]);
-
 
         if(!$auditoria){
 
@@ -235,10 +232,7 @@ class LaminaController extends Controller
             $audi->idplantilla  = $id_plantilla[0]->id_plan;
             $audi->idcurso      = $id_curso;
             $audi->porcentaje   = $porce;
-
             $audi->save();
-
-
 
         }
 
